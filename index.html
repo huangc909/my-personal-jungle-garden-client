@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>My Personal Jungle Garden</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,56 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>My Personal Jungle Garden: a Journey</h1>
+
+      <main>
+        <div>
+          <p id ="message"></p>
+        </div>
+
+        <section class="signup">
+          <h2>Sign Up</h2>
+          <form id="sign-up">
+            <input name="credentials[email]" type="email" placeholder="Email" required>
+            <br>
+            <input name="credentials[password]" type="password" placeholder="Password" required>
+            <br>
+            <input name="credentals[password_confirmation]" type="password" placeholder="Password Confirmation" required>
+            <br>
+            <br>
+            <button type="submit">Create Account</button>
+          </form>
+          <br>
+        </section>
+
+        <section class="signin">
+          <h2>Sign In</h2>
+          <form id="sign-in">
+              <input name="credentials[email]" type="email" placeholder="Email" required>
+              <br>
+              <input name="credentials[password]" type="password" placeholder="Password" required>
+              <br>
+              <button type="submit">Sign
+          </form>
+          <br>
+        </section>
+
+        <section class="changepw">
+          <h2>Change Password</h2>
+          <form id="change-password">
+              <input name="passwords[old]" type="password" placeholder="Old Password" required>
+              <input name="passwords[new]" type="password" placehodler="New Password" required>
+              <button type="submit">Change Password</button>
+          </form>
+        </section>
+
+        <section class="signout">
+            <h2>Sign Out</h2>
+            <form id="sign-out">
+              <button type="submit">Sign Out</button>
+            </form>
+        </section>
+      </main>
+
     </body>
 </html>
