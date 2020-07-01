@@ -88,7 +88,7 @@ I approached this project by setting up a well-thought-out plan so that as I am 
 - As a user, I want to be able to see all of the plants that I have added to my collection.
 - As a user, I want to be able to record information about my plants (the name, nickname, date acquired, additional notes, and logs)
 - As a user, I want to be able to edit my plant information.
-- As a user, I want to be able to delete plants.
+- As a user, I want to be able to delete my plant information.
 
 
 ## Technologies Used:
@@ -112,7 +112,7 @@ I approached this project by setting up a well-thought-out plan so that as I am 
 ## Images
 ### My Personal Jungle Garden Wireframes:
 
-![Project2-Wireframes](https://user-images.githubusercontent.com/53062479/85951867-ebdfba00-b933-11ea-8008-52e8889d3824.png)
+![Project2-Wireframes](https://media.git.generalassemb.ly/user/28180/files/a256a400-b9f3-11ea-88cc-e3c55052c28f)
 
 
 ### ERD:

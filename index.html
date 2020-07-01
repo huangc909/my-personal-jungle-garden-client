@@ -26,12 +26,26 @@
             <br>
             <input name="credentials[password]" type="password" placeholder="Password" required>
             <br>
-            <input name="credentals[password_confirmation]" type="password" placeholder="Password Confirmation" required>
+            <input name="credentials[password_confirmation]" type="password" placeholder="Password Confirmation" required>
             <br>
             <br>
             <button type="submit">Create Account</button>
+            <br>
+            <p class="get-sign-in pointer">I already have an account</p>
           </form>
           <br>
+        </section>
+
+        <section class="menu-dropdown">
+          <div class="dropdown">
+            <div class="dropdown-content">
+                <p>See Collections</p>
+                <p>Change Password</p>
+                <form id="sign-out">
+                  <p type="submit">Sign Out</p>
+                </form>
+            </div>
+          </div>
         </section>
 
         <section class="signin">
@@ -41,7 +55,10 @@
               <br>
               <input name="credentials[password]" type="password" placeholder="Password" required>
               <br>
-              <button type="submit">Sign
+              <br>
+              <button type="submit">Sign In</button>
+              <br>
+              <p class="get-sign-up pointer">I don't have an account yet</p>
           </form>
           <br>
         </section>
@@ -50,16 +67,20 @@
           <h2>Change Password</h2>
           <form id="change-password">
               <input name="passwords[old]" type="password" placeholder="Old Password" required>
-              <input name="passwords[new]" type="password" placehodler="New Password" required>
+              <br>
+              <input name="passwords[new]" type="password" placeholder="New Password" required>
+              <br>
               <button type="submit">Change Password</button>
           </form>
         </section>
 
-        <section class="signout">
-            <h2>Sign Out</h2>
-            <form id="sign-out">
-              <button type="submit">Sign Out</button>
-            </form>
+        <section class="collection-name">
+          <div>
+            <p>My Plant Collection</p>
+            <div id="content" class="content"></div>
+            <p>
+            <button type="submit">Add Plant Collection</button>
+          </div>
         </section>
       </main>
 

@@ -1,1 +1,59 @@
 @import '~bootstrap/scss/bootstrap';
+
+.success {
+  color: green;
+}
+
+.failure {
+  color: red;
+}
+
+body {
+  background-color: #A8E5AB;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.signup {
+  display: none;
+}
+
+.changepw {
+  display: none;
+}
+
+.collection-name {
+  display: none;
+}
+
+.menu-dropdown {
+  display: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  border: 1px solid;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #A8E5AB;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+h1 {
+  color: #174419;
+}
