@@ -14,6 +14,15 @@ const onGetSignIn = function (event) {
   $('.signin').show()
 }
 
+const onGetChangePassword = function (event) {
+  $('.changepw').show()
+  $('.plant-collections').hide()
+}
+
+const onGetAddPlantCollection = function (event) {
+  $('.add-pc').show()
+}
+
 const onSignUp = function (event) {
   event.preventDefault()
 
@@ -57,11 +66,39 @@ const onSignOut = function (event) {
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
+
+const onAddPlantCollection = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  console.log(form)
+  const data = getFormFields(form)
+  console.log(data)
+
+  api.addPlantCollection(data)
+    .then(ui.addPlantCollectionSuccess)
+    .catch(ui.addPlantCollectionFailure)
+}
+
+const onShowPlantCollections = function (event) {
+  // $('.menu-dropdown').show()
+  // $('.plant-collections').show()
+  // $('.changepw').hide()
+  event.preventDefault()
+  api.showPlantCollections()
+    .then(ui.showPlantCollectionsSuccess)
+    .catch(ui.showPlantCollectionsFailure)
+}
+
 module.exports = {
+  onGetSignUp,
+  onGetSignIn,
+  onGetChangePassword,
+  onGetAddPlantCollection,
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
-  onGetSignUp,
-  onGetSignIn
+  onAddPlantCollection,
+  onShowPlantCollections
 }

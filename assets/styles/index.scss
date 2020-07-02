@@ -12,20 +12,12 @@ body {
   background-color: #A8E5AB;
 }
 
+h1 {
+  color: #174419;
+}
+
 .pointer {
   cursor: pointer;
-}
-
-.signup {
-  display: none;
-}
-
-.changepw {
-  display: none;
-}
-
-.collection-name {
-  display: none;
 }
 
 .menu-dropdown {
@@ -54,6 +46,22 @@ body {
   display: block;
 }
 
-h1 {
-  color: #174419;
+.signup {
+  display: none;
+}
+
+.changepw {
+  display: none;
+}
+
+.plant-collections {
+  display: none;
+}
+
+.add-pc {
+  display: none;
+}
+
+.plant-collection {
+  display: none;
 }

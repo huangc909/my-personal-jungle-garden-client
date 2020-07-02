@@ -52,9 +52,42 @@ const signOut = function (formData) {
     }
   })
 }
+
+const addPlantCollection = function (formData) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/plantCollections',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      plantCollection: {
+        name: formData.plantCollection.name,
+        owner: store.user._id
+      }
+    }
+  })
+}
+
+const showPlantCollections = function (formData) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/plantCollections',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      plantCollection: {
+        owner: store.user._id
+      }
+    }
+  })
+}
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  addPlantCollection,
+  showPlantCollections
 }

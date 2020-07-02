@@ -15,12 +15,23 @@
       <h1>My Personal Jungle Garden: a Journey</h1>
 
       <main>
+        <section class="menu-dropdown">
+          <div class="dropdown">
+            <div class="dropdown-content">
+                <p id="show-plant-collections" class="pc-btn btn-info mr-2 pointer">See Collections</p>
+                <p class="get-change-password pointer">Change Password</p>
+                <form id="sign-out">
+                  <p class="pointer">Sign Out</p>
+                </form>
+            </div>
+          </div>
+        </section>
+
         <div>
           <p id ="message"></p>
         </div>
 
         <section class="signup">
-          <h2>Sign Up</h2>
           <form id="sign-up">
             <input name="credentials[email]" type="email" placeholder="Email" required>
             <br>
@@ -36,20 +47,7 @@
           <br>
         </section>
 
-        <section class="menu-dropdown">
-          <div class="dropdown">
-            <div class="dropdown-content">
-                <p>See Collections</p>
-                <p>Change Password</p>
-                <form id="sign-out">
-                  <p type="submit">Sign Out</p>
-                </form>
-            </div>
-          </div>
-        </section>
-
         <section class="signin">
-          <h2>Sign In</h2>
           <form id="sign-in">
               <input name="credentials[email]" type="email" placeholder="Email" required>
               <br>
@@ -74,14 +72,83 @@
           </form>
         </section>
 
-        <section class="collection-name">
+        <section class="plant-collections">
           <div>
-            <p>My Plant Collection</p>
-            <div id="content" class="content"></div>
-            <p>
-            <button type="submit">Add Plant Collection</button>
+            <div id="content-plant-collections" class="content-plant-collections"></div>
+            <button class="get-add-plant-collection">Add Plant Collection</button>
+            <button type="submit" id="delete-plant-collection" class="btn btn-outline-info">Delete Plant Collection</button>
           </div>
         </section>
+
+        <section class="add-pc">
+          <h2>Add Plant Collection</h2>
+          <form id="add-plant-collection">
+            <input name="plantCollection[name]" type="text" placeholder="Collection Name" required>
+            <br>
+            <button type="submit">Add Collection</button>
+            <p>Nevermind</p>
+          </form>
+        </section>
+
+        <section class="plant-collection">
+          <div>
+            <p class="collection-name"></p>
+            <div id="content-plants" class="content-plants"></div>
+            <button>Edit Collection Name</button>
+            <button>Add New Plant</button>
+            <button>Delete Plant</button>
+          </div>
+        </section>
+
+        <!-- <section class="add-plant">
+          <h2>Add New Plant</h2>
+          <form id="add-plant">
+              <input name="plant[name]" placeholder="Plant Name" required>
+              <br>
+              <input name="plant[nickName]" placeholder="Plant Nickname (Optional)">
+              <br>
+              <input name="plant[dateAcquired]" placeholder="Date Acquired" required>
+              <br>
+              <input name="plant[additionalNotes]" placeholder="AdditionalNotes (Optional)" required>
+              <br>
+              <input name="plant[log]" placeholder="Log" required>
+              <br>
+              <br>
+              <button type="submit">Add Plant</button>
+              <p>Nevermind</p>
+              <br>
+          </form>
+        </section>
+
+        <section class="plant">
+          <div id="plant-info" class="plant-info"></div>
+          <button>Edit</button>
+          <p>See All Plants</p>
+        </section>
+
+        <section class="update-plant">
+          <h2>Update Plant Info</h2>
+          <form id="update-plant">
+              <input name="plant[name]" placeholder="Plant Name" required>
+              <br>
+              <input name="plant[nickName]" placeholder="Plant Nickname (Optional)">
+              <br>
+              <input name="plant[dateAcquired]" placeholder="Date Acquired" required>
+              <br>
+              <input name="plant[additionalNotes]" placeholder="AdditionalNotes (Optional)" required>
+              <br>
+              <input name="plant[log]" placeholder="Log" required>
+              <br>
+              <br>
+              <button type="submit">Update</button>
+              <p>Nevermind</p>
+              <br>
+          </form>
+        </section>  -->
+
+
+
+
       </main>
 
     </body>
