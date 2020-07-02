@@ -29,6 +29,16 @@ const onGetEditPCNamePage = function (event) {
   ui.getEditPCNamePage()
 }
 
+const onGetPCButtons = function (event) {
+  event.preventDefault()
+  ui.getPCButtons()
+}
+
+const onGetDeletePCButtons = function (event) {
+  event.preventDefault()
+  ui.getDeletePCButtons()
+}
+
 const onSignUp = function (event) {
   event.preventDefault()
 
@@ -48,6 +58,10 @@ const onSignIn = function (event) {
 
   api.signIn(data)
     .then(ui.signInSuccess)
+    .then(() => api.showPlantCollections()
+      .then(ui.showPlantCollectionsSuccess)
+      .catch(ui.showPlantCollectionsFailure)
+    )
     .catch(ui.signInFailure)
 }
 
@@ -77,9 +91,7 @@ const onAddPC = function (event) {
   event.preventDefault()
 
   const form = event.target
-  console.log(form)
   const data = getFormFields(form)
-  console.log(data)
 
   api.addPlantCollection(data)
     .then(ui.addPCSuccess)
@@ -87,9 +99,6 @@ const onAddPC = function (event) {
 }
 
 const onShowPlantCollections = function (event) {
-  // $('.menu-dropdown').show()
-  // $('.plant-collections').show()
-  // $('.changepw').hide()
   event.preventDefault()
   api.showPlantCollections()
     .then(ui.showPlantCollectionsSuccess)
@@ -101,7 +110,6 @@ const onEditPCName = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
 
   api.editCollectionName(data)
     .then(ui.editPCNameSuccess)
@@ -110,12 +118,21 @@ const onEditPCName = function (event) {
 
 const onDeletePlantCollection = function (event) {
   event.preventDefault()
-  console.log(event)
   const id = event.target.dataset.id
 
   api.deletePlantCollection(id)
     .then(() => ui.deletePlantCollectionSuccess(id))
     .catch(ui.deletePlantCollectionFailure)
+}
+
+const onGetPCPage = function (event) {
+  event.preventDefault()
+  const id = event.target.dataset.id
+  console.log(id)
+
+  api.getPCPage(id)
+    .then(ui.getPCPageSuccess)
+    .catch(ui.getPCPageFailure)
 }
 
 module.exports = {
@@ -124,6 +141,8 @@ module.exports = {
   onGetChangePasswordPage,
   onGetAddPCPage,
   onGetEditPCNamePage,
+  onGetPCButtons,
+  onGetDeletePCButtons,
   onSignUp,
   onSignIn,
   onChangePassword,
@@ -131,5 +150,6 @@ module.exports = {
   onAddPC,
   onShowPlantCollections,
   onEditPCName,
-  onDeletePlantCollection
+  onDeletePlantCollection,
+  onGetPCPage
 }

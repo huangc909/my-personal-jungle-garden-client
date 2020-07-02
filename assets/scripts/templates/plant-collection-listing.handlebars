@@ -1,6 +1,6 @@
-{{#each plantCollections as |plantCollection|}}
+<!-- {{#each plantCollections as |plantCollection|}}
   {{log plantCollection}}
-  <section data-id="{{plantCollection._id}}">
+  <section data-id="{{plantCollection._id}}" class="get-pc-page">
     <h3>
       {{#if plantCollection.name}}
         {{plantCollection.name}}
@@ -8,7 +8,22 @@
         My Plant Collection
       {{/if}}
     </h3>
-    <button data-id="{{plantCollection._id}}" class="btn-pc btn-danger">Delete</button>
+    <button data-id="{{plantCollection._id}}" class="btn-pc btn-danger delete-pc-button">Delete</button>
   </section>
 
-  {{/each}}
+  {{/each}} -->
+  {{#each plantCollections as |plantCollection|}}
+    {{log plantCollection}}
+    <section data-id="{{plantCollection._id}}">
+      <h3>
+        {{#if plantCollection.name}}
+          {{plantCollection.name}}
+        {{else}}
+          My Plant Collection
+        {{/if}}
+      </h3>
+      <button data-id="{{plantCollection._id}}" class="btn-pc-delete btn-danger delete-pc-button">Delete</button>
+      <button data-id="{{plantCollection._id}}" class="btn-pc pc-button">See Collection</button>
+    </section>
+
+    {{/each}}

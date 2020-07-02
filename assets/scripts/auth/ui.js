@@ -27,6 +27,14 @@ const getEditPCNamePage = () => {
   $('.plant-collection').hide()
 }
 
+const getPCButtons = () => {
+  $('.pc-button').show()
+}
+
+const getDeletePCButtons = () => {
+  $('.delete-pc-button').show()
+}
+
 const signUpSuccess = function (response) {
   $('form').trigger('reset')
   $('#message').text('Sign-up Success!').show()
@@ -97,8 +105,8 @@ const addPCSuccess = function (data) {
   $('#message').removeClass().addClass('success')
   $('#message').delay(600).fadeOut(1500)
   $('.plant-collection').show()
-  const newPlantCollection = (`<h3>${store.plantCollection.name}</h3>`)
-  $('.collection-name').append(newPlantCollection)
+  // const newPlantCollection = (`<h3>${store.plantCollection.name}</h3>`)
+  // $('.collection-name').html(newPlantCollection)
 }
 
 const addPCFailure = function () {
@@ -115,7 +123,7 @@ const showPlantCollectionsSuccess = function (data) {
   $('.changepw').hide()
   $('.plant-collections').show()
   const showPlantCollectionsHtml = showPlantCollectionsTemplate({ plantCollections: store.plantCollections })
-  $('.content-plant-collections').append(showPlantCollectionsHtml)
+  $('.content-plant-collections').html(showPlantCollectionsHtml)
 }
 
 const showPlantCollectionsFailure = function () {
@@ -158,12 +166,23 @@ const deletePlantCollectionFailure = function () {
   $('#message').removeClass().addClass('failure')
 }
 
+const getPCPageSuccess = function (response) {
+  store.plantCollection = response.plantCollection
+  $('.plant-collection').show()
+  const pcName = (`
+    <h3>${store.plantCollection.name}</h3>
+    `)
+  $('.plant-collection-name').html(pcName).show()
+}
+
 module.exports = {
   getSignUpPage,
   getSignInPage,
   getChangePasswordPage,
   getAddPCPage,
   getEditPCNamePage,
+  getPCButtons,
+  getDeletePCButtons,
   signUpSuccess,
   signUpFailure,
   signInSuccess,
@@ -179,5 +198,6 @@ module.exports = {
   editPCNameSuccess,
   editPCNameFailure,
   deletePlantCollectionSuccess,
-  deletePlantCollectionFailure
+  deletePlantCollectionFailure,
+  getPCPageSuccess
 }
