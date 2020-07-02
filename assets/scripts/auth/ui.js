@@ -16,6 +16,8 @@ const getSignInPage = () => {
 const getChangePasswordPage = () => {
   $('.changepw').show()
   $('.plant-collections').hide()
+  $('.add-pc').hide()
+  $('.plant-collection').hide()
 }
 
 const getAddPCPage = () => {
