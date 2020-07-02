@@ -110,7 +110,8 @@ const onEditPCName = function (event) {
 
 const onDeletePlantCollection = function (event) {
   event.preventDefault()
-  const id = event.target.getAttribute('data-id')
+  console.log(event)
+  const id = event.target.dataset.id
 
   api.deletePlantCollection(id)
     .then(() => ui.deletePlantCollectionSuccess(id))

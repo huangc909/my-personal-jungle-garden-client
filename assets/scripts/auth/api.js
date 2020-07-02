@@ -100,10 +100,11 @@ const editCollectionName = function (formData) {
   })
 }
 
-const deletePlantCollection = function () {
+const deletePlantCollection = function (id) {
+  console.log('This is the API ' + id)
   return $.ajax({
     method: 'DELETE',
-    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id,
+    url: config.apiUrl + '/plantCollections/' + id,
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }

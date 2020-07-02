@@ -1,6 +1,6 @@
 {{#each plantCollections as |plantCollection|}}
   {{log plantCollection}}
-  <section data-id="{{plantCollection.id}}">
+  <section data-id="{{plantCollection._id}}">
     <h3>
       {{#if plantCollection.name}}
         {{plantCollection.name}}
@@ -8,7 +8,7 @@
         My Plant Collection
       {{/if}}
     </h3>
-    <button data-id="{{plantCollection.id}}" class="btn-pc btn-danger">Delete</button>
+    <button data-id="{{plantCollection._id}}" class="btn-pc btn-danger">Delete</button>
   </section>
 
   {{/each}}

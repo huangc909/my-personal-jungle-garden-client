@@ -13,7 +13,7 @@ const getSignInPage = () => {
   $('.signin').show()
 }
 
-const getChangePassword = () => {
+const getChangePasswordPage = () => {
   $('.changepw').show()
   $('.plant-collections').hide()
 }
@@ -107,12 +107,14 @@ const addPCFailure = function () {
 }
 
 const showPlantCollectionsSuccess = function (data) {
-  console.log(data)
+  store.plantCollections = data.plantCollections
   $('form').trigger('reset')
   $('#message').text('Show Plant Collection success!').show()
   $('#message').removeClass().addClass('success')
   $('#message').delay(600).fadeOut(1500)
-  const showPlantCollectionsHtml = showPlantCollectionsTemplate({ plantCollections: data.plantCollections })
+  $('.changepw').hide()
+  $('.plant-collections').show()
+  const showPlantCollectionsHtml = showPlantCollectionsTemplate({ plantCollections: store.plantCollections })
   $('.content-plant-collections').append(showPlantCollectionsHtml)
 }
 
@@ -159,7 +161,7 @@ const deletePlantCollectionFailure = function () {
 module.exports = {
   getSignUpPage,
   getSignInPage,
-  getChangePassword,
+  getChangePasswordPage,
   getAddPCPage,
   getEditPCNamePage,
   signUpSuccess,
