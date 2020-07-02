@@ -94,10 +94,20 @@
           <div>
             <p class="collection-name"></p>
             <div id="content-plants" class="content-plants"></div>
-            <button>Edit Collection Name</button>
-            <button>Add New Plant</button>
-            <button>Delete Plant</button>
+            <button class="get-edit-collection-name">Edit Collection Name</button>
+            <button class="get-add-new-plant">Add New Plant</button>
+            <button class="get-delete-plant">Delete Plant</button>
           </div>
+        </section>
+
+        <section class="edit-collection-name">
+          <h2>Edit Plant Collection Name</h2>
+          <form id="edit-collection-name">
+            <input name="plantCollection[name]" type="text" placeholder="Edit Plant Collection Name" required>
+            <br>
+            <button type="submit">Edit Collection Name</button>
+          </form>
+          <p>Nevermind</p>
         </section>
 
         <!-- <section class="add-plant">

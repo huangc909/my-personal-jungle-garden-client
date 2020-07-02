@@ -67,14 +67,13 @@ const signOutFailure = function () {
 }
 
 const addPlantCollectionSuccess = function (data) {
-// Upon CREATE success, the collection name will be updated if a new name is entered; otherwise the default name will be shown
-// the page that shows up is the newly created plant collection page
-// and has the updated name or default Name
+  store.plantCollection = data.plantCollection
   $('form').trigger('reset')
   $('#message').text('Add Plant Collection success!').show()
   $('#message').removeClass().addClass('success')
   $('#message').delay(600).fadeOut(1500)
   $('.plant-collection').show()
+  console.log(data)
 
   const newPlantCollection = (`
     <h3>${data.plantCollection.name}</h3>
@@ -102,6 +101,27 @@ const showPlantCollectionsFailure = function () {
   $('#message').removeClass().addClass('failure')
 }
 
+const editCollectionNameSuccess = function (data) {
+  console.log(data)
+  $('form').trigger('reset')
+  $('#message').text('Edit Plant Collection success!').show()
+  $('#message').removeClass().addClass('success')
+  $('#message').delay(600).fadeOut(1500)
+  const showPlantCollectionsHtml = showPlantCollectionsTemplate({ plantCollection: data.plantCollection })
+  $('.content-plant-collections').append(showPlantCollectionsHtml)
+
+  const editedCollectionName = (`
+    <h3>${data.plantCollection.name}</h3>
+    `)
+  $('.collection-name').append(editedCollectionName)
+  $('.plant-collection').show()
+}
+
+const editCollectionNameFailure = function () {
+  $('#message').text('Get Collections Failed')
+  $('#message').removeClass().addClass('failure')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -114,5 +134,7 @@ module.exports = {
   addPlantCollectionSuccess,
   addPlantCollectionFailure,
   showPlantCollectionsSuccess,
-  showPlantCollectionsFailure
+  showPlantCollectionsFailure,
+  editCollectionNameSuccess,
+  editCollectionNameFailure
 }

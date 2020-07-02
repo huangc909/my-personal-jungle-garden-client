@@ -23,6 +23,11 @@ const onGetAddPlantCollection = function (event) {
   $('.add-pc').show()
 }
 
+const onGetEditCollectionName = function (event) {
+  $('.edit-collection-name').show()
+  $('.plant-collection').hide()
+}
+
 const onSignUp = function (event) {
   event.preventDefault()
 
@@ -90,15 +95,29 @@ const onShowPlantCollections = function (event) {
     .catch(ui.showPlantCollectionsFailure)
 }
 
+const onEditCollectionName = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
+
+  api.editCollectionName(data)
+    .then(ui.editCollectionNameSuccess)
+    .catch(ui.editCollectionNameFailure)
+}
+
 module.exports = {
   onGetSignUp,
   onGetSignIn,
   onGetChangePassword,
   onGetAddPlantCollection,
+  onGetEditCollectionName,
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
   onAddPlantCollection,
-  onShowPlantCollections
+  onShowPlantCollections,
+  onEditCollectionName
 }

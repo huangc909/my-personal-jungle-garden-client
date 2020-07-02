@@ -83,11 +83,29 @@ const showPlantCollections = function (formData) {
     }
   })
 }
+
+const editCollectionName = function (formData) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      plantCollection: {
+        name: formData.plantCollection.name,
+        owner: store.user._id
+      }
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
   addPlantCollection,
-  showPlantCollections
+  showPlantCollections,
+  editCollectionName
 }

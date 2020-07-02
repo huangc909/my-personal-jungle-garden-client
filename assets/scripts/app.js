@@ -17,6 +17,8 @@ $(() => {
   $('.get-sign-in').on('click', authEvents.onGetSignIn)
   $('.get-add-plant-collection').on('click', authEvents.onGetAddPlantCollection)
   $('.get-change-password').on('click', authEvents.onGetChangePassword)
+  $('.get-edit-collection-name').on('click', authEvents.onGetEditCollectionName)
   $('#add-plant-collection').on('submit', authEvents.onAddPlantCollection)
   $('#show-plant-collections').on('click', authEvents.onShowPlantCollections)
+  $('#edit-collection-name').on('submit', authEvents.onEditCollectionName)
 })
