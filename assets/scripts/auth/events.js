@@ -29,11 +29,6 @@ const onGetEditPCNamePage = function (event) {
   ui.getEditPCNamePage()
 }
 
-const onGetPCButtons = function (event) {
-  event.preventDefault()
-  ui.getPCButtons()
-}
-
 const onGetDeletePCButtons = function (event) {
   event.preventDefault()
   ui.getDeletePCButtons()
@@ -141,7 +136,6 @@ module.exports = {
   onGetChangePasswordPage,
   onGetAddPCPage,
   onGetEditPCNamePage,
-  onGetPCButtons,
   onGetDeletePCButtons,
   onSignUp,
   onSignIn,

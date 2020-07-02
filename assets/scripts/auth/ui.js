@@ -27,10 +27,6 @@ const getEditPCNamePage = () => {
   $('.plant-collection').hide()
 }
 
-const getPCButtons = () => {
-  $('.pc-button').show()
-}
-
 const getDeletePCButtons = () => {
   $('.delete-pc-button').show()
 }
@@ -181,7 +177,6 @@ module.exports = {
   getChangePasswordPage,
   getAddPCPage,
   getEditPCNamePage,
-  getPCButtons,
   getDeletePCButtons,
   signUpSuccess,
   signUpFailure,
