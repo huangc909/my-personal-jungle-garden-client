@@ -4,28 +4,29 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('./../../../lib/get-form-fields')
 
-const onGetSignUp = function (event) {
-  $('.signin').hide()
-  $('.signup').show()
+const onGetSignUpPage = function (event) {
+  event.preventDefault()
+  ui.getSignUpPage()
 }
 
-const onGetSignIn = function (event) {
-  $('.signup').hide()
-  $('.signin').show()
+const onGetSignInPage = function (event) {
+  event.preventDefault()
+  ui.getSignInPage()
 }
 
-const onGetChangePassword = function (event) {
-  $('.changepw').show()
-  $('.plant-collections').hide()
+const onGetChangePasswordPage = function (event) {
+  event.preventDefault()
+  ui.getChangePasswordPage()
 }
 
-const onGetAddPlantCollection = function (event) {
-  $('.add-pc').show()
+const onGetAddPCPage = function (event) {
+  event.preventDefault()
+  ui.getAddPCPage()
 }
 
-const onGetEditCollectionName = function (event) {
-  $('.edit-collection-name').show()
-  $('.plant-collection').hide()
+const onGetEditPCNamePage = function (event) {
+  event.preventDefault()
+  ui.getEditPCNamePage()
 }
 
 const onSignUp = function (event) {
@@ -72,7 +73,7 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-const onAddPlantCollection = function (event) {
+const onAddPC = function (event) {
   event.preventDefault()
 
   const form = event.target
@@ -81,8 +82,8 @@ const onAddPlantCollection = function (event) {
   console.log(data)
 
   api.addPlantCollection(data)
-    .then(ui.addPlantCollectionSuccess)
-    .catch(ui.addPlantCollectionFailure)
+    .then(ui.addPCSuccess)
+    .catch(ui.addPCFailure)
 }
 
 const onShowPlantCollections = function (event) {
@@ -95,7 +96,7 @@ const onShowPlantCollections = function (event) {
     .catch(ui.showPlantCollectionsFailure)
 }
 
-const onEditCollectionName = function (event) {
+const onEditPCName = function (event) {
   event.preventDefault()
 
   const form = event.target
@@ -103,21 +104,31 @@ const onEditCollectionName = function (event) {
   console.log(data)
 
   api.editCollectionName(data)
-    .then(ui.editCollectionNameSuccess)
-    .catch(ui.editCollectionNameFailure)
+    .then(ui.editPCNameSuccess)
+    .catch(ui.editPCNameFailure)
+}
+
+const onDeletePlantCollection = function (event) {
+  event.preventDefault()
+  const id = event.target.getAttribute('data-id')
+
+  api.deletePlantCollection(id)
+    .then(() => ui.deletePlantCollectionSuccess(id))
+    .catch(ui.deletePlantCollectionFailure)
 }
 
 module.exports = {
-  onGetSignUp,
-  onGetSignIn,
-  onGetChangePassword,
-  onGetAddPlantCollection,
-  onGetEditCollectionName,
+  onGetSignUpPage,
+  onGetSignInPage,
+  onGetChangePasswordPage,
+  onGetAddPCPage,
+  onGetEditPCNamePage,
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
-  onAddPlantCollection,
+  onAddPC,
   onShowPlantCollections,
-  onEditCollectionName
+  onEditPCName,
+  onDeletePlantCollection
 }

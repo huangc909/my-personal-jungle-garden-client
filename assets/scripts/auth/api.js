@@ -100,6 +100,16 @@ const editCollectionName = function (formData) {
   })
 }
 
+const deletePlantCollection = function () {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -107,5 +117,6 @@ module.exports = {
   signOut,
   addPlantCollection,
   showPlantCollections,
-  editCollectionName
+  editCollectionName,
+  deletePlantCollection
 }

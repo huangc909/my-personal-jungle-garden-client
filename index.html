@@ -18,8 +18,8 @@
         <section class="menu-dropdown">
           <div class="dropdown">
             <div class="dropdown-content">
-                <p id="show-plant-collections" class="pc-btn btn-info mr-2 pointer">See Collections</p>
-                <p class="get-change-password pointer">Change Password</p>
+                <p id="show-pcs" class="pc-btn btn-info mr-2 pointer">See Collections</p>
+                <p class="getChangePasswordPage pointer">Change Password</p>
                 <form id="sign-out">
                   <p class="pointer">Sign Out</p>
                 </form>
@@ -42,7 +42,7 @@
             <br>
             <button type="submit">Create Account</button>
             <br>
-            <p class="get-sign-in pointer">I already have an account</p>
+            <p class="getSignInPage pointer">I already have an account</p>
           </form>
           <br>
         </section>
@@ -56,7 +56,7 @@
               <br>
               <button type="submit">Sign In</button>
               <br>
-              <p class="get-sign-up pointer">I don't have an account yet</p>
+              <p class="getSignUpPage pointer">I don't have an account yet</p>
           </form>
           <br>
         </section>
@@ -75,14 +75,15 @@
         <section class="plant-collections">
           <div>
             <div id="content-plant-collections" class="content-plant-collections"></div>
-            <button class="get-add-plant-collection">Add Plant Collection</button>
-            <button type="submit" id="delete-plant-collection" class="btn btn-outline-info">Delete Plant Collection</button>
+
+            <button class="getAddPCPage">Add Plant Collection</button>
+            <button type="submit" id="delete-plant-collection" class="btn-pc btn-outline-info">Delete Plant Collection</button>
           </div>
         </section>
 
         <section class="add-pc">
           <h2>Add Plant Collection</h2>
-          <form id="add-plant-collection">
+          <form id="add-pc">
             <input name="plantCollection[name]" type="text" placeholder="Collection Name" required>
             <br>
             <button type="submit">Add Collection</button>
@@ -94,13 +95,13 @@
           <div>
             <p class="collection-name"></p>
             <div id="content-plants" class="content-plants"></div>
-            <button class="get-edit-collection-name">Edit Collection Name</button>
+            <button class="getEditPCNamePage">Edit Collection Name</button>
             <button class="get-add-new-plant">Add New Plant</button>
             <button class="get-delete-plant">Delete Plant</button>
           </div>
         </section>
 
-        <section class="edit-collection-name">
+        <section class="edit-pc-name">
           <h2>Edit Plant Collection Name</h2>
           <form id="edit-collection-name">
             <input name="plantCollection[name]" type="text" placeholder="Edit Plant Collection Name" required>
