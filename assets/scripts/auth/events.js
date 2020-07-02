@@ -3,6 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('./../../../lib/get-form-fields')
+const store = require('./../store')
 
 const onGetSignUpPage = function (event) {
   event.preventDefault()
@@ -26,7 +27,8 @@ const onGetAddPCPage = function (event) {
 
 const onGetEditPCNamePage = function (event) {
   event.preventDefault()
-  ui.getEditPCNamePage()
+  const pcName = store.plantCollection.name
+  ui.getEditPCNamePage(pcName)
 }
 
 const onGetDeletePCButtons = function (event) {
@@ -105,7 +107,7 @@ const onEditPCName = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
-
+  console.log(data)
   api.editCollectionName(data)
     .then(ui.editPCNameSuccess)
     .catch(ui.editPCNameFailure)

@@ -22,11 +22,14 @@ const getChangePasswordPage = () => {
 
 const getAddPCPage = () => {
   $('.add-pc').show()
+  $('.plant-collections').hide()
 }
 
-const getEditPCNamePage = () => {
-  $('.edit-collection-name').show()
+const getEditPCNamePage = (pcName) => {
+  $('.edit-pc-name').show()
   $('.plant-collection').hide()
+  const placeholder = (`${pcName}`)
+  $('.pc-name').html(placeholder).show()
 }
 
 const getDeletePCButtons = () => {
@@ -102,9 +105,8 @@ const addPCSuccess = function (data) {
   $('#message').text('Add Plant Collection success!').show()
   $('#message').removeClass().addClass('success')
   $('#message').delay(600).fadeOut(1500)
+  $('.add-pc').hide()
   $('.plant-collection').show()
-  // const newPlantCollection = (`<h3>${store.plantCollection.name}</h3>`)
-  // $('.collection-name').html(newPlantCollection)
 }
 
 const addPCFailure = function () {
@@ -165,12 +167,18 @@ const deletePlantCollectionFailure = function () {
 }
 
 const getPCPageSuccess = function (response) {
+  console.log(response)
   store.plantCollection = response.plantCollection
   $('.plant-collection').show()
   const pcName = (`
     <h3>${store.plantCollection.name}</h3>
     `)
   $('.plant-collection-name').html(pcName).show()
+}
+
+const getPCPageFailure = function () {
+  $('#message').text('Unable to get Plant Collection')
+  $('#message').removeClass().addClass('failure')
 }
 
 module.exports = {
@@ -196,5 +204,6 @@ module.exports = {
   editPCNameFailure,
   deletePlantCollectionSuccess,
   deletePlantCollectionFailure,
-  getPCPageSuccess
+  getPCPageSuccess,
+  getPCPageFailure
 }
