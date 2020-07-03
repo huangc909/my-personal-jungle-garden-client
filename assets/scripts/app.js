@@ -22,6 +22,7 @@ $(() => {
   $('#add-pc').on('submit', authEvents.onAddPC)
   $('#show-pcs').on('click', authEvents.onShowPCs)
   $('#edit-pc-name').on('submit', authEvents.onEditPCName)
+  $('#back-to-pcs').on('click', authEvents.onShowPCs)
   $('.content-plant-collections').on('click', '.btn-pc-delete', authEvents.onDeletePC)
   $('.content-plant-collections').on('click', '.pc', authEvents.onShowPC)
 })

@@ -102,7 +102,8 @@ const onAddPC = function (event) {
 
 const onShowPCs = function (event) {
   event.preventDefault()
-  api.showPlantCollections()
+  const infoPCs = store.plantCollections
+  api.showPlantCollections(infoPCs)
     .then(ui.onShowPCsSuccess)
     .catch(ui.onShowPCsFailure)
 }
@@ -158,4 +159,5 @@ module.exports = {
   onEditPCName,
   onDeletePC,
   onShowPC
+
 }
