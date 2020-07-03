@@ -102,9 +102,6 @@ const signOutFailure = function () {
 
 const addPCSuccess = function (data) {
   $('form').trigger('reset')
-  // $('#message').text('Add Plant Collection success!').show()
-  // $('#message').removeClass().addClass('success')
-  // $('#message').delay(600).fadeOut(1500)
   $('.add-pc').hide()
 }
 
@@ -148,12 +145,14 @@ const showPlantCollectionsFailure = function () {
 const editPCNameSuccess = function (data) {
   console.log(data)
   store.plantCollection = data.plantCollection
-  const pcName = store.plantCollection.name
-  console.log(pcName)
+
   $('form').trigger('reset')
   $('.edit-pc-name').hide()
-  $('.plant-collection-name').html(pcName)
   $('.plant-collection').show()
+  const pcName = (`
+    <h3>${store.plantCollection.name}</h3>
+    `)
+  $('.plant-collection-name').html(pcName).show()
 }
 
 const editPCNameFailure = function () {
