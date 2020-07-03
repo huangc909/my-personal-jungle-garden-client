@@ -38,9 +38,9 @@ const getDeletePCButtons = () => {
 
 const signUpSuccess = function (response) {
   $('form').trigger('reset')
-  $('#message').text('Sign-up Success!').show()
-  $('#message').removeClass().addClass('success')
-  $('#message').delay(600).fadeOut(1500)
+  // $('#message').text('Sign-up Success!').show()
+  // $('#message').removeClass().addClass('success')
+  // $('#message').delay(600).fadeOut(1500)
   $('.signin').show()
 }
 
@@ -54,9 +54,9 @@ const signInSuccess = function (response) {
   store.user = response.user
   console.log(store)
   $('form').trigger('reset')
-  $('#message').text('Sign-in Success').show()
-  $('#message').removeClass().addClass('success')
-  $('#message').delay(600).fadeOut(1500)
+  // $('#message').text('Sign-in Success').show()
+  // $('#message').removeClass().addClass('success')
+  // $('#message').delay(600).fadeOut(1500)
   $('.signin').hide()
   $('.menu-dropdown').show()
   $('.plant-collections').show()
@@ -70,9 +70,9 @@ const signInFailure = function () {
 
 const changePasswordSuccess = function (response) {
   $('form').trigger('reset')
-  $('#message').text('Change Password success!').show()
-  $('#message').removeClass().addClass('success')
-  $('#message').delay(600).fadeOut(1500)
+  // $('#message').text('Change Password success!').show()
+  // $('#message').removeClass().addClass('success')
+  // $('#message').delay(600).fadeOut(1500)
   // $('.signin').show()
 }
 
@@ -84,9 +84,9 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function (response) {
   $('form').trigger('reset')
-  $('#message').text('Sign Out success!').show()
-  $('#message').removeClass().addClass('success')
-  $('#message').delay(600).fadeOut(1500)
+  // $('#message').text('Sign Out success!').show()
+  // $('#message').removeClass().addClass('success')
+  // $('#message').delay(600).fadeOut(1500)
   $('.signin').show()
   $('.menu-dropdown').hide()
   $('.changepw').hide()
@@ -102,9 +102,9 @@ const signOutFailure = function () {
 const addPCSuccess = function (data) {
   store.plantCollection = data.plantCollection
   $('form').trigger('reset')
-  $('#message').text('Add Plant Collection success!').show()
-  $('#message').removeClass().addClass('success')
-  $('#message').delay(600).fadeOut(1500)
+  // $('#message').text('Add Plant Collection success!').show()
+  // $('#message').removeClass().addClass('success')
+  // $('#message').delay(600).fadeOut(1500)
   $('.add-pc').hide()
   $('.plant-collection').show()
 }
@@ -117,9 +117,9 @@ const addPCFailure = function () {
 const showPlantCollectionsSuccess = function (data) {
   store.plantCollections = data.plantCollections
   $('form').trigger('reset')
-  $('#message').text('Show Plant Collection success!').show()
-  $('#message').removeClass().addClass('success')
-  $('#message').delay(600).fadeOut(1500)
+  // $('#message').text('Show Plant Collection success!').show()
+  // $('#message').removeClass().addClass('success')
+  // $('#message').delay(600).fadeOut(1500)
   $('.changepw').hide()
   $('.plant-collections').show()
   const showPlantCollectionsHtml = showPlantCollectionsTemplate({ plantCollections: store.plantCollections })
@@ -135,9 +135,9 @@ const editPCNameSuccess = function (data) {
   console.log(data)
   store.plantCollection = data.plantCollection
   $('form').trigger('reset')
-  $('#message').text('Edit Plant Collection success!').show()
-  $('#message').removeClass().addClass('success')
-  $('#message').delay(600).fadeOut(1500)
+  // $('#message').text('Edit Plant Collection success!').show()
+  // $('#message').removeClass().addClass('success')
+  // $('#message').delay(600).fadeOut(1500)
   const showPlantCollectionsHtml = showPlantCollectionsTemplate({ plantCollection: store.plantCollection })
   $('.content-plant-collections').append(showPlantCollectionsHtml)
 
@@ -169,6 +169,7 @@ const deletePlantCollectionFailure = function () {
 const getPCPageSuccess = function (response) {
   console.log(response)
   store.plantCollection = response.plantCollection
+  $('.plant-collections').hide()
   $('.plant-collection').show()
   const pcName = (`
     <h3>${store.plantCollection.name}</h3>
