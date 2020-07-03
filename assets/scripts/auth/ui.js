@@ -42,6 +42,7 @@ const signUpSuccess = function (response) {
   // $('#message').removeClass().addClass('success')
   // $('#message').delay(600).fadeOut(1500)
   $('.signin').show()
+  $('.signup').hide()
 }
 
 const signUpFailure = function () {
@@ -116,14 +117,19 @@ const addPCFailure = function () {
 
 const showPlantCollectionsSuccess = function (data) {
   store.plantCollections = data.plantCollections
+  console.log(store.plantCollections)
   $('form').trigger('reset')
   // $('#message').text('Show Plant Collection success!').show()
   // $('#message').removeClass().addClass('success')
   // $('#message').delay(600).fadeOut(1500)
   $('.changepw').hide()
   $('.plant-collections').show()
+  $('.plant-collection').hide()
   const showPlantCollectionsHtml = showPlantCollectionsTemplate({ plantCollections: store.plantCollections })
   $('.content-plant-collections').html(showPlantCollectionsHtml)
+  if (store.plantCollections.length !== 0) {
+    $('.getDeletePCButtons').show()
+  }
 }
 
 const showPlantCollectionsFailure = function () {
@@ -135,18 +141,10 @@ const editPCNameSuccess = function (data) {
   console.log(data)
   store.plantCollection = data.plantCollection
   const pcName = store.plantCollection.name
+  console.log(pcName)
   $('form').trigger('reset')
   $('.edit-pc-name').hide()
-  // $('#message').text('Edit Plant Collection success!').show()
-  // $('#message').removeClass().addClass('success')
-  // $('#message').delay(600).fadeOut(1500)
-  // const showPlantCollectionsHtml = showPlantCollectionsTemplate({ plantCollection: store.plantCollection })
   $('.plant-collection-name').html(pcName)
-
-  const editedCollectionName = (`
-    <h3>${store.plantCollection.name}</h3>
-    `)
-  $('.collection-name').append(editedCollectionName)
   $('.plant-collection').show()
 }
 
