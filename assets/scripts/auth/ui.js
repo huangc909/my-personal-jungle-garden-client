@@ -38,9 +38,9 @@ const getDeletePCButtons = () => {
 
 const signUpSuccess = function (response) {
   $('form').trigger('reset')
-  // $('#message').text('Sign-up Success!').show()
-  // $('#message').removeClass().addClass('success')
-  // $('#message').delay(600).fadeOut(1500)
+  $('#message').text('Sign-up Success!').show()
+  $('#message').removeClass().addClass('success')
+  $('#message').delay(600).fadeOut(1500)
   $('.signin').show()
   $('.signup').hide()
 }
@@ -49,6 +49,7 @@ const signUpFailure = function () {
   $('form').trigger('reset')
   $('#message').text('Sign-up Failed')
   $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
 }
 
 const signInSuccess = function (response) {
@@ -67,6 +68,7 @@ const signInFailure = function () {
   $('form').trigger('reset')
   $('#message').text('Sign-in Failed')
   $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
 }
 
 const changePasswordSuccess = function (response) {
@@ -81,6 +83,7 @@ const changePasswordFailure = function () {
   $('form').trigger('reset')
   $('#message').text('Change Password failed')
   $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
 }
 
 const signOutSuccess = function (response) {
@@ -98,6 +101,7 @@ const signOutFailure = function () {
   $('form').trigger('reset')
   $('#message').text('Sign Out failed')
   $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
 }
 
 const addPCSuccess = function (data) {
@@ -108,6 +112,7 @@ const addPCSuccess = function (data) {
 const addPCFailure = function () {
   $('#message').text('Add Collection Failed')
   $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
 }
 
 const onShowPCsSuccess = function (data) {
@@ -142,6 +147,7 @@ const onShowPCsSuccess = function (data) {
 const onShowPCsFailure = function () {
   $('#message').text('Get Collections Failed')
   $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
 }
 
 const editPCNameSuccess = function (data) {
@@ -160,6 +166,7 @@ const editPCNameSuccess = function (data) {
 const editPCNameFailure = function () {
   $('#message').text('Get Collections Failed')
   $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
 }
 
 const deletePCSuccess = function (id) {
@@ -173,6 +180,7 @@ const deletePCSuccess = function (id) {
 const deletePCFailure = function () {
   $('#message').text('Delete Plant Collection Failed')
   $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
 }
 
 const showPCSuccess = function (response) {
@@ -191,6 +199,7 @@ const showPCSuccess = function (response) {
 const showPCFailure = function () {
   $('#message').text('Unable to get Plant Collection')
   $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
 }
 
 module.exports = {
