@@ -109,16 +109,21 @@ const onEditPCName = function (event) {
   const data = getFormFields(form)
   console.log(data)
   api.editCollectionName(data)
-    .then(ui.editPCNameSuccess)
+    .then(() => ui.editPCNameSuccess(data))
     .catch(ui.editPCNameFailure)
 }
 
 const onDeletePlantCollection = function (event) {
   event.preventDefault()
+  console.log(event)
   const id = event.target.dataset.id
 
   api.deletePlantCollection(id)
     .then(() => ui.deletePlantCollectionSuccess(id))
+    .then(() => api.showPlantCollections()
+      .then(ui.showPlantCollectionsSuccess)
+      .catch(ui.showPlantCollectionsFailure)
+    )
     .catch(ui.deletePlantCollectionFailure)
 }
 

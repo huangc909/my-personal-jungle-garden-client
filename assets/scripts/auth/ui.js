@@ -127,7 +127,13 @@ const showPlantCollectionsSuccess = function (data) {
   $('.plant-collection').hide()
   const showPlantCollectionsHtml = showPlantCollectionsTemplate({ plantCollections: store.plantCollections })
   $('.content-plant-collections').html(showPlantCollectionsHtml)
-  if (store.plantCollections.length !== 0) {
+  if (store.plantCollections.length === 0) {
+    $('.getDeletePCButtons').hide()
+    const myPlantCollections = (`
+      <h2>My Plant Collections</h2>
+      `)
+    $('.my-pc-collections').html(myPlantCollections).show()
+  } else {
     $('.getDeletePCButtons').show()
   }
 }
