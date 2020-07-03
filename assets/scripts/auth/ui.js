@@ -101,13 +101,11 @@ const signOutFailure = function () {
 }
 
 const addPCSuccess = function (data) {
-  store.plantCollection = data.plantCollection
   $('form').trigger('reset')
   // $('#message').text('Add Plant Collection success!').show()
   // $('#message').removeClass().addClass('success')
   // $('#message').delay(600).fadeOut(1500)
   $('.add-pc').hide()
-  $('.plant-collection').show()
 }
 
 const addPCFailure = function () {

@@ -86,12 +86,17 @@ const onSignOut = function (event) {
 
 const onAddPC = function (event) {
   event.preventDefault()
-
+  console.log(event)
   const form = event.target
+  console.log(form)
   const data = getFormFields(form)
-
+  console.log(data)
   api.addPlantCollection(data)
     .then(ui.addPCSuccess)
+    .then(() => api.showPlantCollections()
+      .then(ui.showPlantCollectionsSuccess)
+      .catch(ui.showPlantCollectionsFailure)
+    )
     .catch(ui.addPCFailure)
 }
 
