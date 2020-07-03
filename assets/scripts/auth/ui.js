@@ -135,6 +135,10 @@ const showPlantCollectionsSuccess = function (data) {
     $('.my-pc-collections').html(myPlantCollections).show()
   } else {
     $('.getDeletePCButtons').show()
+    const myPlantCollections = (`
+      <h2>My Plant Collections</h2>
+      `)
+    $('.my-pc-collections').html(myPlantCollections).hide()
   }
 }
 
