@@ -56,8 +56,8 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .then(() => api.showPlantCollections()
-      .then(ui.showPlantCollectionsSuccess)
-      .catch(ui.showPlantCollectionsFailure)
+      .then(ui.onShowPCsSuccess)
+      .catch(ui.onShowPCsFailure)
     )
     .catch(ui.signInFailure)
 }
@@ -94,17 +94,17 @@ const onAddPC = function (event) {
   api.addPlantCollection(data)
     .then(ui.addPCSuccess)
     .then(() => api.showPlantCollections()
-      .then(ui.showPlantCollectionsSuccess)
-      .catch(ui.showPlantCollectionsFailure)
+      .then(ui.onShowPCsSuccess)
+      .catch(ui.onShowPCsFailure)
     )
     .catch(ui.addPCFailure)
 }
 
-const onShowPlantCollections = function (event) {
+const onShowPCs = function (event) {
   event.preventDefault()
   api.showPlantCollections()
-    .then(ui.showPlantCollectionsSuccess)
-    .catch(ui.showPlantCollectionsFailure)
+    .then(ui.onShowPCsSuccess)
+    .catch(ui.onShowPCsFailure)
 }
 
 const onEditPCName = function (event) {
@@ -118,28 +118,28 @@ const onEditPCName = function (event) {
     .catch(ui.editPCNameFailure)
 }
 
-const onDeletePlantCollection = function (event) {
+const onDeletePC = function (event) {
   event.preventDefault()
   console.log(event)
   const id = event.target.dataset.id
 
   api.deletePlantCollection(id)
-    .then(() => ui.deletePlantCollectionSuccess(id))
+    .then(() => ui.deletePCSuccess(id))
     .then(() => api.showPlantCollections()
-      .then(ui.showPlantCollectionsSuccess)
-      .catch(ui.showPlantCollectionsFailure)
+      .then(ui.onShowPCsSuccess)
+      .catch(ui.onShowPCsFailure)
     )
-    .catch(ui.deletePlantCollectionFailure)
+    .catch(ui.deletePCFailure)
 }
 
-const onGetPCPage = function (event) {
+const onShowPC = function (event) {
   event.preventDefault()
   const id = event.target.dataset.id
   console.log(id)
 
   api.getPCPage(id)
-    .then(ui.getPCPageSuccess)
-    .catch(ui.getPCPageFailure)
+    .then(ui.showPCSuccess)
+    .catch(ui.showPCFailure)
 }
 
 module.exports = {
@@ -154,8 +154,8 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onAddPC,
-  onShowPlantCollections,
+  onShowPCs,
   onEditPCName,
-  onDeletePlantCollection,
-  onGetPCPage
+  onDeletePC,
+  onShowPC
 }

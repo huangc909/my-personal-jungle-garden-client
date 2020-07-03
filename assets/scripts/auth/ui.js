@@ -85,9 +85,9 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function (response) {
   $('form').trigger('reset')
-  // $('#message').text('Sign Out success!').show()
-  // $('#message').removeClass().addClass('success')
-  // $('#message').delay(600).fadeOut(1500)
+  $('#message').text('Sign Out success!').show()
+  $('#message').removeClass().addClass('success')
+  $('#message').delay(600).fadeOut(1500)
   $('.signin').show()
   $('.menu-dropdown').hide()
   $('.changepw').hide()
@@ -110,7 +110,7 @@ const addPCFailure = function () {
   $('#message').removeClass().addClass('failure')
 }
 
-const showPlantCollectionsSuccess = function (data) {
+const onShowPCsSuccess = function (data) {
   store.plantCollections = data.plantCollections
   console.log(store.plantCollections)
   $('form').trigger('reset')
@@ -120,6 +120,8 @@ const showPlantCollectionsSuccess = function (data) {
   $('.changepw').hide()
   $('.plant-collections').show()
   $('.plant-collection').hide()
+  $('.add-pc').hide()
+  $('.edit-pc-name').hide()
   const showPlantCollectionsHtml = showPlantCollectionsTemplate({ plantCollections: store.plantCollections })
   $('.content-plant-collections').html(showPlantCollectionsHtml)
   if (store.plantCollections.length === 0) {
@@ -137,7 +139,7 @@ const showPlantCollectionsSuccess = function (data) {
   }
 }
 
-const showPlantCollectionsFailure = function () {
+const onShowPCsFailure = function () {
   $('#message').text('Get Collections Failed')
   $('#message').removeClass().addClass('failure')
 }
@@ -160,7 +162,7 @@ const editPCNameFailure = function () {
   $('#message').removeClass().addClass('failure')
 }
 
-const deletePlantCollectionSuccess = function (id) {
+const deletePCSuccess = function (id) {
   $(`[data-id='${id}']`).remove()
   $('form').trigger('reset')
   $('#message').text('Plant Collection Deleted!').show()
@@ -168,12 +170,12 @@ const deletePlantCollectionSuccess = function (id) {
   $('#message').delay(600).fadeOut(1500)
 }
 
-const deletePlantCollectionFailure = function () {
+const deletePCFailure = function () {
   $('#message').text('Delete Plant Collection Failed')
   $('#message').removeClass().addClass('failure')
 }
 
-const getPCPageSuccess = function (response) {
+const showPCSuccess = function (response) {
   console.log(response)
   store.plantCollection = response.plantCollection
   $('.plant-collections').hide()
@@ -184,7 +186,7 @@ const getPCPageSuccess = function (response) {
   $('.plant-collection-name').html(pcName).show()
 }
 
-const getPCPageFailure = function () {
+const showPCFailure = function () {
   $('#message').text('Unable to get Plant Collection')
   $('#message').removeClass().addClass('failure')
 }
@@ -206,12 +208,12 @@ module.exports = {
   signOutFailure,
   addPCSuccess,
   addPCFailure,
-  showPlantCollectionsSuccess,
-  showPlantCollectionsFailure,
+  onShowPCsSuccess,
+  onShowPCsFailure,
   editPCNameSuccess,
   editPCNameFailure,
-  deletePlantCollectionSuccess,
-  deletePlantCollectionFailure,
-  getPCPageSuccess,
-  getPCPageFailure
+  deletePCSuccess,
+  deletePCFailure,
+  showPCSuccess,
+  showPCFailure
 }
