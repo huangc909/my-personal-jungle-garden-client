@@ -179,7 +179,9 @@ const showPCSuccess = function (response) {
   console.log(response)
   store.plantCollection = response.plantCollection
   $('.plant-collections').hide()
+  $('.edit-pc-name').hide()
   $('.plant-collection').show()
+
   const pcName = (`
     <h3>${store.plantCollection.name}</h3>
     `)

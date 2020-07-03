@@ -143,6 +143,14 @@ const onShowPC = function (event) {
     .catch(ui.showPCFailure)
 }
 
+const onGoBackShowPC = function (event) {
+  event.preventDefault()
+  const infoPC = store.plantCollection._id
+  api.getPCPage(infoPC)
+    .then(ui.showPCSuccess)
+    .catch(ui.showPCFailure)
+}
+
 module.exports = {
   onGetSignUpPage,
   onGetSignInPage,
@@ -158,6 +166,7 @@ module.exports = {
   onShowPCs,
   onEditPCName,
   onDeletePC,
-  onShowPC
+  onShowPC,
+  onGoBackShowPC
 
 }
