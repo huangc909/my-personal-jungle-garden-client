@@ -195,13 +195,15 @@ const showPCSuccess = function (response) {
   const plants = store.plantCollection.plants
 
   const plantsList = function () {
+    const plantArray = []
     for (let i = 0; i < store.plantCollection.plants.length; i++) {
       const plant = store.plantCollection.plants[i].name
-      const plantNames = (`
-        <h4>${plant}</h4>
-        `)
-      $('.content-plants').append(plantNames).show()
+      plantArray.push(plant)
     }
+    const plantNames = (`
+      <h4>${plantArray}</h4>
+      `)
+    $('.content-plants').html(plantNames).show()
   }
   plantsList(plants)
 }
