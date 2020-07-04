@@ -26,8 +26,7 @@ $(() => {
   $('#back-to-pc').on('click', authEvents.onGoBackShowPC)
   $('.content-plant-collections').on('click', '.btn-pc-delete', authEvents.onDeletePC)
   $('.content-plant-collections').on('click', '.pc', authEvents.onShowPC)
-
-  // $('.content-plants').on('click', '.plant', '')
+  // $('.content-plants').on('click', '.plant', authEvents.onShowPlants)
   $('.get-add-new-plant').on('click', authEvents.onGetAddNewPlant)
   $('#add-plant').on('submit', authEvents.onAddPlant)
 })

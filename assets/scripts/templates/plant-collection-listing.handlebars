@@ -8,20 +8,13 @@
           My Plant Collection
         {{/if}}
       </h3>
+      <div data-id="{{plantCollection._id}}" class="plants">
+        {{#if plantCollection.plants}}
+          {{plantCollection.plants}}
+        {{else}}
+          There are no plants in this collection yet
+        {{/if}}
+      </div>
       <button data-id="{{plantCollection._id}}" class="btn-pc-delete btn-danger delete-pc-button">Delete</button>
     </section>
-    {{/each}}
-
-    {{#each plants as |plant|}}
-      {{log plant}}
-      <section data-id="{{plant._id}}">
-        <div data-id="{{plant._id}}" class="plant pointer">
-          {{#if plant.name}}
-            {{plant.name}}
-          {{else}}
-            New Plant
-          {{/if}}
-        </div>
-        <button data-id="{{plant._id}}" class="btn-plant-delete btn-danger delete-plant-button">Delete</button>
-      </section>
     {{/each}}

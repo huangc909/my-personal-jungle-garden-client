@@ -177,7 +177,7 @@ const onAddPlant = function (event) {
   console.log(data)
   api.addPlant(data)
     .then(ui.addPlantSuccess)
-    .then(ui.addPlantFailure)
+    .catch(ui.addPlantFailure)
 }
 
 module.exports = {

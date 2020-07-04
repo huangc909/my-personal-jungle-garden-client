@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('./../store')
-const showPlantCollectionsTemplate = require('../templates/plant-collection-listing.handlebars')
+const showTemplate = require('../templates/plant-collection-listing.handlebars')
 
 const getSignUpPage = () => {
   $('.signin').hide()
@@ -132,7 +132,7 @@ const onShowPCsSuccess = function (data) {
   $('.plant-collection').hide()
   $('.add-pc').hide()
   $('.edit-pc-name').hide()
-  const showPlantCollectionsHtml = showPlantCollectionsTemplate({ plantCollections: store.plantCollections })
+  const showPlantCollectionsHtml = showTemplate({ plantCollections: store.plantCollections })
   $('.content-plant-collections').html(showPlantCollectionsHtml)
   if (store.plantCollections.length === 0) {
     $('.getDeletePCButtons').hide()
@@ -154,19 +154,6 @@ const onShowPCsFailure = function () {
   $('#message').removeClass().addClass('failure')
   $('#message').delay(600).fadeOut(1500)
 }
-
-// const editPCNameSuccess = function (data) {
-//   console.log(data)
-//   store.plantCollection = data.plantCollection
-//
-//   $('form').trigger('reset')
-//   $('.edit-pc-name').hide()
-//   $('.plant-collection').show()
-//   const pcName = (`
-//     <h3>${store.plantCollection.name}</h3>
-//     `)
-//   $('.plant-collection-name').html(pcName).show()
-// }
 
 const editPCNameFailure = function () {
   $('#message').text('Get Collections Failed')
@@ -200,6 +187,10 @@ const showPCSuccess = function (response) {
     <h3>${store.plantCollection.name}</h3>
     `)
   $('.plant-collection-name').html(pcName).show()
+
+  // const showPlantsHtml = showTemplate({plants: store.plantCollections.plants})
+  // $('.content-plants').html(showPlantsHtml)
+  console.log(store.plantCollection.plants)
 }
 
 const showPCFailure = function () {
@@ -209,6 +200,7 @@ const showPCFailure = function () {
 }
 
 const addPlantSuccess = function (data) {
+  $('form').trigger('reset')
   $('.plant-collection').show()
 }
 
@@ -238,7 +230,6 @@ module.exports = {
   addPCFailure,
   onShowPCsSuccess,
   onShowPCsFailure,
-  // editPCNameSuccess,
   editPCNameFailure,
   deletePCSuccess,
   deletePCFailure,
