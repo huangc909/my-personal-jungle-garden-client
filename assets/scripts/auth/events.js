@@ -36,6 +36,11 @@ const onGetDeletePCButtons = function (event) {
   ui.getDeletePCButtons()
 }
 
+const onGetAddNewPlant = function (event) {
+  event.preventDefault()
+  ui.getAddNewPlant()
+}
+
 const onSignUp = function (event) {
   event.preventDefault()
 
@@ -148,6 +153,7 @@ const onDeletePC = function (event) {
 
 const onShowPC = function (event) {
   event.preventDefault()
+  console.log(event)
   const id = event.target.dataset.id
   console.log(id)
 
@@ -164,6 +170,16 @@ const onGoBackShowPC = function (event) {
     .catch(ui.showPCFailure)
 }
 
+const onAddPlant = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
+  api.addPlant(data)
+    .then(ui.addPlantSuccess)
+    .then(ui.addPlantFailure)
+}
+
 module.exports = {
   onGetSignUpPage,
   onGetSignInPage,
@@ -171,6 +187,7 @@ module.exports = {
   onGetAddPCPage,
   onGetEditPCNamePage,
   onGetDeletePCButtons,
+  onGetAddNewPlant,
   onSignUp,
   onSignIn,
   onChangePassword,
@@ -180,6 +197,7 @@ module.exports = {
   onEditPCName,
   onDeletePC,
   onShowPC,
-  onGoBackShowPC
+  onGoBackShowPC,
+  onAddPlant
 
 }

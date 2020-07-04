@@ -126,6 +126,28 @@ const getPCPage = function (id) {
   })
 }
 
+const addPlant = function (formData) {
+  console.log(formData)
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/plants',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      plant: {
+        name: formData.plant.name,
+        nickName: formData.plant.nickName,
+        dateAcquired: formData.plant.dateAcquired,
+        additionalNotes: formData.plant.additionalNotes,
+        log: formData.plant.log,
+        plantCollectionId: store.plantCollection._id,
+        owner: store.user._id
+      }
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -135,5 +157,6 @@ module.exports = {
   showPlantCollections,
   editCollectionName,
   deletePlantCollection,
-  getPCPage
+  getPCPage,
+  addPlant
 }

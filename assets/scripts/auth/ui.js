@@ -36,6 +36,11 @@ const getDeletePCButtons = () => {
   $('.delete-pc-button').show()
 }
 
+const getAddNewPlant = () => {
+  $('.plant-collection').hide()
+  $('.add-plant').show()
+}
+
 const signUpSuccess = function (response) {
   $('form').trigger('reset')
   $('#message').text('Sign-up Success!').show()
@@ -203,6 +208,16 @@ const showPCFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
+const addPlantSuccess = function (data) {
+  $('.plant-collection').show()
+}
+
+const addPlantFailure = function () {
+  $('#message').text('Unable to add new plant')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
 module.exports = {
   getSignUpPage,
   getSignInPage,
@@ -210,6 +225,7 @@ module.exports = {
   getAddPCPage,
   getEditPCNamePage,
   getDeletePCButtons,
+  getAddNewPlant,
   signUpSuccess,
   signUpFailure,
   signInSuccess,
@@ -227,5 +243,7 @@ module.exports = {
   deletePCSuccess,
   deletePCFailure,
   showPCSuccess,
-  showPCFailure
+  showPCFailure,
+  addPlantSuccess,
+  addPlantFailure
 }
