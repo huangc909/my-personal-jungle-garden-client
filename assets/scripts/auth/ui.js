@@ -158,6 +158,24 @@ const onShowPCsFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
+const editPCNameSuccess = function (data) {
+  $('form').trigger('reset')
+  $('.plant-collections').hide()
+  $('.edit-pc-name').hide()
+  $('.plant-collection').show()
+  $('.add-plant').hide()
+  $('.plants').show()
+
+  const pcName = (`
+    <h3>${data.plantCollection.name}</h3>
+    `)
+  $('.plant-collection-name').html(pcName).show()
+
+  const showPlantsHtml = showTemplate({ plantCollections: store.plantCollection.plants })
+
+  $('.content-plants').html(showPlantsHtml).show()
+}
+
 const editPCNameFailure = function () {
   $('#message').text('Get Collections Failed')
   $('#message').removeClass().addClass('failure')
@@ -186,37 +204,42 @@ const showPCSuccess = function (response) {
   $('.edit-pc-name').hide()
   $('.plant-collection').show()
   $('.add-plant').hide()
-  // Have the plant collection title appear on the page
+  $('.plants').show()
+
   const pcName = (`
     <h3>${store.plantCollection.name}</h3>
     `)
   $('.plant-collection-name').html(pcName).show()
 
-  // assigning plants info to variable plants
-  const plants = store.plantCollection.plants
+  const showPlantsHtml = showTemplate({ plantCollections: store.plantCollection.plants })
 
-  // Have the plant names appear on the page
-  const plantsList = function () {
-    // empty array for the plant names
-    const plantArray = []
-    // for each plant
-    for (let i = 0; i < store.plantCollection.plants.length; i++) {
-      // store the name as plant variable
-      const plant = store.plantCollection.plants[i]
-      // format the plant variable
-      const plantName = (`
-        <div>
-          <h4 class="plant-name pointer">${plant.name}</h4>
-        </div>
-        `)
-      // add formatted plant variable to plant array
-      plantArray.push(plantName)
-    }
-    // show plant array
-    $('.content-plants').html(plantArray).show()
-  }
-  // invoke the plantsList function by putting in plants variable
-  plantsList(plants)
+  $('.content-plants').html(showPlantsHtml).show()
+
+  // // assigning plants info to variable plants
+  // const plants = store.plantCollection.plants
+  //
+  // // Have the plant names appear on the page
+  // const plantsList = function () {
+  //   // empty array for the plant names
+  //   const plantArray = []
+  //   // for each plant
+  //   for (let i = 0; i < store.plantCollection.plants.length; i++) {
+  //     // store the name as plant variable
+  //     const plant = store.plantCollection.plants[i]
+  //     // format the plant variable
+  //     const plantName = (`
+  //       <div>
+  //         <h4 class="plant-name pointer">${plant.name}</h4>
+  //       </div>
+  //       `)
+  //     // add formatted plant variable to plant array
+  //     plantArray.push(plantName)
+  //   }
+  //   // show plant array
+  //   $('.content-plants').html(plantArray).show()
+  // }
+  // // invoke the plantsList function by putting in plants variable
+  // plantsList(plants)
 }
 const showPCFailure = function () {
   $('#message').text('Unable to get Plant Collection')
@@ -255,6 +278,7 @@ module.exports = {
   addPCFailure,
   onShowPCsSuccess,
   onShowPCsFailure,
+  editPCNameSuccess,
   editPCNameFailure,
   deletePCSuccess,
   deletePCFailure,

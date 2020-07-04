@@ -119,22 +119,10 @@ const onEditPCName = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
-  // const plantName = store.plantCollection.name
-  // const plantNewName = data.plantCollection.name
-  // console.log('This is the plant name ' + plantName)
-  // console.log('This is the new plant name ' + plantNewName)
+
   api.editCollectionName(data)
-    .then(() => ui.showPCSuccess(data))
+    .then(() => ui.editPCNameSuccess(data))
     .catch(ui.editPCNameFailure)
-  // if (plantName !== plantNewName) {
-  //   api.editCollectionName(data)
-  //     .then(() => ui.showPCSuccess(data))
-  //     .catch(ui.editPCNameFailure)
-  // } else {
-  //   api.editCollectionName(store)
-  //     .then(() => ui.showPCSuccess(store))
-  //     .catch(ui.editPCNameFailure)
-  // }
 }
 
 const onDeletePC = function (event) {
