@@ -186,7 +186,7 @@ const showPCSuccess = function (response) {
   $('.edit-pc-name').hide()
   $('.plant-collection').show()
   $('.add-plant').hide()
-
+  // Have the plant collection title appear on the page
   const pcName = (`
     <h3>${store.plantCollection.name}</h3>
     `)
@@ -194,16 +194,17 @@ const showPCSuccess = function (response) {
 
   const plants = store.plantCollection.plants
 
+  // Have the plant names appear on the page
   const plantsList = function () {
     const plantArray = []
     for (let i = 0; i < store.plantCollection.plants.length; i++) {
       const plant = store.plantCollection.plants[i].name
-      plantArray.push(plant)
+      const plantName = (`
+        <h4>${plant}</h4>
+        `)
+      plantArray.push(plantName)
     }
-    const plantNames = (`
-      <h4>${plantArray}</h4>
-      `)
-    $('.content-plants').html(plantNames).show()
+    $('.content-plants').html(plantArray).show()
   }
   plantsList(plants)
 }
