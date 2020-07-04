@@ -177,6 +177,7 @@ const onAddPlant = function (event) {
   console.log(data)
   api.addPlant(data)
     .then(ui.addPlantSuccess)
+    .then((response) => ui.showPCSuccess(response))
     .catch(ui.addPlantFailure)
 }
 

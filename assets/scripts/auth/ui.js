@@ -213,30 +213,7 @@ const showPCFailure = function () {
 
 const addPlantSuccess = function (response) {
   console.log(response)
-  $('form').trigger('reset')
-  store.plantCollection = response.plantCollection
-  $('.plant-collections').hide()
-  $('.edit-pc-name').hide()
-  $('.plant-collection').show()
-  $('.add-plant').hide()
-
-  const pcName = (`
-    <h3>${store.plantCollection.name}</h3>
-    `)
-  $('.plant-collection-name').html(pcName).show()
-
-  // const plants = store.plantCollection.plants
-  //
-  // const plantsList = function () {
-  //   for (let i = 0; i < store.plantCollection.plants.length; i++) {
-  //     const plant = store.plantCollection.plants[i].name
-  //     const plantNames = (`
-  //       <h4>${plant}</h4>
-  //       `)
-  //     $('.content-plants').html(plantNames).show()
-  //   }
-  // }
-  // plantsList(plants)
+  return response
 }
 
 const addPlantFailure = function () {
