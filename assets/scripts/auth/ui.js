@@ -132,8 +132,11 @@ const onShowPCsSuccess = function (data) {
   $('.plant-collection').hide()
   $('.add-pc').hide()
   $('.edit-pc-name').hide()
+  $('.plants').hide()
   const showPlantCollectionsHtml = showTemplate({ plantCollections: store.plantCollections })
+
   $('.content-plant-collections').html(showPlantCollectionsHtml)
+
   if (store.plantCollections.length === 0) {
     $('.getDeletePCButtons').hide()
     const myPlantCollections = (`
@@ -182,26 +185,58 @@ const showPCSuccess = function (response) {
   $('.plant-collections').hide()
   $('.edit-pc-name').hide()
   $('.plant-collection').show()
+  $('.add-plant').hide()
 
   const pcName = (`
     <h3>${store.plantCollection.name}</h3>
     `)
   $('.plant-collection-name').html(pcName).show()
 
-  // const showPlantsHtml = showTemplate({plants: store.plantCollections.plants})
-  // $('.content-plants').html(showPlantsHtml)
-  console.log(store.plantCollection.plants)
-}
+  const plants = store.plantCollection.plants
 
+  const plantsList = function () {
+    for (let i = 0; i < store.plantCollection.plants.length; i++) {
+      const plant = store.plantCollection.plants[i].name
+      const plantNames = (`
+        <h4>${plant}</h4>
+        `)
+      $('.content-plants').append(plantNames).show()
+    }
+  }
+  plantsList(plants)
+}
 const showPCFailure = function () {
   $('#message').text('Unable to get Plant Collection')
   $('#message').removeClass().addClass('failure')
   $('#message').delay(600).fadeOut(1500)
 }
 
-const addPlantSuccess = function (data) {
+const addPlantSuccess = function (response) {
+  console.log(response)
   $('form').trigger('reset')
+  store.plantCollection = response.plantCollection
+  $('.plant-collections').hide()
+  $('.edit-pc-name').hide()
   $('.plant-collection').show()
+  $('.add-plant').hide()
+
+  const pcName = (`
+    <h3>${store.plantCollection.name}</h3>
+    `)
+  $('.plant-collection-name').html(pcName).show()
+
+  // const plants = store.plantCollection.plants
+  //
+  // const plantsList = function () {
+  //   for (let i = 0; i < store.plantCollection.plants.length; i++) {
+  //     const plant = store.plantCollection.plants[i].name
+  //     const plantNames = (`
+  //       <h4>${plant}</h4>
+  //       `)
+  //     $('.content-plants').html(plantNames).show()
+  //   }
+  // }
+  // plantsList(plants)
 }
 
 const addPlantFailure = function () {
