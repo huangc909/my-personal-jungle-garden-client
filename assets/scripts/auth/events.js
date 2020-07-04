@@ -103,6 +103,7 @@ const onAddPC = function (event) {
 const onShowPCs = function (event) {
   event.preventDefault()
   const infoPCs = store.plantCollections
+  console.log('This is the onShowPCS ' + infoPCs)
   api.showPlantCollections(infoPCs)
     .then(ui.onShowPCsSuccess)
     .catch(ui.onShowPCsFailure)
@@ -113,10 +114,22 @@ const onEditPCName = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
+  // const plantName = store.plantCollection.name
+  // const plantNewName = data.plantCollection.name
+  // console.log('This is the plant name ' + plantName)
+  // console.log('This is the new plant name ' + plantNewName)
   api.editCollectionName(data)
-    .then(() => ui.editPCNameSuccess(data))
+    .then(() => ui.showPCSuccess(data))
     .catch(ui.editPCNameFailure)
+  // if (plantName !== plantNewName) {
+  //   api.editCollectionName(data)
+  //     .then(() => ui.showPCSuccess(data))
+  //     .catch(ui.editPCNameFailure)
+  // } else {
+  //   api.editCollectionName(store)
+  //     .then(() => ui.showPCSuccess(store))
+  //     .catch(ui.editPCNameFailure)
+  // }
 }
 
 const onDeletePC = function (event) {

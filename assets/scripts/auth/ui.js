@@ -150,18 +150,18 @@ const onShowPCsFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
-const editPCNameSuccess = function (data) {
-  console.log(data)
-  store.plantCollection = data.plantCollection
-
-  $('form').trigger('reset')
-  $('.edit-pc-name').hide()
-  $('.plant-collection').show()
-  const pcName = (`
-    <h3>${store.plantCollection.name}</h3>
-    `)
-  $('.plant-collection-name').html(pcName).show()
-}
+// const editPCNameSuccess = function (data) {
+//   console.log(data)
+//   store.plantCollection = data.plantCollection
+//
+//   $('form').trigger('reset')
+//   $('.edit-pc-name').hide()
+//   $('.plant-collection').show()
+//   const pcName = (`
+//     <h3>${store.plantCollection.name}</h3>
+//     `)
+//   $('.plant-collection-name').html(pcName).show()
+// }
 
 const editPCNameFailure = function () {
   $('#message').text('Get Collections Failed')
@@ -185,6 +185,7 @@ const deletePCFailure = function () {
 
 const showPCSuccess = function (response) {
   console.log(response)
+  $('form').trigger('reset')
   store.plantCollection = response.plantCollection
   $('.plant-collections').hide()
   $('.edit-pc-name').hide()
@@ -221,7 +222,7 @@ module.exports = {
   addPCFailure,
   onShowPCsSuccess,
   onShowPCsFailure,
-  editPCNameSuccess,
+  // editPCNameSuccess,
   editPCNameFailure,
   deletePCSuccess,
   deletePCFailure,
