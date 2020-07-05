@@ -211,16 +211,11 @@ const editPCNameSuccess = function (data) {
   $('.edit-plant').hide()
   $('.plant-information').hide()
 
-  const pcName = (`
-    <h2>${data.plantCollection.name}</h2>
-    `)
-  $('.plant-collection-name').html(pcName)
+  store.plantCollection.name = data.plantCollection.name
 
-  const showPlantsHtml = showTemplate({ plantCollections: store.plantCollection.plants })
+  const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })
 
   $('.content-plants').html(showPlantsHtml).show()
-
-  store.plantCollection.name = data.plantCollection.name
 }
 
 const editPCNameFailure = function () {
@@ -300,7 +295,6 @@ const showPCSuccess = function (response) {
   $('.plant-collection-name').hide()
   $('.plant-information').hide()
 
-  // This line is correct
   const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })
 
   $('.content-plants').html(showPlantsHtml).show()
