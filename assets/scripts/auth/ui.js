@@ -130,11 +130,13 @@ const onShowPCsSuccess = function (data) {
   store.plantCollections = data.plantCollections
   console.log(store.plantCollections)
   $('form').trigger('reset')
-  $('.changepw').hide()
   $('.plant-collections').show()
+  $('.changepw').hide()
   $('.plant-collection').hide()
   $('.add-pc').hide()
   $('.edit-pc-name').hide()
+  $('.add-plant').hide()
+  $('.plant-info').hide()
 
   const showPlantCollectionsHtml = showTemplate({ plantCollections: store.plantCollections })
 
