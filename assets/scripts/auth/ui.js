@@ -3,6 +3,8 @@
 const store = require('./../store')
 const showTemplate = require('../templates/plant-collection-listing.handlebars')
 
+const showPCTemplate = require('../templates/plant-collection.handlebars')
+
 const getSignUpPage = () => {
   $('.signin').hide()
   $('.signup').show()
@@ -124,15 +126,12 @@ const onShowPCsSuccess = function (data) {
   store.plantCollections = data.plantCollections
   console.log(store.plantCollections)
   $('form').trigger('reset')
-  // $('#message').text('Show Plant Collection success!').show()
-  // $('#message').removeClass().addClass('success')
-  // $('#message').delay(600).fadeOut(1500)
   $('.changepw').hide()
   $('.plant-collections').show()
   $('.plant-collection').hide()
   $('.add-pc').hide()
   $('.edit-pc-name').hide()
-  $('.plants').hide()
+
   const showPlantCollectionsHtml = showTemplate({ plantCollections: store.plantCollections })
 
   $('.content-plant-collections').html(showPlantCollectionsHtml)
@@ -164,7 +163,7 @@ const editPCNameSuccess = function (data) {
   $('.edit-pc-name').hide()
   $('.plant-collection').show()
   $('.add-plant').hide()
-  $('.plants').show()
+  // $('.plants').show()
 
   const pcName = (`
     <h3>${data.plantCollection.name}</h3>
@@ -197,21 +196,18 @@ const deletePCFailure = function () {
 }
 
 const showPCSuccess = function (response) {
-  console.log(response)
+  // response is the plant collection object
   $('form').trigger('reset')
   store.plantCollection = response.plantCollection
   $('.plant-collections').hide()
   $('.edit-pc-name').hide()
   $('.plant-collection').show()
   $('.add-plant').hide()
-  $('.plants').show()
 
-  const pcName = (`
-    <h3>${store.plantCollection.name}</h3>
-    `)
-  $('.plant-collection-name').html(pcName).show()
+  // This line is correct
+  const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })
 
-  const showPlantsHtml = showTemplate({ plantCollections: store.plantCollection.plants })
+  console.log(showPlantsHtml)
 
   $('.content-plants').html(showPlantsHtml).show()
 
@@ -241,6 +237,7 @@ const showPCSuccess = function (response) {
   // // invoke the plantsList function by putting in plants variable
   // plantsList(plants)
 }
+
 const showPCFailure = function () {
   $('#message').text('Unable to get Plant Collection')
   $('#message').removeClass().addClass('failure')

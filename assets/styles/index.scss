@@ -9,6 +9,17 @@
 }
 
 body {
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+body {
   background-color: #A8E5AB;
 }
 
@@ -82,6 +93,10 @@ h1 {
   display: none;
 }
 
-.plants {
+// .plants {
+//   display: none;
+// }
+//
+.plant {
   display: none;
 }

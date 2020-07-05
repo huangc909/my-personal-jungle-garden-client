@@ -141,8 +141,10 @@ const onDeletePC = function (event) {
 
 const onShowPC = function (event) {
   event.preventDefault()
+  // event is the click event
   console.log(event)
   const id = event.target.dataset.id
+  // id is the plant collection's id
   console.log(id)
 
   api.getPCPage(id)
@@ -169,6 +171,11 @@ const onAddPlant = function (event) {
     .catch(ui.addPlantFailure)
 }
 
+const onShowPlant = function (event) {
+  event.preventDefault()
+  console.log(event)
+}
+
 module.exports = {
   onGetSignUpPage,
   onGetSignInPage,
@@ -187,6 +194,6 @@ module.exports = {
   onDeletePC,
   onShowPC,
   onGoBackShowPC,
-  onAddPlant
-
+  onAddPlant,
+  onShowPlant
 }
