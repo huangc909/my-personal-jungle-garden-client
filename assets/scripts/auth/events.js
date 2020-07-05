@@ -36,6 +36,11 @@ const onGetDeletePCButtons = function (event) {
   ui.getDeletePCButtons()
 }
 
+const onGetDeletePlantButtons = function (event) {
+  event.preventDefault()
+  ui.getDeletePlantButtons()
+}
+
 const onGetAddNewPlant = function (event) {
   event.preventDefault()
   ui.getAddNewPlant()
@@ -183,6 +188,7 @@ module.exports = {
   onGetAddPCPage,
   onGetEditPCNamePage,
   onGetDeletePCButtons,
+  onGetDeletePlantButtons,
   onGetAddNewPlant,
   onSignUp,
   onSignIn,

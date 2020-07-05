@@ -30,12 +30,16 @@ const getAddPCPage = () => {
 const getEditPCNamePage = (pcName) => {
   $('.edit-pc-name').show()
   $('.plant-collection').hide()
-  const placeholder = (`${pcName}`)
+  const placeholder = (`${store.plantCollection.name}`)
   $('.pc-name').html(placeholder).show()
 }
 
 const getDeletePCButtons = () => {
   $('.delete-pc-button').show()
+}
+
+const getDeletePlantButtons = () => {
+  $('.delete-plant-button').show()
 }
 
 const getAddNewPlant = () => {
@@ -163,16 +167,18 @@ const editPCNameSuccess = function (data) {
   $('.edit-pc-name').hide()
   $('.plant-collection').show()
   $('.add-plant').hide()
-  // $('.plants').show()
+  $('.plant-collection-name').show()
 
   const pcName = (`
-    <h3>${data.plantCollection.name}</h3>
+    <h2>${data.plantCollection.name}</h2>
     `)
-  $('.plant-collection-name').html(pcName).show()
+  $('.plant-collection-name').html(pcName)
 
   const showPlantsHtml = showTemplate({ plantCollections: store.plantCollection.plants })
 
   $('.content-plants').html(showPlantsHtml).show()
+
+  store.plantCollection.name = data.plantCollection.name
 }
 
 const editPCNameFailure = function () {
@@ -203,11 +209,10 @@ const showPCSuccess = function (response) {
   $('.edit-pc-name').hide()
   $('.plant-collection').show()
   $('.add-plant').hide()
+  $('.plant-collection-name').hide()
 
   // This line is correct
   const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })
-
-  console.log(showPlantsHtml)
 
   $('.content-plants').html(showPlantsHtml).show()
 
@@ -262,6 +267,7 @@ module.exports = {
   getAddPCPage,
   getEditPCNamePage,
   getDeletePCButtons,
+  getDeletePlantButtons,
   getAddNewPlant,
   signUpSuccess,
   signUpFailure,
