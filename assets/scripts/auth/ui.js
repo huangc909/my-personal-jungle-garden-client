@@ -20,6 +20,8 @@ const getChangePasswordPage = () => {
   $('.plant-collections').hide()
   $('.add-pc').hide()
   $('.plant-collection').hide()
+  $('.edit-plant').hide()
+  $('.plant-information').hide()
 }
 
 const getAddPCPage = () => {
@@ -30,8 +32,38 @@ const getAddPCPage = () => {
 const getEditPCNamePage = (pcName) => {
   $('.edit-pc-name').show()
   $('.plant-collection').hide()
-  const placeholder = (`${store.plantCollection.name}`)
-  $('.pc-name').html(placeholder).show()
+  const editPCName = (`
+    <h2>Edit Collection Name</h2>
+    <input name="plantCollection[name]" type="text" placeholder="${pcName}" required>
+    <br>
+    `)
+  $('.edit-pc-info').html(editPCName).show()
+}
+
+const getEditPlantPage = () => {
+  $('.edit-plant').show()
+  $('.plant-information').hide()
+
+  const editPlantInfo = (`
+    <p>Plant Name</p>
+    <input name="plant[name]" placeholder="${store.plant.name}" required>
+    <br>
+    <p>Plant Nickname</p>
+    <input name="plant[nickName]" placeholder="${store.plant.nickName}">
+    <br>
+    <p>Date Acquired</p>
+    <input name="plant[dateAcquired]" placeholder="${store.plant.dateAcquired}" required>
+    <br>
+    <p>Additional Notes</p>
+    <input name="plant[additionalNotes]" placeholder="${store.plant.additionalNotes}">
+    <br>
+    <p>Log</p>
+    <input name="plant[log]" placeholder="${store.plant.log}" required>
+    <br>
+    <br>
+    `)
+
+    $('.edit-plant-info').html(editPlantInfo).show()
 }
 
 const getDeletePCButtons = () => {
@@ -137,6 +169,8 @@ const showPCsSuccess = function (data) {
   $('.edit-pc-name').hide()
   $('.add-plant').hide()
   $('.plant-info').hide()
+  $('.edit-plant').hide()
+  $('.plant-information').hide()
 
   const showPlantCollectionsHtml = showTemplate({ plantCollections: store.plantCollections })
 
@@ -170,6 +204,8 @@ const editPCNameSuccess = function (data) {
   $('.plant-collection').show()
   $('.add-plant').hide()
   $('.plant-collection-name').show()
+  $('.edit-plant').hide()
+  $('.plant-information').hide()
 
   const pcName = (`
     <h2>${data.plantCollection.name}</h2>
@@ -224,7 +260,10 @@ const showPlantSuccess = function (response) {
   $('.edit-pc-name').hide()
   $('.plant-collection').hide()
   $('.add-plant').hide()
+  $('.edit-plant').hide()
+  $('.plant-information').hide()
   $('.plant-information').show()
+
   console.log(response)
 
   const plantInfo = (`
@@ -337,5 +376,6 @@ module.exports = {
   deletePlantSuccess,
   deletePlantFailure,
   showPlantSuccess,
-  showPlantFailure
+  showPlantFailure,
+  getEditPlantPage
 }

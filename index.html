@@ -96,7 +96,7 @@
 
         <section class="plant-collection">
           <div>
-            <div class="plant-collection-name"></div>
+            <h2 class="plant-collection-name"></h2>
 
             <div id="content-plants" class="content-plants"></div>
             <button class="getEditPCNamePage">Edit Collection Name</button>
@@ -108,9 +108,8 @@
         <section class="edit-pc-name">
           <h3 class="pc-name"></h3>
           <form id="edit-pc-name">
-            <input name="plantCollection[name]" type="text" placeholder="Edit Plant Collection Name" required>
-            <br>
-            <button type="submit">Update Collection Name</button>
+            <div class="edit-pc-info"></div>
+            <button type="submit">Update</button>
           </form>
           <p class="back-to-pc pointer">Nevermind</p>
         </section>
@@ -139,29 +138,21 @@
           <div class="plant-name"></div>
 
           <div id="plant-info" class="plant-info"></div>
-          <button>Edit</button>
+          <button class="getEditPlantPage">Edit</button>
           <p>See All Plants</p>
         </section>
 
-        <!-- <section class="update-plant">
+        <section class="edit-plant">
           <h2>Update Plant Info</h2>
-          <form id="update-plant">
-              <input name="plant[name]" placeholder="Plant Name" required>
-              <br>
-              <input name="plant[nickName]" placeholder="Plant Nickname (Optional)">
-              <br>
-              <input name="plant[dateAcquired]" placeholder="Date Acquired" required>
-              <br>
-              <input name="plant[additionalNotes]" placeholder="AdditionalNotes (Optional)" required>
-              <br>
-              <input name="plant[log]" placeholder="Log" required>
-              <br>
-              <br>
+          <form id="edit-plant">
+            <div class="edit-plant-info">
+
+            </div>
               <button type="submit">Update</button>
               <p>Nevermind</p>
               <br>
           </form>
-        </section>  -->
+        </section>
 
 
 

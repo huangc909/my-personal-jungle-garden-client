@@ -25,6 +25,11 @@ const onGetAddPCPage = function (event) {
   ui.getAddPCPage()
 }
 
+const onGetEditPlantPage = function (event) {
+  event.preventDefault()
+  ui.getEditPlantPage()
+}
+
 const onGetEditPCNamePage = function (event) {
   event.preventDefault()
   const pcName = store.plantCollection.name
@@ -176,8 +181,6 @@ const onShowPlant = function (event) {
   console.log(event)
 
   const id = event.target.dataset.id
-  console.log(id)
-  console.log(store.plantCollection.plants)
 
   api.getPlantPage(id)
     .then(ui.showPlantSuccess)
@@ -224,5 +227,6 @@ module.exports = {
   onShowPC,
   onGoBackShowPC,
   onAddPlant,
-  onShowPlant
+  onShowPlant,
+  onGetEditPlantPage
 }
