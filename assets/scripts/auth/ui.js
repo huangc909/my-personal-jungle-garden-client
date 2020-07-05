@@ -48,14 +48,18 @@ const getEditPlantPage = () => {
     <p>Plant Name</p>
     <input name="plant[name]" placeholder="${store.plant.name}" required>
     <br>
+    <br>
     <p>Plant Nickname</p>
     <input name="plant[nickName]" placeholder="${store.plant.nickName}">
+    <br>
     <br>
     <p>Date Acquired</p>
     <input name="plant[dateAcquired]" placeholder="${store.plant.dateAcquired}" required>
     <br>
+    <br>
     <p>Additional Notes</p>
     <input name="plant[additionalNotes]" placeholder="${store.plant.additionalNotes}">
+    <br>
     <br>
     <p>Log</p>
     <input name="plant[log]" placeholder="${store.plant.log}" required>
@@ -63,7 +67,7 @@ const getEditPlantPage = () => {
     <br>
     `)
 
-    $('.edit-plant-info').html(editPlantInfo).show()
+  $('.edit-plant-info').html(editPlantInfo).show()
 }
 
 const getDeletePCButtons = () => {
@@ -294,6 +298,7 @@ const showPCSuccess = function (response) {
   $('.plant-collection').show()
   $('.add-plant').hide()
   $('.plant-collection-name').hide()
+  $('.plant-information').hide()
 
   // This line is correct
   const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })

@@ -32,4 +32,5 @@ $(() => {
   $('.content-plants').on('click', '.plant', authEvents.onShowPlant)
   $('#add-plant').on('submit', authEvents.onAddPlant)
   $('.getEditPlantPage').on('click', authEvents.onGetEditPlantPage)
+  // $('.back-to-plant-info').on('click', authEvents.onGoBackShowPlant)
 })

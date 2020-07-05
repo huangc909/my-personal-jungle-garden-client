@@ -195,6 +195,14 @@ const onGoBackShowPC = function (event) {
     .catch(ui.showPCFailure)
 }
 
+// const onGoBackShowPlant = function (event) {
+//   event.preventDefault()
+//   const id = store.plants._id
+//   api.getPlantPage(id)
+//     .then(ui.showPlantSuccess)
+//     .catch(ui.showPlantFailure)
+// }
+
 const onAddPlant = function (event) {
   event.preventDefault()
   const form = event.target
@@ -228,5 +236,6 @@ module.exports = {
   onGoBackShowPC,
   onAddPlant,
   onShowPlant,
-  onGetEditPlantPage
+  onGetEditPlantPage,
+  // onGoBackShowPlant
 }
