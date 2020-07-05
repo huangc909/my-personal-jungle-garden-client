@@ -217,6 +217,35 @@ const deletePlantFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
+const showPlantSuccess = function (response) {
+  $('form').trigger('reset')
+  store.plant = response.plant
+  $('.plant-collections').hide()
+  $('.edit-pc-name').hide()
+  $('.plant-collection').hide()
+  $('.add-plant').hide()
+  $('.plant-information').show()
+  console.log(response)
+
+  const plantInfo = (`
+    <h2>${store.plant.nickName}</h2>
+    <div class="plant-specs">
+      <h4>Name: ${store.plant.name}</h4>
+      <h4>Date Acquired: ${store.plant.dateAcquired}</h4>
+      <h4>Notes: ${store.plant.additionalNotes}</h4>
+      <h4>Log: ${store.plant.log}</h4>
+    <div>
+    `)
+
+  $('.plant-info').html(plantInfo).show()
+}
+
+const showPlantFailure = function () {
+  $('#message').text('Unable to get Plant Info')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
 const showPCSuccess = function (response) {
   // response is the plant collection object
   $('form').trigger('reset')
@@ -306,5 +335,7 @@ module.exports = {
   addPlantSuccess,
   addPlantFailure,
   deletePlantSuccess,
-  deletePlantFailure
+  deletePlantFailure,
+  showPlantSuccess,
+  showPlantFailure
 }

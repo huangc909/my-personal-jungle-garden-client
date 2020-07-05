@@ -141,6 +141,21 @@ const getPCPage = function (id) {
   })
 }
 
+const getPlantPage = function (id) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      plantCollection: {
+        owner: store.user._id
+      }
+    }
+  })
+}
+
 const addPlant = function (formData) {
   console.log(formData)
   return $.ajax({
@@ -174,5 +189,6 @@ module.exports = {
   deletePlantCollection,
   getPCPage,
   addPlant,
-  deletePlant
+  deletePlant,
+  getPlantPage
 }

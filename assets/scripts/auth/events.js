@@ -171,6 +171,19 @@ const onShowPC = function (event) {
     .catch(ui.showPCFailure)
 }
 
+const onShowPlant = function (event) {
+  event.preventDefault()
+  console.log(event)
+
+  const id = event.target.dataset.id
+  console.log(id)
+  console.log(store.plantCollection.plants)
+
+  api.getPlantPage(id)
+    .then(ui.showPlantSuccess)
+    .catch(ui.showPlantFailure)
+}
+
 const onGoBackShowPC = function (event) {
   event.preventDefault()
   const infoPC = store.plantCollection._id
@@ -188,11 +201,6 @@ const onAddPlant = function (event) {
     .then(ui.addPlantSuccess)
     .then((response) => ui.showPCSuccess(response))
     .catch(ui.addPlantFailure)
-}
-
-const onShowPlant = function (event) {
-  event.preventDefault()
-  console.log(event)
 }
 
 module.exports = {
