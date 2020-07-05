@@ -126,7 +126,7 @@ const addPCFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
-const onShowPCsSuccess = function (data) {
+const showPCsSuccess = function (data) {
   store.plantCollections = data.plantCollections
   console.log(store.plantCollections)
   $('form').trigger('reset')
@@ -157,7 +157,7 @@ const onShowPCsSuccess = function (data) {
   }
 }
 
-const onShowPCsFailure = function () {
+const showPCsFailure = function () {
   $('#message').text('Get Collections Failed')
   $('#message').removeClass().addClass('failure')
   $('#message').delay(600).fadeOut(1500)
@@ -199,6 +199,20 @@ const deletePCSuccess = function (id) {
 
 const deletePCFailure = function () {
   $('#message').text('Delete Plant Collection Failed')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
+const deletePlantSuccess = function (id) {
+  $(`[data-id='${id}']`).remove()
+  $('form').trigger('reset')
+  $('#message').text('Plant Deleted!').show()
+  $('#message').removeClass().addClass('success')
+  $('#message').delay(600).fadeOut(1500)
+}
+
+const deletePlantFailure = function () {
+  $('#message').text('Delete Plant Failed')
   $('#message').removeClass().addClass('failure')
   $('#message').delay(600).fadeOut(1500)
 }
@@ -281,8 +295,8 @@ module.exports = {
   signOutFailure,
   addPCSuccess,
   addPCFailure,
-  onShowPCsSuccess,
-  onShowPCsFailure,
+  showPCsSuccess,
+  showPCsFailure,
   editPCNameSuccess,
   editPCNameFailure,
   deletePCSuccess,
@@ -290,5 +304,7 @@ module.exports = {
   showPCSuccess,
   showPCFailure,
   addPlantSuccess,
-  addPlantFailure
+  addPlantFailure,
+  deletePlantSuccess,
+  deletePlantFailure
 }

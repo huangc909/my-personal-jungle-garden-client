@@ -111,6 +111,21 @@ const deletePlantCollection = function (id) {
   })
 }
 
+const deletePlant = function (id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/plants/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      plant: {
+        plantCollectionId: store.plantCollection._id
+      }
+    }
+  })
+}
+
 const getPCPage = function (id) {
   return $.ajax({
     method: 'GET',
@@ -158,5 +173,6 @@ module.exports = {
   editCollectionName,
   deletePlantCollection,
   getPCPage,
-  addPlant
+  addPlant,
+  deletePlant
 }

@@ -66,8 +66,8 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .then(() => api.showPlantCollections()
-      .then(ui.onShowPCsSuccess)
-      .catch(ui.onShowPCsFailure)
+      .then(ui.showPCsSuccess)
+      .catch(ui.showPCsFailure)
     )
     .catch(ui.signInFailure)
 }
@@ -104,8 +104,8 @@ const onAddPC = function (event) {
   api.addPlantCollection(data)
     .then(ui.addPCSuccess)
     .then(() => api.showPlantCollections()
-      .then(ui.onShowPCsSuccess)
-      .catch(ui.onShowPCsFailure)
+      .then(ui.showPCsSuccess)
+      .catch(ui.showPCsFailure)
     )
     .catch(ui.addPCFailure)
 }
@@ -115,8 +115,8 @@ const onShowPCs = function (event) {
   const infoPCs = store.plantCollections
   console.log('This is the onShowPCS ' + infoPCs)
   api.showPlantCollections(infoPCs)
-    .then(ui.onShowPCsSuccess)
-    .catch(ui.onShowPCsFailure)
+    .then(ui.showPCsSuccess)
+    .catch(ui.showPCsFailure)
 }
 
 const onEditPCName = function (event) {
@@ -138,10 +138,24 @@ const onDeletePC = function (event) {
   api.deletePlantCollection(id)
     .then(() => ui.deletePCSuccess(id))
     .then(() => api.showPlantCollections()
-      .then(ui.onShowPCsSuccess)
-      .catch(ui.onShowPCsFailure)
+      .then(ui.showPCsSuccess)
+      .catch(ui.showPCsFailure)
     )
     .catch(ui.deletePCFailure)
+}
+
+const onDeletePlant = function (event) {
+  event.preventDefault()
+  console.log(event)
+  const id = event.target.dataset.id
+
+  api.deletePlant(id)
+    .then(() => ui.deletePlantSuccess(id))
+    .then(() => api.getPCPage(store.plantCollection._id)
+      .then(ui.showPCSuccess)
+      .catch(ui.showPCFailure)
+    )
+    .catch(ui.deletePlantFailure)
 }
 
 const onShowPC = function (event) {
@@ -198,6 +212,7 @@ module.exports = {
   onShowPCs,
   onEditPCName,
   onDeletePC,
+  onDeletePlant,
   onShowPC,
   onGoBackShowPC,
   onAddPlant,
