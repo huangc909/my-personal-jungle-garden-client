@@ -58,7 +58,7 @@ I would like to eventually:
 ## Images
 ### My Personal Jungle Garden Wireframes:
 
-[Project2-Wireframes](https://github.com/huangc909/my-personal-jungle-garden-client/files/4876298/Project2-Wireframes.3.pdf)
+[Project2-Wireframes](https://user-images.githubusercontent.com/53062479/86547397-e1f72180-bf06-11ea-9d17-0b9de6cfddf6.jpg)
 
 
 ### ERD:

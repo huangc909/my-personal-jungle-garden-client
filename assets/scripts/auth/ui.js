@@ -101,7 +101,7 @@ const signUpFailure = function () {
 
 const signInSuccess = function (response) {
   store.user = response.user
-  console.log(store)
+  // console.log(store)
   $('form').trigger('reset')
   // $('#message').text('Sign-in Success').show()
   // $('#message').removeClass().addClass('success')
@@ -164,7 +164,7 @@ const addPCFailure = function () {
 
 const showPCsSuccess = function (data) {
   store.plantCollections = data.plantCollections
-  console.log(store.plantCollections)
+  // console.log(store.plantCollections)
   $('form').trigger('reset')
   $('.plant-collections').show()
   $('.changepw').hide()
@@ -291,7 +291,7 @@ const showPlantSuccess = function (response) {
   // $('.plant-information').hide()
   $('.plant-information').show()
 
-  console.log(response)
+  // console.log(response)
 
   const plantInfo = (`
     <h2>${store.plant.nickName}</h2>
@@ -361,7 +361,7 @@ const showPCFailure = function () {
 }
 
 const addPlantSuccess = function (response) {
-  console.log(response)
+  // console.log(response)
   return response
 }
 

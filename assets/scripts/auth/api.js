@@ -4,7 +4,7 @@ const config = require('./../config')
 const store = require('./../store')
 
 const signUp = function (formData) {
-  console.log(formData)
+  // console.log(formData)
   const credentials = formData.credentials
   return $.ajax({
     method: 'POST',
@@ -14,7 +14,7 @@ const signUp = function (formData) {
 }
 
 const signIn = function (formData) {
-  console.log(formData)
+  // console.log(formData)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-in',
@@ -121,7 +121,7 @@ const editPlant = function (formData) {
 }
 
 const deletePlantCollection = function (id) {
-  console.log('This is the API ' + id)
+  // console.log('This is the API ' + id)
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/plantCollections/' + id,
@@ -177,7 +177,7 @@ const getPlantPage = function (id) {
 }
 
 const addPlant = function (formData) {
-  console.log(formData)
+  // console.log(formData)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/plants',
