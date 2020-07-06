@@ -5,77 +5,22 @@ My Personal Jungle Garden is an app that allows users to keep logs of their plan
 
 ## Planning Story
 
-I approached this project by setting up a well-thought-out plan so that as I am building my application, I can focus on each step more clearly. I started by creating user stories and wireframes. Then, I focused on creating a schedule that laid out bite-size goals that were clear and attainable.
+Since this was a full-stack app, I first approached this app by writing user stories and creating wireframes. Then, I set each user story and component of the wireframe as a small goal.
 
-### Schedule:
-**DAY 1: Planning**
-- User stories
-- Wireframes
-- Schedule
-- Start on README
+Once I had my plan clearly laid out, I began to work on the back end API, which you can view here (https://github.com/huangc909/my-personal-jungle-garden).
 
+Afterwards I worked on the front end client side of the application. I created the pages for the following features:
+- sign-in
+- sign-up
+- change password
+- view plant collections
+- add plant collection
+- edit plant collection
+- view a specific plant collection with the plants in that collection
+- add plants to a specific plant collection
+- update plant information
 
-**Day 2: Back-end**
-- User model and authentication in user routes (CRUD/cURL requests)
-  - User model/Schema
-  - POST request for sign-up and sign-in
-  - PATCH request for change password
-  - DELETE request for sign-out
-
-- Plant sub document and plant routes (CRUD/cURL requests)
-  - Plant Schema
-  - GET request for all added plants
-  - POST request for adding a new plant and its info
-  - PATCH request for updating a plant's info
-  - DELETE request for deleting a plant and its info
-
-
-**Day 3: Front-end**
-- HTML/CSS
-  - Sign-up Page
-  - Sign-in Page
-  - Home Page
-  - Plant Collections Box
-  - Drop-Down Menu
-  - Change Password Page
-  - Sign-out Page
-
-- User interface logic (Event Listeners, Event Handlers, API/AJAX Requests, UI)
-  - AJAX POST request to API for sign-up
-  - AJAX POST request to API for sign-in
-  - AJAX PATCH request to API for change password
-  - AJAX PATCH request to API for sign-out
-
-- Debugging
-
-
-**Day 4: Front-end**
-- HTML/CSS
-  - Add New Plant Page
-  - Home Page with all added plants
-  - Plant Info Page
-
-- User interface logic (Event Listeners, Event Handlers, API/AJAX Requests, UI)
-  - AJAX POST request to add a new plant and its info
-  - AJAX GET request to API for all plants
-
-- Debugging
-
-
-**Day 5: Front-end**
-- HTML/CSS
-  - Plant Update Page
-  - Plant Delete Page
-- User interface logic (Event Listeners, Event Handlers, API/AJAX Requests, UI)
-  - AJAX PATCH request to update a plant and its info
-  - AJAX DELETE request to delete a plant and its info
-
-- Debugging
-
-
-**Day 6: Documentation/Deployment**
-- Update README for both repos
-- Deploy and add link to GitHub
+Through working on this app, I found that it gave me the opportunity to practice and understand better how to store and use stored data. It was an interesting challenge to figure out how to get the data that I needed for a particular AJAX request to the API even when a form did not provide a specific data.
 
 
 ## User Stories
@@ -97,10 +42,6 @@ I approached this project by setting up a well-thought-out plan so that as I am 
 - jQuery
 - cURL
 - API
-- Express
-- Mongoose
-- MongoDB
-- API
 - JSON
 - HTML
 - CSS
@@ -108,11 +49,16 @@ I approached this project by setting up a well-thought-out plan so that as I am 
 - Bootstrap
 - Handlebars
 
+### Unsolved Problems
+I would like to eventually:
+- Fix the update request for plants: While the update plant page is visible, I am currently working on getting the update request to go through.
+- Add another sub document feature that includes logs for users to keep track of their plant care journey.
+- Stylizing the page to fit smaller screens and to adhere to my wireframes set up.
 
 ## Images
 ### My Personal Jungle Garden Wireframes:
 
-![Project2-Wireframes](https://media.git.generalassemb.ly/user/28180/files/a256a400-b9f3-11ea-88cc-e3c55052c28f)
+[Project2-Wireframes](https://github.com/huangc909/my-personal-jungle-garden-client/files/4876298/Project2-Wireframes.3.pdf)
 
 
 ### ERD:

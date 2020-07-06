@@ -46,23 +46,23 @@ const getEditPlantPage = () => {
 
   const editPlantInfo = (`
     <p>Plant Name</p>
-    <input name="plant[name]" placeholder="${store.plant.name}" required>
+    <input name="plant[name]" placeholder="${store.plant.name}" type="text" required>
     <br>
     <br>
     <p>Plant Nickname</p>
-    <input name="plant[nickName]" placeholder="${store.plant.nickName}">
+    <input name="plant[nickName]" placeholder="${store.plant.nickName}" type="text">
     <br>
     <br>
     <p>Date Acquired</p>
-    <input name="plant[dateAcquired]" placeholder="${store.plant.dateAcquired}" required>
+    <input name="plant[dateAcquired]" placeholder="${store.plant.dateAcquired}" type="text" required>
     <br>
     <br>
     <p>Additional Notes</p>
-    <input name="plant[additionalNotes]" placeholder="${store.plant.additionalNotes}">
+    <input name="plant[additionalNotes]" placeholder="${store.plant.additionalNotes}" type="text">
     <br>
     <br>
     <p>Log</p>
-    <input name="plant[log]" placeholder="${store.plant.log}" required>
+    <input name="plant[log]" placeholder="${store.plant.log}" type="text" required>
     <br>
     <br>
     `)
@@ -219,7 +219,35 @@ const editPCNameSuccess = function (data) {
 }
 
 const editPCNameFailure = function () {
-  $('#message').text('Get Collections Failed')
+  $('#message').text('Edit Plant Collection Name Failed')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
+const editPlantSuccess = function (data) {
+  $('form').trigger('reset')
+  $('.plant-collections').hide()
+  $('.edit-pc-name').hide()
+  $('.plant-collection').hide()
+  $('.add-plant').hide()
+  $('.plant-collection-name').hide()
+  $('.edit-plant').hide()
+  $('.plant-information').show()
+
+  const plantInfo = (`
+    <h2>${store.plant.nickName}</h2>
+    <div class="plant-specs">
+      <h4>Name: ${store.plant.name}</h4>
+      <h4>Date Acquired: ${store.plant.dateAcquired}</h4>
+      <h4>Notes: ${store.plant.additionalNotes}</h4>
+      <h4>Log: ${store.plant.log}</h4>
+    <div>
+    `)
+
+  $('.plant-info').html(plantInfo).show()
+}
+const editPlantFailure = function () {
+  $('#message').text('Edit Plant Failed')
   $('#message').removeClass().addClass('failure')
   $('#message').delay(600).fadeOut(1500)
 }
@@ -260,7 +288,7 @@ const showPlantSuccess = function (response) {
   $('.plant-collection').hide()
   $('.add-plant').hide()
   $('.edit-plant').hide()
-  $('.plant-information').hide()
+  // $('.plant-information').hide()
   $('.plant-information').show()
 
   console.log(response)
@@ -376,5 +404,7 @@ module.exports = {
   deletePlantFailure,
   showPlantSuccess,
   showPlantFailure,
-  getEditPlantPage
+  getEditPlantPage,
+  editPlantSuccess,
+  editPlantFailure
 }

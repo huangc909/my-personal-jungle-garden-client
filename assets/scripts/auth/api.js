@@ -100,6 +100,26 @@ const editCollectionName = function (formData) {
   })
 }
 
+const editPlant = function (formData) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + store.plant._id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      plantCollection: {
+        name: formData.plant.name,
+        nickName: formData.plant.nickName,
+        dateAcquired: formData.plant.dateAcquired,
+        additionalNotes: formData.plant.additionalNotes,
+        log: formData.plant.log,
+        owner: store.user._id
+      }
+    }
+  })
+}
+
 const deletePlantCollection = function (id) {
   console.log('This is the API ' + id)
   return $.ajax({
@@ -190,5 +210,6 @@ module.exports = {
   getPCPage,
   addPlant,
   deletePlant,
-  getPlantPage
+  getPlantPage,
+  editPlant
 }

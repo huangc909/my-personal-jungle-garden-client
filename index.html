@@ -12,20 +12,33 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <img src="images/plant_logo.svg" class="logo">
+      <div class="head container">
+        <div class="row">
+          <div class="col-4 box1">
+          </div>
+
+          <div class="col-4 box2">
+            <img src="images/plant_logo.svg" class="logo">
+          </div>
+
+          <div class="col-4 box3">
+            <section class="menu-dropdown">
+              <div class="dropdown">
+                <div class="dropdown-content">
+                    <p id="show-pcs" class="pc-btn btn-info mr-2 pointer">See Collections</p>
+                    <p class="getChangePasswordPage pointer">Change Password</p>
+                    <form id="sign-out">
+                      <p class="pointer">Sign Out</p>
+                    </form>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
 
       <main>
-        <section class="menu-dropdown">
-          <div class="dropdown">
-            <div class="dropdown-content">
-                <p id="show-pcs" class="pc-btn btn-info mr-2 pointer">See Collections</p>
-                <p class="getChangePasswordPage pointer">Change Password</p>
-                <form id="sign-out">
-                  <p class="pointer">Sign Out</p>
-                </form>
-            </div>
-          </div>
-        </section>
+
 
         <div>
           <p id ="message"></p>
@@ -90,7 +103,7 @@
             <input name="plantCollection[name]" type="text" placeholder="Collection Name" required>
             <br>
             <button data-id="plantCollection._id"  type="submit">Add Collection</button>
-            <p id="back-to-pcs pointer">Nevermind</p>
+            <p id="back-to-pcs" class="pointer">Nevermind</p>
           </form>
         </section>
 
@@ -135,7 +148,7 @@
         </section>
 
         <section class="plant-information">
-          <div class="plant-name"></div>
+          <!-- <div class="plant-name"></div> -->
 
           <div id="plant-info" class="plant-info"></div>
           <button class="getEditPlantPage">Edit</button>
@@ -145,13 +158,11 @@
         <section class="edit-plant">
           <h2>Update Plant Info</h2>
           <form id="edit-plant">
-            <div class="edit-plant-info">
-
-            </div>
-              <button type="submit">Update</button>
-              <p class="back-to-plant-info">Nevermind</p>
-              <br>
+            <div class="edit-plant-info"></div>
+            <button type="submit">Update</button>
           </form>
+          <p class="back-to-plant-info">Nevermind</p>
+          <br>
         </section>
 
 

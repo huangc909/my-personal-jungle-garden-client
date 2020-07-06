@@ -129,10 +129,25 @@ const onEditPCName = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
-
+  console.log('Edit PC NAME data: ' + data)
+  console.log('PC id ' + data.plantCollection._id)
   api.editCollectionName(data)
     .then(() => ui.editPCNameSuccess(data))
     .catch(ui.editPCNameFailure)
+}
+
+const onEditPlant = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getFormFields(form)
+  console.log('data: ' + data)
+  console.log('store.plant.id ' + store.plant._id)
+  console.log('store.plantCollection id: ' + store.plantCollection._id)
+  console.log('store.plant name: ' + store.plant.name)
+  api.editPlant(data)
+    .then(() => ui.editPlantSuccess(data))
+    .catch(ui.editPlantFailure())
 }
 
 const onDeletePC = function (event) {
@@ -237,5 +252,6 @@ module.exports = {
   onAddPlant,
   onShowPlant,
   onGetEditPlantPage,
+  onEditPlant
   // onGoBackShowPlant
 }
