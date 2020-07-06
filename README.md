@@ -1,5 +1,7 @@
 # My Personal Jungle Garden: An App for Plant Lovers
 
+<img width="1275" alt="plants" src="https://user-images.githubusercontent.com/53062479/86590464-a89dd080-bf5d-11ea-9259-e68eca59ac44.png">
+
 My Personal Jungle Garden is an app that allows users to keep logs of their plant journey. I came up with this idea because I wanted to record my planting and gardening experiences. As a relatively new plant mom, I am still experimenting with understanding which types of plants are suitable for the different areas in my current living space. Plant lovers and gardeners would benefit from this app as it tracks their plant growing history, which could help them with future plant growths.
 
 
@@ -70,6 +72,19 @@ I would like to eventually:
 
 #### Upon Visiting the Page
 
-<img width="1270" alt="upon_visiting" src="https://user-images.githubusercontent.com/53062479/86590146-fe25ad80-bf5c-11ea-9a35-330302340397.png">
-
 ![Upon Visiting the Webpage](https://user-images.githubusercontent.com/53062479/86590146-fe25ad80-bf5c-11ea-9a35-330302340397.png)
+
+
+#### Plant Collections
+
+<img width="1269" alt="plant_collections" src="https://user-images.githubusercontent.com/53062479/86590441-9e7bd200-bf5d-11ea-82c7-18187459d2d6.png">
+
+
+#### One Plant Collection
+
+<img width="1277" alt="plant_info" src="https://user-images.githubusercontent.com/53062479/86590458-a5a2e000-bf5d-11ea-999d-20e8685be2f1.png">
+
+
+#### Plant Info
+
+<img width="1275" alt="plants" src="https://user-images.githubusercontent.com/53062479/86590464-a89dd080-bf5d-11ea-9259-e68eca59ac44.png">
