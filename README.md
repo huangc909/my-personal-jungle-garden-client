@@ -82,9 +82,9 @@ I would like to eventually:
 
 #### One Plant Collection
 
-<img width="1277" alt="plant_info" src="https://user-images.githubusercontent.com/53062479/86590458-a5a2e000-bf5d-11ea-999d-20e8685be2f1.png">
+<img width="1275" alt="plants" src="https://user-images.githubusercontent.com/53062479/86590464-a89dd080-bf5d-11ea-9259-e68eca59ac44.png">
 
 
 #### Plant Info
 
-<img width="1275" alt="plants" src="https://user-images.githubusercontent.com/53062479/86590464-a89dd080-bf5d-11ea-9259-e68eca59ac44.png">
+<img width="1277" alt="plant_info" src="https://user-images.githubusercontent.com/53062479/86590458-a5a2e000-bf5d-11ea-999d-20e8685be2f1.png">
