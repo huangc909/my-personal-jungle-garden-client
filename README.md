@@ -63,4 +63,4 @@ I would like to eventually:
 
 ### ERD:
 
-![Project2-ERD](https://user-images.githubusercontent.com/53062479/85951910-234e6680-b934-11ea-89b7-c2632aa3394c.png)
+![Project2-ERD](https://user-images.githubusercontent.com/53062479/86547712-e07a2900-bf07-11ea-9412-72062629f7e0.jpg)
