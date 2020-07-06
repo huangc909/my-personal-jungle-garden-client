@@ -171,8 +171,8 @@ const addPCFailure = function () {
 }
 
 const showPCsSuccess = function (data) {
+  // stores the incoming data on all the plant collections
   store.plantCollections = data.plantCollections
-  // console.log(store.plantCollections)
   $('form').trigger('reset')
   $('.plant-collections').show()
   $('.changepw').hide()
@@ -184,17 +184,22 @@ const showPCsSuccess = function (data) {
   $('.edit-plant').hide()
   $('.plant-information').hide()
 
+  // assign handlebar template for plant collections to variable
   const showPlantCollectionsHtml = showTemplate({ plantCollections: store.plantCollections })
 
+  // show handlebar template for plant collection
   $('.content-plant-collections').html(showPlantCollectionsHtml)
 
+  // If there are existing plant collections,
   if (store.plantCollections.length === 0) {
     $('.getDeletePCButtons').hide()
+    // display existing plant collection names
     const myPlantCollections = (`
       <h2>My Plant Collections</h2>
       `)
     $('.my-pc-collections').html(myPlantCollections).show()
   } else {
+    // otherwise, display "My Plant Collections"
     $('.getDeletePCButtons').show()
     const myPlantCollections = (`
       <h2>My Plant Collections</h2>
@@ -298,11 +303,8 @@ const showPlantSuccess = function (response) {
   $('.plant-collection').hide()
   $('.add-plant').hide()
   $('.edit-plant').hide()
-  // $('.plant-information').hide()
   $('.plant-information').show()
-
-  // console.log(response)
-
+  // After getting the plant resource, its info is displayed
   const plantInfo = (`
     <h2>${store.plant.nickName}</h2>
     <br>

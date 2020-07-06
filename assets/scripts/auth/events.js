@@ -101,13 +101,13 @@ const onSignOut = function (event) {
 
 const onAddPC = function (event) {
   event.preventDefault()
-  // console.log(event)
   const form = event.target
-  // console.log(form)
   const data = getFormFields(form)
-  // console.log(data)
+  // Sends the form data to the api
   api.addPlantCollection(data)
+    // After going to ui,
     .then(ui.addPCSuccess)
+    // sends api response to request for index of all plant collections
     .then(() => api.showPlantCollections()
       .then(ui.showPCsSuccess)
       .catch(ui.showPCsFailure)
@@ -118,7 +118,7 @@ const onAddPC = function (event) {
 const onShowPCs = function (event) {
   event.preventDefault()
   const infoPCs = store.plantCollections
-  // console.log('This is the onShowPCS ' + infoPCs)
+  // gets all of the plant collections information and sends it to the api GET index request
   api.showPlantCollections(infoPCs)
     .then(ui.showPCsSuccess)
     .catch(ui.showPCsFailure)
@@ -129,8 +129,7 @@ const onEditPCName = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
-  // console.log('Edit PC NAME data: ' + data)
-  // console.log('PC id ' + data.plantCollection._id)
+  // gets the pc name from the form field and sends it to the api
   api.editCollectionName(data)
     .then(() => ui.editPCNameSuccess(data))
     .catch(ui.editPCNameFailure)
@@ -154,7 +153,7 @@ const onDeletePC = function (event) {
   event.preventDefault()
   // console.log(event)
   const id = event.target.dataset.id
-
+  // gets the id of the plant collection and sends it to the api
   api.deletePlantCollection(id)
     .then(() => ui.deletePCSuccess(id))
     .then(() => api.showPlantCollections()
@@ -168,7 +167,7 @@ const onDeletePlant = function (event) {
   event.preventDefault()
   // console.log(event)
   const id = event.target.dataset.id
-
+  // gets the ide of the plant and sends it to the api
   api.deletePlant(id)
     .then(() => ui.deletePlantSuccess(id))
     .then(() => api.getPCPage(store.plantCollection._id)
@@ -180,12 +179,12 @@ const onDeletePlant = function (event) {
 
 const onShowPC = function (event) {
   event.preventDefault()
-  // event is the click event
+  // event is the click event of the plant collection
   // console.log(event)
   const id = event.target.dataset.id
   // id is the plant collection's id
   // console.log(id)
-
+  // send the plant collection's id to the api
   api.getPCPage(id)
     .then(ui.showPCSuccess)
     .catch(ui.showPCFailure)
@@ -193,10 +192,9 @@ const onShowPC = function (event) {
 
 const onShowPlant = function (event) {
   event.preventDefault()
-  // console.log(event)
-
+  // sets the plant id to a id
   const id = event.target.dataset.id
-
+  // sends the plant id to the api
   api.getPlantPage(id)
     .then(ui.showPlantSuccess)
     .catch(ui.showPlantFailure)
@@ -204,7 +202,9 @@ const onShowPlant = function (event) {
 
 const onGoBackShowPC = function (event) {
   event.preventDefault()
+  // sets the current plant collection id to infoPC
   const infoPC = store.plantCollection._id
+  // sends infoPC to api
   api.getPCPage(infoPC)
     .then(ui.showPCSuccess)
     .catch(ui.showPCFailure)
@@ -212,7 +212,9 @@ const onGoBackShowPC = function (event) {
 
 const onGoBackShowPlant = function (event) {
   event.preventDefault()
+  // sets current plant id to id
   const id = store.plant._id
+  // sends id to api
   api.getPlantPage(id)
     .then(ui.showPlantSuccess)
     .catch(ui.showPlantFailure)
@@ -222,7 +224,7 @@ const onAddPlant = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  // console.log(data)
+  // sends plant information to api
   api.addPlant(data)
     .then(ui.addPlantSuccess)
     .then((response) => ui.showPCSuccess(response))
