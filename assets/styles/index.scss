@@ -22,7 +22,7 @@ button {
   background-color: #A8E5AB;
 }
 
-.header {
+.head {
   .row {
     .box1 {
       display: flex;
@@ -31,11 +31,12 @@ button {
       display: flex;
       justify-content: center;
       align-items: center;
+      padding-top: 20px;
       .logo {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 10%;
+        width: 90%;
       }
     }
     .box3 {
@@ -60,6 +61,8 @@ button {
   height: 50px;
   width: 50px;
   border: 1px solid;
+  border-radius: 10px;
+  background-color: #E89AD9;
 }
 
 .dropdown-content {
@@ -86,6 +89,24 @@ button {
 
 .plant-collections {
   display: none;
+}
+
+.go-back,
+.switch {
+  color: #F4FFFF;
+}
+
+.pc-name-header {
+  margin: 25px;
+  padding: 20px;
+  border: 2px solid;
+  background-color: #174419;
+  color: #FFFFFF;
+  opacity: 0.8;
+}
+
+.plant-listing {
+  background-color: #EFDD73;
 }
 
 .getDeletePCButtons {

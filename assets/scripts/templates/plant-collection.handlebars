@@ -1,5 +1,5 @@
-  {{log plantCollection}}
-  <section data-id="{{plantCollection._id}}">
+
+  <section data-id="{{plantCollection._id}}" class="pc-name-header">
     <h2 data-id="{{plantCollection._id}}">
       {{#if plantCollection.name}}
         {{plantCollection.name}}
@@ -11,7 +11,7 @@
     {{#each plantCollection.plants as |plant|}}
 
       <section data-id="{{plant._id}}">
-        <h4 data-id="{{plant._id}}" class="plant pointer">
+        <h4 data-id="{{plant._id}}" class="plant pointer plant-listing">
         {{#if plant.nickName}}
           {{plant.nickName}}
         {{else}}
