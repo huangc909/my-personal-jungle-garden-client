@@ -64,3 +64,12 @@ I would like to eventually:
 ### ERD:
 
 ![Project2-ERD](https://user-images.githubusercontent.com/53062479/86547712-e07a2900-bf07-11ea-9412-72062629f7e0.jpg)
+
+
+### Current Website Design
+
+#### Upon Visiting the Page
+
+<img width="1270" alt="upon_visiting" src="https://user-images.githubusercontent.com/53062479/86590146-fe25ad80-bf5c-11ea-9a35-330302340397.png">
+
+![Upon Visiting the Webpage](https://user-images.githubusercontent.com/53062479/86590146-fe25ad80-bf5c-11ea-9a35-330302340397.png)
