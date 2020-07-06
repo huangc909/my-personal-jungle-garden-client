@@ -99,6 +99,15 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onShowPCs = function (event) {
+  event.preventDefault()
+  const infoPCs = store.plantCollections
+  // gets all of the plant collections information and sends it to the api GET index request
+  api.showPlantCollections(infoPCs)
+    .then(ui.showPCsSuccess)
+    .catch(ui.showPCsFailure)
+}
+
 const onAddPC = function (event) {
   event.preventDefault()
   const form = event.target
@@ -113,15 +122,6 @@ const onAddPC = function (event) {
       .catch(ui.showPCsFailure)
     )
     .catch(ui.addPCFailure)
-}
-
-const onShowPCs = function (event) {
-  event.preventDefault()
-  const infoPCs = store.plantCollections
-  // gets all of the plant collections information and sends it to the api GET index request
-  api.showPlantCollections(infoPCs)
-    .then(ui.showPCsSuccess)
-    .catch(ui.showPCsFailure)
 }
 
 const onEditPCName = function (event) {

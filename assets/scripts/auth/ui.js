@@ -122,10 +122,9 @@ const signInFailure = function () {
 
 const changePasswordSuccess = function (response) {
   $('form').trigger('reset')
-  // $('#message').text('Change Password success!').show()
-  // $('#message').removeClass().addClass('success')
-  // $('#message').delay(600).fadeOut(1500)
-  // $('.signin').show()
+  $('#message').text('Change Password success!').show()
+  $('#message').removeClass().addClass('success')
+  $('#message').delay(600).fadeOut(1500)
 }
 
 const changePasswordFailure = function () {
