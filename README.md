@@ -1,6 +1,6 @@
 # My Personal Jungle Garden: An App for Plant Lovers
 
-<img width="1277" alt="plant_info" src="https://user-images.githubusercontent.com/53062479/86590458-a5a2e000-bf5d-11ea-999d-20e8685be2f1.png">
+<img width="1259" alt="plant_info" src="https://user-images.githubusercontent.com/53062479/86591294-4d6cdd80-bf5f-11ea-8983-0b59e322f712.png">
 
 My Personal Jungle Garden is an app that allows users to keep logs of their plant journey. I came up with this idea because I wanted to record my planting and gardening experiences. As a relatively new plant mom, I am still experimenting with understanding which types of plants are suitable for the different areas in my current living space. Plant lovers and gardeners would benefit from this app as it tracks their plant growing history, which could help them with future plant growths.
 
@@ -87,4 +87,4 @@ I would like to eventually:
 
 #### Plant Info
 
-<img width="1277" alt="plant_info" src="https://user-images.githubusercontent.com/53062479/86590458-a5a2e000-bf5d-11ea-999d-20e8685be2f1.png">
+<img width="1259" alt="plant_info" src="https://user-images.githubusercontent.com/53062479/86591294-4d6cdd80-bf5f-11ea-8983-0b59e322f712.png">
