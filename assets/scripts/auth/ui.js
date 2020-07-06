@@ -20,8 +20,10 @@ const getChangePasswordPage = () => {
   $('.plant-collections').hide()
   $('.add-pc').hide()
   $('.plant-collection').hide()
-  $('.edit-plant').hide()
+  $('.edit-pc-name').hide()
+  $('.add-plant').hide()
   $('.plant-information').hide()
+  $('.edit-plant').hide()
 }
 
 const getAddPCPage = () => {
@@ -142,6 +144,12 @@ const signOutSuccess = function (response) {
   $('.menu-dropdown').hide()
   $('.changepw').hide()
   $('.plant-collections').hide()
+  $('.add-pc').hide()
+  $('.plant-collection').hide()
+  $('.edit-pc-name').hide()
+  $('.add-plant').hide()
+  $('.plant-information').hide()
+  $('.edit-plant').hide()
 }
 
 const signOutFailure = function () {
