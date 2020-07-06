@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 .success {
-  color: green;
+  color: #C7E2C8;
 }
 
 .failure {
@@ -15,11 +15,18 @@ body {
   background-attachment: fixed;
   background-position: center;
   text-align: center;
+  color: #C7E2C8;
 }
 
 button {
   border-radius: 10px;
   background-color: #A8E5AB;
+  color: #174419;
+}
+
+button:hover {
+  background-color: #174419;
+  color: #A8E5AB;
 }
 
 .head {
@@ -73,10 +80,16 @@ button {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
   z-index: 1;
+  color: #0D2D0E;
+  border-radius: 10px;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.dm:hover {
+  color: #A83B94;
 }
 
 .signup {
@@ -97,16 +110,35 @@ button {
 }
 
 .pc-name-header {
-  margin: 25px;
+  margin: 30px;
   padding: 20px;
   border: 2px solid;
   background-color: #174419;
   color: #FFFFFF;
   opacity: 0.8;
+  border-radius: 10px;
+}
+
+.pc-name-header:hover {
+  box-shadow: 0px -2px 8px 1px rgba(241,255,207,0.82);
+  color: #FFFFFF;
+  opacity: 1;
 }
 
 .plant-listing {
-  background-color: #EFDD73;
+  background-color: #FFFFFF;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 300px;
+  margin-right: 300px;
+  padding: 15px;
+  color: #0D2D0E;
+  border-radius: 10px;
+}
+
+.plant-listing:hover {
+  background-color: #0D2D0E;
+  color: #FFFFFF;
 }
 
 .getDeletePCButtons {
@@ -139,7 +171,21 @@ button {
 
 .plant-information {
   display: none;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  margin-left: 200px;
+  margin-right: 200px;
+  color: #174419;
+  padding: 10px;
 }
+
+.see-plants {
+  color: #174419;
+}
+
+// .plant-style {
+//   text-align: left;
+// }
 
 .edit-plant {
   display: none;

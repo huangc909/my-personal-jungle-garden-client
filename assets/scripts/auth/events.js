@@ -210,13 +210,13 @@ const onGoBackShowPC = function (event) {
     .catch(ui.showPCFailure)
 }
 
-// const onGoBackShowPlant = function (event) {
-//   event.preventDefault()
-//   const id = store.plants._id
-//   api.getPlantPage(id)
-//     .then(ui.showPlantSuccess)
-//     .catch(ui.showPlantFailure)
-// }
+const onGoBackShowPlant = function (event) {
+  event.preventDefault()
+  const id = store.plant._id
+  api.getPlantPage(id)
+    .then(ui.showPlantSuccess)
+    .catch(ui.showPlantFailure)
+}
 
 const onAddPlant = function (event) {
   event.preventDefault()
@@ -252,6 +252,6 @@ module.exports = {
   onAddPlant,
   onShowPlant,
   onGetEditPlantPage,
-  onEditPlant
-  // onGoBackShowPlant
+  onEditPlant,
+  onGoBackShowPlant
 }

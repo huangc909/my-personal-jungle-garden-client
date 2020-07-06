@@ -254,6 +254,7 @@ const editPlantSuccess = function (data) {
 
   $('.plant-info').html(plantInfo).show()
 }
+
 const editPlantFailure = function () {
   $('#message').text('Edit Plant Failed')
   $('#message').removeClass().addClass('failure')

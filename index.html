@@ -25,10 +25,10 @@
             <section class="menu-dropdown">
               <div class="dropdown">
                 <div class="dropdown-content">
-                    <p id="show-pcs" class="pc-btn btn-info mr-2 pointer">See Collections</p>
-                    <p class="getChangePasswordPage pointer">Change Password</p>
+                    <p id="show-pcs" class="pc-btn dm pointer">See Collections</p>
+                    <p class="getChangePasswordPage dm pointer">Change Password</p>
                     <form id="sign-out">
-                      <p class="pointer">Sign Out</p>
+                      <p class="dm pointer">Sign Out</p>
                     </form>
                 </div>
               </div>
@@ -81,6 +81,7 @@
               <br>
               <input name="passwords[new]" type="password" placeholder="New Password" required>
               <br>
+              <br>
               <button type="submit">Change Password</button>
           </form>
         </section>
@@ -92,7 +93,7 @@
             </div>
 
             <button class="getAddPCPage">Add Plant Collection</button>
-            <button class="getDeletePCButtons btn-pc btn-outline-info">Delete Plant Collection</button>
+            <button class="getDeletePCButtons btn-pc">Delete Plant Collection</button>
 
           </div>
         </section>
@@ -102,8 +103,9 @@
           <form id="add-pc">
             <input name="plantCollection[name]" type="text" placeholder="Collection Name" required>
             <br>
+            <br>
             <button data-id="plantCollection._id"  type="submit">Add Collection</button>
-            <p id="back-to-pcs" class="pointer go-back">Nevermind</p>
+            <p class="back-to-pcs pointer go-back">Nevermind</p>
           </form>
         </section>
 
@@ -112,9 +114,11 @@
             <h2 class="plant-collection-name"></h2>
 
             <div id="content-plants" class="content-plants"></div>
+            <br>
             <button class="getEditPCNamePage">Edit Collection Name</button>
             <button class="get-add-new-plant">Add New Plant</button>
             <button class="getDeletePlantButtons">Delete Plant</button>
+            <p class="back-to-pcs pointer go-back">See All Collections</p>
           </div>
         </section>
 
@@ -122,6 +126,7 @@
           <h3 class="pc-name"></h3>
           <form id="edit-pc-name">
             <div class="edit-pc-info"></div>
+            <br>
             <button type="submit">Update</button>
           </form>
           <p class="back-to-pc pointer go-back">Nevermind</p>
@@ -148,11 +153,13 @@
         </section>
 
         <section class="plant-information">
-          <!-- <div class="plant-name"></div> -->
-
+        <div class="plant-style">
           <div id="plant-info" class="plant-info"></div>
+          <br>
+          <br>
           <button class="getEditPlantPage">Edit</button>
-          <p class="back-to-pc pointer go-back">See All Plants</p>
+          <p class="back-to-pc pointer see-plants">See All Plants</p>
+        </div>
         </section>
 
         <section class="edit-plant">
@@ -161,7 +168,7 @@
             <div class="edit-plant-info"></div>
             <button type="submit">Update</button>
           </form>
-          <p class="back-to-plant-info go-back">Nevermind</p>
+          <p class="back-to-plant-info go-back pointer">Nevermind</p>
           <br>
         </section>
 
