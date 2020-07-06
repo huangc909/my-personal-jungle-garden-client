@@ -244,6 +244,7 @@ const editPlantSuccess = function (data) {
 
   const plantInfo = (`
     <h2>${store.plant.nickName}</h2>
+    <br>
     <div class="plant-specs">
       <h4>Name: ${store.plant.name}</h4>
       <h4>Date Acquired: ${store.plant.dateAcquired}</h4>
@@ -304,6 +305,7 @@ const showPlantSuccess = function (response) {
 
   const plantInfo = (`
     <h2>${store.plant.nickName}</h2>
+    <br>
     <div class="plant-specs">
       <h4>Name: ${store.plant.name}</h4>
       <h4>Date Acquired: ${store.plant.dateAcquired}</h4>
