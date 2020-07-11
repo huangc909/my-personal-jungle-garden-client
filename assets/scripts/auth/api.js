@@ -108,7 +108,7 @@ const editPlant = function (formData) {
       Authorization: 'Bearer ' + store.user.token
     },
     data: {
-      plantCollection: {
+      plant: {
         name: formData.plant.name,
         nickName: formData.plant.nickName,
         dateAcquired: formData.plant.dateAcquired,

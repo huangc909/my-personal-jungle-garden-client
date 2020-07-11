@@ -48,23 +48,23 @@ const getEditPlantPage = () => {
 
   const editPlantInfo = (`
     <p>Plant Name</p>
-    <input name="plant[name]" placeholder="${store.plant.name}" type="text" required>
+    <input name="plant[name]" value="${store.plant.name}" type="text" required>
     <br>
     <br>
     <p>Plant Nickname</p>
-    <input name="plant[nickName]" placeholder="${store.plant.nickName}" type="text">
+    <input name="plant[nickName]" value="${store.plant.nickName}" type="text">
     <br>
     <br>
     <p>Date Acquired</p>
-    <input name="plant[dateAcquired]" placeholder="${store.plant.dateAcquired}" type="text" required>
+    <input name="plant[dateAcquired]" value="${store.plant.dateAcquired}" type="text" required>
     <br>
     <br>
     <p>Additional Notes</p>
-    <input name="plant[additionalNotes]" placeholder="${store.plant.additionalNotes}" type="text">
+    <input name="plant[additionalNotes]" value="${store.plant.additionalNotes}" type="text">
     <br>
     <br>
     <p>Log</p>
-    <input name="plant[log]" placeholder="${store.plant.log}" type="text" required>
+    <input name="plant[log]" value="${store.plant.log}" type="text" required>
     <br>
     <br>
     `)
@@ -170,6 +170,7 @@ const addPCFailure = function () {
 }
 
 const showPCsSuccess = function (data) {
+  console.log('This is the data for the plant collections' + data)
   // stores the incoming data on all the plant collections
   store.plantCollections = data.plantCollections
   $('form').trigger('reset')
@@ -246,6 +247,9 @@ const editPlantSuccess = function (data) {
   $('.edit-plant').hide()
   $('.plant-information').show()
 
+  console.log(data.plant.name)
+  store.plant = data.plant
+
   const plantInfo = (`
     <h2>${store.plant.nickName}</h2>
     <br>
@@ -296,6 +300,9 @@ const deletePlantFailure = function () {
 
 const showPlantSuccess = function (response) {
   $('form').trigger('reset')
+  console.log('This is the shown plant' + response.plant.name)
+  console.log('This is the shown plant nickname' + response.plant.nickName)
+  console.log('This is the shown plant id' + response.plant._id)
   store.plant = response.plant
   $('.plant-collections').hide()
   $('.edit-pc-name').hide()
