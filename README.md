@@ -4,7 +4,11 @@
 
 My Personal Jungle Garden is an app that allows users to keep logs of their plant journey. I came up with this idea because I wanted to record my planting and gardening experiences. As a relatively new plant mom, I am still experimenting with understanding which types of plants are suitable for the different areas in my current living space. Plant lovers and gardeners would benefit from this app as it tracks their plant growing history, which could help them with future plant growths.
 
-Visit app: https://huangc909.github.io/my-personal-jungle-garden-client/
+
+## Links
+- Client Application: https://huangc909.github.io/my-personal-jungle-garden-client/
+- API: https://afternoon-hamlet-91716.herokuapp.com/
+- API Repository: https://github.com/huangc909/my-personal-jungle-garden
 
 
 ## Planning Story
