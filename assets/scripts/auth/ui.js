@@ -1,9 +1,11 @@
 'use strict'
 
 const store = require('./../store')
-const showTemplate = require('../templates/plant-collection-listing.handlebars')
+const showTemplate = require('../templates/plant-collection-listings.handlebars')
 
 const showPCTemplate = require('../templates/plant-collection.handlebars')
+
+const showPlantInfoTemplate = require('../templates/plant-info.handlebars')
 
 const getSignUpPage = () => {
   $('.signin').hide()
@@ -300,10 +302,8 @@ const deletePlantFailure = function () {
 
 const showPlantSuccess = function (response) {
   $('form').trigger('reset')
-  console.log('This is the shown plant' + response.plant.name)
-  console.log('This is the shown plant nickname' + response.plant.nickName)
-  console.log('This is the shown plant id' + response.plant._id)
   store.plant = response.plant
+  console.log(store)
   $('.plant-collections').hide()
   $('.edit-pc-name').hide()
   $('.plant-collection').hide()
@@ -311,18 +311,19 @@ const showPlantSuccess = function (response) {
   $('.edit-plant').hide()
   $('.plant-information').show()
   // After getting the plant resource, its info is displayed
-  const plantInfo = (`
-    <h2>${store.plant.nickName}</h2>
-    <br>
-    <div class="plant-specs">
-      <h4>Name: ${store.plant.name}</h4>
-      <h4>Date Acquired: ${store.plant.dateAcquired}</h4>
-      <h4>Notes: ${store.plant.additionalNotes}</h4>
-      <h4>Log: ${store.plant.log}</h4>
-    <div>
-    `)
+  // const plantInfo = (`
+  //   <h2>${store.plant.nickName}</h2>
+  //   <br>
+  //   <div class="plant-specs">
+  //     <h4>Name: ${store.plant.name}</h4>
+  //     <h4>Date Acquired: ${store.plant.dateAcquired}</h4>
+  //     <h4>Notes: ${store.plant.additionalNotes}</h4>
+  //     <h4>Log: ${store.plant.logs}</h4>
+  //   <div>
+  //   `)
+  const showPlantInfoHtml = showPlantInfoTemplate({ plant: store.plant })
 
-  $('.plant-info').html(plantInfo).show()
+  $('.plant-info').html(showPlantInfoHtml).show()
 }
 
 const showPlantFailure = function () {

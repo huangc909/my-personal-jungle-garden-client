@@ -1,0 +1,21 @@
+
+  <section data-id="{{plant._id}}">
+    <h4 data-id="{{plant._id}}" class="plant pointer plant-listing">
+    {{#if plant.nickName}}
+      {{plant.nickName}}
+    {{else}}
+      {{plant.name}}
+    {{/if}}
+    </h4>
+
+    {{#each plantCollection.plant.logs as |log|}}
+
+      <section data-id="{{log._id}}">
+        <h6 data-id="{{log._id}}" class="plant pointer plant-listing">
+      </h6>
+
+        <button data-id="{{plant._id}}" class="btn-plant-delete btn-danger delete-plant-button">Delete</button>
+      </section>
+    {{/each}}
+
+  </section>
