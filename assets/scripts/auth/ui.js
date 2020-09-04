@@ -65,10 +65,6 @@ const getEditPlantPage = () => {
     <input name="plant[additionalNotes]" value="${store.plant.additionalNotes}" type="text">
     <br>
     <br>
-    <p>Log</p>
-    <input name="plant[log]" value="${store.plant.log}" type="text" required>
-    <br>
-    <br>
     `)
 
   $('.edit-plant-info').html(editPlantInfo).show()
@@ -259,7 +255,6 @@ const editPlantSuccess = function (data) {
       <h4>Name: ${store.plant.name}</h4>
       <h4>Date Acquired: ${store.plant.dateAcquired}</h4>
       <h4>Notes: ${store.plant.additionalNotes}</h4>
-      <h4>Log: ${store.plant.log}</h4>
     <div>
     `)
 
@@ -311,16 +306,6 @@ const showPlantSuccess = function (response) {
   $('.edit-plant').hide()
   $('.plant-information').show()
   // After getting the plant resource, its info is displayed
-  // const plantInfo = (`
-  //   <h2>${store.plant.nickName}</h2>
-  //   <br>
-  //   <div class="plant-specs">
-  //     <h4>Name: ${store.plant.name}</h4>
-  //     <h4>Date Acquired: ${store.plant.dateAcquired}</h4>
-  //     <h4>Notes: ${store.plant.additionalNotes}</h4>
-  //     <h4>Log: ${store.plant.logs}</h4>
-  //   <div>
-  //   `)
   const showPlantInfoHtml = showPlantInfoTemplate({ plant: store.plant })
 
   $('.plant-info').html(showPlantInfoHtml).show()

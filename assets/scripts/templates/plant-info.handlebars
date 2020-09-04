@@ -1,19 +1,19 @@
 
-  <section data-id="{{plantCollection._id.plant._id}}">
-    <h4 data-id="{{plantCollection._id.plant._id}}">
+  <section data-id="{{plant._id}}">
+    <h4 data-id="{{plant._id}}">
     {{#if plant.nickName}}
       {{plant.nickName}}
     {{else}}
       {{plant.name}}
     {{/if}}
     </h4>
-    <p data-id="{{plantCollection._id.plant._id}}">
+    <p data-id="{{plant._id}}">
       Plant Name: {{plant.name}}
     </p>
-    <p data-id="{{plantCollection._id.plant._id}}">
+    <p data-id="{{plant._id}}">
       Date Acquired: {{plant.dateAcquired}}
     </p>
-    <p data-id="{{plantCollection._id.plant._id}}">
+    <p data-id="{{plant._id}}">
       {{#if plant.additionalNotes}}
         Additional Notes: {{plant.additionalNotes}}
       {{else}}
