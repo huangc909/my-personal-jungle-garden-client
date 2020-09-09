@@ -190,9 +190,28 @@ const addPlant = function (formData) {
         nickName: formData.plant.nickName,
         dateAcquired: formData.plant.dateAcquired,
         additionalNotes: formData.plant.additionalNotes,
-        log: formData.plant.log,
         plantCollectionId: store.plantCollection._id,
         owner: store.user._id
+      }
+    }
+  })
+}
+
+const addLog = function (formData, pcId, plantId) {
+  console.log('This is pcId and plantId in the api ' + pcId + 'and' + plantId)
+  // console.log(formData)
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/plantCollections/' + pcId + '/plants/' + plantId + '/logs',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      log: {
+        date: formData.log.date,
+        entry: formData.log.entry,
+        plantCollectionId: pcId,
+        plantId: plantId
       }
     }
   })
@@ -211,5 +230,6 @@ module.exports = {
   addPlant,
   deletePlant,
   getPlantPage,
-  editPlant
+  editPlant,
+  addLog
 }

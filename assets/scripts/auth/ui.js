@@ -388,6 +388,16 @@ const addPlantFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
+const addLogSuccess = function (response) {
+  return response
+}
+
+const addLogFailure = function () {
+  $('#message').text('Unable to add new log')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
 module.exports = {
   getSignUpPage,
   getSignInPage,
@@ -424,5 +434,7 @@ module.exports = {
   showPlantFailure,
   getEditPlantPage,
   editPlantSuccess,
-  editPlantFailure
+  editPlantFailure,
+  addLogSuccess,
+  addLogFailure
 }

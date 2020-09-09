@@ -232,6 +232,24 @@ const onAddPlant = function (event) {
     .catch(ui.addPlantFailure)
 }
 
+const onAddLog = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
+  console.log('This is the store in the events' + store.plant._id)
+  const plantId = store.plant._id
+  const pcId = store.plantCollection._id
+  api.addLog(data, pcId, plantId)
+    .then((response) => {
+      console.log('This is the response sent back from the API' + response)
+      return response
+    })
+    .then(ui.addLogSuccess)
+    .then((response) => ui.showPlantSuccess(response))
+    .catch(ui.addLogFailure)
+}
+
 module.exports = {
   onGetSignUpPage,
   onGetSignInPage,
@@ -257,5 +275,6 @@ module.exports = {
   onShowPlant,
   onGetEditPlantPage,
   onEditPlant,
+  onAddLog,
   onGoBackShowPlant
 }
