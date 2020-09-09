@@ -51,6 +51,11 @@ const onGetAddNewPlant = function (event) {
   ui.getAddNewPlant()
 }
 
+const onGetAddNewLog = function (event) {
+  event.preventDefault()
+  ui.getAddNewLog()
+}
+
 const onSignUp = function (event) {
   event.preventDefault()
 
@@ -236,6 +241,7 @@ module.exports = {
   onGetDeletePCButtons,
   onGetDeletePlantButtons,
   onGetAddNewPlant,
+  onGetAddNewLog,
   onSignUp,
   onSignIn,
   onChangePassword,

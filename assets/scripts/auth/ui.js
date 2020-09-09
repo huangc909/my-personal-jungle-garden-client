@@ -84,6 +84,11 @@ const getAddNewPlant = () => {
   $('.add-plant').show()
 }
 
+const getAddNewLog = () => {
+  $('.plant-information').hide()
+  $('.add-log').show()
+}
+
 const signUpSuccess = function (response) {
   $('form').trigger('reset')
   $('#message').text('Sign-up Success!').show()
@@ -392,6 +397,7 @@ module.exports = {
   getDeletePCButtons,
   getDeletePlantButtons,
   getAddNewPlant,
+  getAddNewLog,
   signUpSuccess,
   signUpFailure,
   signInSuccess,
