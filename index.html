@@ -18,7 +18,7 @@
           </div>
 
           <div class="col-4 box2">
-            <img src="https://user-images.githubusercontent.com/53062479/86633174-57620100-bf9e-11ea-9c67-711de00a4118.png" class="logo" />
+            <img src="https://user-images.githubusercontent.com/53062479/86633174-57620100-bf9e-11ea-9c67-711de00a4118.png" alt="" class="logo" />
           </div>
 
           <div class="col-4 box3">
@@ -157,6 +157,7 @@
           <div id="plant-info" class="plant-info"></div>
           <br>
           <br>
+          <button class="getEditPlantPage">Add New Log</button>
           <button class="getEditPlantPage">Edit</button>
           <p class="back-to-pc pointer see-plants">See All Plants</p>
         </div>
@@ -170,6 +171,23 @@
           </form>
           <p class="back-to-plant-info go-back pointer">Nevermind</p>
           <br>
+        </section>
+
+        <section class="add-log">
+          <h2>Add New Log</h2>
+          <form id="add-log">
+              <input name="log[date]" type="date" min="1990-01-01" required>
+              <br>
+              <br>
+              <textarea name="log[entry]" rows="10" cols="30" placeholder="Log Entry"></textarea>
+              <!-- <br>
+              <input name="plant[log]" type="text" placeholder="Log" required> -->
+              <br>
+              <br>
+              <button type="submit">Add Log</button>
+              <p class="back-to-pc pointer go-back">Nevermind</p>
+              <br>
+          </form>
         </section>
 
 
