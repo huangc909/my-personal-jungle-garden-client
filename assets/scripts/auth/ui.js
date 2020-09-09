@@ -26,6 +26,7 @@ const getChangePasswordPage = () => {
   $('.add-plant').hide()
   $('.plant-information').hide()
   $('.edit-plant').hide()
+  $('.add-log').hide()
 }
 
 const getAddPCPage = () => {
@@ -147,6 +148,7 @@ const signOutSuccess = function (response) {
   $('.add-plant').hide()
   $('.plant-information').hide()
   $('.edit-plant').hide()
+  $('.add-log').hide()
 }
 
 const signOutFailure = function () {
@@ -181,6 +183,7 @@ const showPCsSuccess = function (data) {
   $('.plant-info').hide()
   $('.edit-plant').hide()
   $('.plant-information').hide()
+  $('.add-log').hide()
 
   // assign handlebar template for plant collections to variable
   const showPlantCollectionsHtml = showTemplate({ plantCollections: store.plantCollections })
@@ -221,6 +224,7 @@ const editPCNameSuccess = function (data) {
   $('.plant-collection-name').show()
   $('.edit-plant').hide()
   $('.plant-information').hide()
+  $('.add-log').hide()
 
   store.plantCollection.name = data.plantCollection.name
 
@@ -244,6 +248,7 @@ const editPlantSuccess = function (data) {
   $('.plant-collection-name').hide()
   $('.edit-plant').hide()
   $('.plant-information').show()
+  $('.add-log').hide()
 
   console.log(data.plant.name)
   store.plant = data.plant
@@ -304,6 +309,7 @@ const showPlantSuccess = function (response) {
   $('.plant-collection').hide()
   $('.add-plant').hide()
   $('.edit-plant').hide()
+  $('.add-log').hide()
   $('.plant-information').show()
   // After getting the plant resource, its info is displayed
   const showPlantInfoHtml = showPlantInfoTemplate({ plant: store.plant })
@@ -327,6 +333,7 @@ const showPCSuccess = function (response) {
   $('.add-plant').hide()
   $('.plant-collection-name').hide()
   $('.plant-information').hide()
+  $('.add-log').hide()
 
   const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })
 
