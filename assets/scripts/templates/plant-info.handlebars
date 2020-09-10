@@ -20,12 +20,20 @@
         Additional Notes: N/A
       {{/if}}
     </p>
+    <br>
+    <br>
+
+  <h5>Logs</h5>
 
     {{#each plant.logs as |log|}}
 
       <section data-id="{{log._id}}">
-        <h6 data-id="{{log._id}}" class="plant pointer plant-listing">
-      </h6>
+        <h6 data-id="{{log._id}}">
+          Date: {{log.date}}
+        </h6>
+        <p data-id="{{log._id}}">
+          Entry: {{log.entry}}
+        </p>
 
         <button data-id="{{plant._id}}" class="btn-plant-delete btn-danger delete-plant-button">Delete</button>
       </section>
