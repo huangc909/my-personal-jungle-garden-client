@@ -1,19 +1,26 @@
 
   <section data-id="{{plant._id}}">
-    <h4 data-id="{{plant._id}}">
+    <h4>
     {{#if plant.nickName}}
       {{plant.nickName}}
     {{else}}
       {{plant.name}}
     {{/if}}
     </h4>
-    <p data-id="{{plant._id}}">
+
+    {{# if plant.nickName}}
+    <p>
       Plant Name: {{plant.name}}
     </p>
-    <p data-id="{{plant._id}}">
+    {{else}}
+    <p></p>
+    {{/if}}
+
+    <p>
       Date Acquired: {{plant.dateAcquired}}
     </p>
-    <p data-id="{{plant._id}}">
+
+    <p>
       {{#if plant.additionalNotes}}
         Additional Notes: {{plant.additionalNotes}}
       {{else}}
@@ -28,14 +35,14 @@
     {{#each plant.logs as |log|}}
 
       <section data-id="{{log._id}}">
-        <h6 data-id="{{log._id}}">
+        <h6>
           Date: {{log.date}}
         </h6>
-        <p data-id="{{log._id}}">
+        <p>
           Entry: {{log.entry}}
         </p>
 
-        <button data-id="{{plant._id}}" class="btn-plant-delete btn-danger delete-plant-button">Delete</button>
+        <button class="btn-plant-delete btn-danger delete-plant-button">Delete</button>
       </section>
     {{/each}}
 
