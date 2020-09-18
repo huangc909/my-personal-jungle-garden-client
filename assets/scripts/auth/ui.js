@@ -39,7 +39,7 @@ const getEditPCNamePage = (pcName) => {
   $('.plant-collection').hide()
   const editPCName = (`
     <h2>Edit Collection Name</h2>
-    <input name="plantCollection[name]" type="text" placeholder="${pcName}" required>
+    <input name="plantCollection[name]" type="text" value="${pcName}" required>
     <br>
     `)
   $('.edit-pc-info').html(editPCName).show()
@@ -175,7 +175,7 @@ const addPCFailure = function () {
 }
 
 const showPCsSuccess = function (data) {
-  console.log('This is the data for the plant collections' + data)
+  // console.log(data)
   // stores the incoming data on all the plant collections
   store.plantCollections = data.plantCollections
   $('form').trigger('reset')
@@ -255,7 +255,7 @@ const editPlantSuccess = function (data) {
   $('.plant-information').show()
   $('.add-log').hide()
 
-  console.log(data.plant.name)
+  // console.log(data.plant.name)
   store.plant = data.plant
 
   const plantInfo = (`
@@ -308,13 +308,13 @@ const deletePlantFailure = function () {
 const showPlantSuccess = function (response) {
   $('form').trigger('reset')
   // shows plant's info
-  console.log(response)
+  // console.log(response)
   store.plant = response.plant
   // only console.log(store) will show plant collection info
   // console.log('this is the store ' + store) does not work
-  console.log(store)
+  // console.log(store)
   // shows plant's info
-  console.log(store.plant)
+  // console.log(store.plant)
   $('.plant-collections').hide()
   $('.edit-pc-name').hide()
   $('.plant-collection').hide()

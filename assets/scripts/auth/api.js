@@ -198,7 +198,6 @@ const addPlant = function (formData) {
 }
 
 const addLog = function (formData, pcId, plantId) {
-  console.log('This is pcId and plantId in the api ' + pcId + 'and' + plantId)
   // console.log(formData)
   return $.ajax({
     method: 'POST',

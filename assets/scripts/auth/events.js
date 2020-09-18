@@ -239,15 +239,11 @@ const onAddLog = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log(data)
-  console.log('This is the store in the events' + store.plant._id)
+  // console.log(data)
+  // console.log(store.plant._id)
   const plantId = store.plant._id
   const pcId = store.plantCollection._id
   api.addLog(data, pcId, plantId)
-    .then((response) => {
-      console.log(response)
-      return response
-    })
     .then((id) => api.getPlantPage(plantId)
       .then(ui.showPlantSuccess)
       .catch(ui.showPlantFailure))
