@@ -255,7 +255,6 @@ const editPlantSuccess = function (data) {
   $('.plant-information').show()
   $('.add-log').hide()
 
-  // console.log(data.plant.name)
   store.plant = data.plant
 
   const plantInfo = (`
@@ -305,37 +304,8 @@ const deletePlantFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
-const showPlantSuccess = function (response) {
-  $('form').trigger('reset')
-  // shows plant's info
-  // console.log(response)
-  store.plant = response.plant
-  // only console.log(store) will show plant collection info
-  // console.log('this is the store ' + store) does not work
-  // console.log(store)
-  // shows plant's info
-  // console.log(store.plant)
-  $('.plant-collections').hide()
-  $('.edit-pc-name').hide()
-  $('.plant-collection').hide()
-  $('.add-plant').hide()
-  $('.edit-plant').hide()
-  $('.add-log').hide()
-  $('.plant-information').show()
-  // After getting the plant resource, its info is displayed
-  const showPlantInfoHtml = showPlantInfoTemplate({ plant: store.plant })
-
-  $('.plant-info').html(showPlantInfoHtml).show()
-}
-
-const showPlantFailure = function () {
-  $('#message').text('Unable to get Plant Info')
-  $('#message').removeClass().addClass('failure')
-  $('#message').delay(600).fadeOut(1500)
-}
-
 const showPCSuccess = function (response) {
-  // response is the plant collection object
+  // 'response' is the plant collection object
   $('form').trigger('reset')
   store.plantCollection = response.plantCollection
   $('.plant-collections').hide()
@@ -383,13 +353,36 @@ const showPCFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
+const showPlantSuccess = function (response) {
+  $('form').trigger('reset')
+  // 'response' shows plant's info
+  store.plant = response.plant
+  // only console.log(store) will show plant collection info
+  // console.log('this is the store ' + store) does not work
+  // 'store.plant' shows plant's info
+  $('.plant-collections').hide()
+  $('.edit-pc-name').hide()
+  $('.plant-collection').hide()
+  $('.add-plant').hide()
+  $('.edit-plant').hide()
+  $('.add-log').hide()
+  $('.plant-information').show()
+  // After getting the plant resource, its info is displayed
+  const showPlantInfoHtml = showPlantInfoTemplate({ plant: store.plant })
+
+  $('.plant-info').html(showPlantInfoHtml).show()
+}
+
+const showPlantFailure = function () {
+  $('#message').text('Unable to get Plant Info')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
 const addPlantSuccess = function (response) {
-  // console.log(response)
-  // console.log(response.plantCollection.plants)
-  // console.log(response.plantCollection.plants.length)
   // length of new plant array
   const newPlantArray = response.plantCollection.plants.length
-  // Subtract by 1 to get the new plant array index number
+  // Subtract array length by 1 to get the new plant array index number
   const newPlantIndex = newPlantArray - 1
   // Get the id of the newPlant
   const newPlantId = response.plantCollection.plants[newPlantIndex]._id
