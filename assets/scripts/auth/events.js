@@ -245,11 +245,12 @@ const onAddLog = function (event) {
   const pcId = store.plantCollection._id
   api.addLog(data, pcId, plantId)
     .then((response) => {
-      console.log('This is the response sent back from the API' + response)
+      console.log(response)
       return response
     })
-    .then(ui.addLogSuccess)
-    .then((response) => ui.showPlantSuccess(response))
+    .then((id) => api.getPlantPage(plantId)
+      .then(ui.showPlantSuccess)
+      .catch(ui.showPlantFailure))
     .catch(ui.addLogFailure)
 }
 
