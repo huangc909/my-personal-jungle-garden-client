@@ -307,8 +307,14 @@ const deletePlantFailure = function () {
 
 const showPlantSuccess = function (response) {
   $('form').trigger('reset')
+  // shows plant's info
+  console.log(response)
   store.plant = response.plant
+  // only console.log(store) will show plant collection info
+  // console.log('this is the store ' + store) does not work
   console.log(store)
+  // shows plant's info
+  console.log(store.plant)
   $('.plant-collections').hide()
   $('.edit-pc-name').hide()
   $('.plant-collection').hide()
@@ -379,7 +385,16 @@ const showPCFailure = function () {
 
 const addPlantSuccess = function (response) {
   // console.log(response)
-  return response
+  // console.log(response.plantCollection.plants)
+  // console.log(response.plantCollection.plants.length)
+  // length of new plant array
+  const newPlantArray = response.plantCollection.plants.length
+  // Subtract by 1 to get the new plant array index number
+  const newPlantIndex = newPlantArray - 1
+  // Get the id of the newPlant
+  const newPlantId = response.plantCollection.plants[newPlantIndex]._id
+  // console.log(newPlantId)
+  return newPlantId
 }
 
 const addPlantFailure = function () {
@@ -389,6 +404,7 @@ const addPlantFailure = function () {
 }
 
 const addLogSuccess = function (response) {
+  console.log(response)
   return response
 }
 

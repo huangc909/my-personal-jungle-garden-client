@@ -228,7 +228,10 @@ const onAddPlant = function (event) {
   // sends plant information to api
   api.addPlant(data)
     .then(ui.addPlantSuccess)
-    .then((response) => ui.showPCSuccess(response))
+    // send plant id to the API GET request
+    .then((id) => api.getPlantPage(id)
+      .then(ui.showPlantSuccess)
+      .catch(ui.showPlantFailure))
     .catch(ui.addPlantFailure)
 }
 
