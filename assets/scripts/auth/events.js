@@ -46,6 +46,11 @@ const onGetDeletePlantButtons = function (event) {
   ui.getDeletePlantButtons()
 }
 
+const onGetEditLogButtons = function (event) {
+  event.preventDefault()
+  ui.getEditLogButtons()
+}
+
 const onGetAddNewPlant = function (event) {
   event.preventDefault()
   ui.getAddNewPlant()
@@ -145,18 +150,23 @@ const onEditPlant = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
+  console.log(data)
+  const plantId = store.plant._id
   api.editPlant(data)
-    .then(() => ui.editPlantSuccess(data))
+    // .then(() => ui.editPlantSuccess(data))
+    .then(() => api.getPlantPage(plantId)
+      .then(ui.showPlantSuccess)
+      .catch(ui.showPlantFailure))
     .catch(ui.editPlantFailure)
 }
 
 const onDeletePC = function (event) {
   event.preventDefault()
   // console.log(event)
-  const id = event.target.dataset.id
+  const pcId = event.target.dataset.id
   // gets the id of the plant collection and sends it to the api
-  api.deletePlantCollection(id)
-    .then(() => ui.deletePCSuccess(id))
+  api.deletePlantCollection(pcId)
+    .then(() => ui.deletePCSuccess(pcId))
     .then(() => api.showPlantCollections()
       .then(ui.showPCsSuccess)
       .catch(ui.showPCsFailure)
@@ -167,10 +177,10 @@ const onDeletePC = function (event) {
 const onDeletePlant = function (event) {
   event.preventDefault()
   // console.log(event)
-  const id = event.target.dataset.id
-  // gets the ide of the plant and sends it to the api
-  api.deletePlant(id)
-    .then(() => ui.deletePlantSuccess(id))
+  const plantId = event.target.dataset.id
+  // gets the id of the plant and sends it to the api
+  api.deletePlant(plantId)
+    .then(() => ui.deletePlantSuccess(plantId))
     .then(() => api.getPCPage(store.plantCollection._id)
       .then(ui.showPCSuccess)
       .catch(ui.showPCFailure)
@@ -182,11 +192,11 @@ const onShowPC = function (event) {
   event.preventDefault()
   // event is the click event of the plant collection
   // console.log(event)
-  const id = event.target.dataset.id
+  const plantId = event.target.dataset.id
   // id is the plant collection's id
   // console.log(id)
   // send the plant collection's id to the api
-  api.getPCPage(id)
+  api.getPCPage(plantId)
     .then(ui.showPCSuccess)
     .catch(ui.showPCFailure)
 }
@@ -194,9 +204,9 @@ const onShowPC = function (event) {
 const onShowPlant = function (event) {
   event.preventDefault()
   // sets the plant id to a id
-  const id = event.target.dataset.id
+  const plantId = event.target.dataset.id
   // sends the plant id to the api
-  api.getPlantPage(id)
+  api.getPlantPage(plantId)
     .then(ui.showPlantSuccess)
     .catch(ui.showPlantFailure)
 }
@@ -214,9 +224,9 @@ const onGoBackShowPC = function (event) {
 const onGoBackShowPlant = function (event) {
   event.preventDefault()
   // sets current plant id to id
-  const id = store.plant._id
+  const plantId = store.plant._id
   // sends id to api
-  api.getPlantPage(id)
+  api.getPlantPage(plantId)
     .then(ui.showPlantSuccess)
     .catch(ui.showPlantFailure)
 }
@@ -244,10 +254,24 @@ const onAddLog = function (event) {
   const plantId = store.plant._id
   const pcId = store.plantCollection._id
   api.addLog(data, pcId, plantId)
-    .then((id) => api.getPlantPage(plantId)
+    .then(() => api.getPlantPage(plantId)
       .then(ui.showPlantSuccess)
       .catch(ui.showPlantFailure))
     .catch(ui.addLogFailure)
+}
+
+const onDeleteLog = function (event) {
+  event.preventDefault()
+  console.log(event)
+  const logId = event.target.dataset.id
+  const plantId = store.plant._id
+  console.log(logId)
+  // gets the id of the log and sends it to the api
+  api.deleteLog(logId)
+    .then(() => api.getPlantPage(plantId)
+      .then(ui.showPlantSuccess)
+      .catch(ui.showPlantFailure))
+    .catch(ui.deletePlantFailure)
 }
 
 module.exports = {
@@ -258,6 +282,7 @@ module.exports = {
   onGetEditPCNamePage,
   onGetDeletePCButtons,
   onGetDeletePlantButtons,
+  onGetEditLogButtons,
   onGetAddNewPlant,
   onGetAddNewLog,
   onSignUp,
@@ -276,5 +301,6 @@ module.exports = {
   onGetEditPlantPage,
   onEditPlant,
   onAddLog,
-  onGoBackShowPlant
+  onGoBackShowPlant,
+  onDeleteLog
 }

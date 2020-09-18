@@ -79,6 +79,11 @@ const getDeletePlantButtons = () => {
   $('.delete-plant-button').show()
 }
 
+const getEditLogButtons = () => {
+  $('.delete-log-button').show()
+  $('.edit-log-button').show()
+}
+
 const getAddNewPlant = () => {
   $('.plant-collection').hide()
   $('.add-plant').show()
@@ -107,7 +112,6 @@ const signUpFailure = function () {
 
 const signInSuccess = function (response) {
   store.user = response.user
-  // console.log(store)
   $('form').trigger('reset')
   // $('#message').text('Sign-in Success').show()
   // $('#message').removeClass().addClass('success')
@@ -175,7 +179,6 @@ const addPCFailure = function () {
 }
 
 const showPCsSuccess = function (data) {
-  // console.log(data)
   // stores the incoming data on all the plant collections
   store.plantCollections = data.plantCollections
   $('form').trigger('reset')
@@ -201,7 +204,7 @@ const showPCsSuccess = function (data) {
     $('.getDeletePCButtons').hide()
     // display existing plant collection names
     const myPlantCollections = (`
-      <h2>My Plant Collections</h2>
+      <p>You currently have no plant collections, create one!</p>
       `)
     $('.my-pc-collections').html(myPlantCollections).show()
   } else {
@@ -242,32 +245,6 @@ const editPCNameFailure = function () {
   $('#message').text('Edit Plant Collection Name Failed')
   $('#message').removeClass().addClass('failure')
   $('#message').delay(600).fadeOut(1500)
-}
-
-const editPlantSuccess = function (data) {
-  $('form').trigger('reset')
-  $('.plant-collections').hide()
-  $('.edit-pc-name').hide()
-  $('.plant-collection').hide()
-  $('.add-plant').hide()
-  $('.plant-collection-name').hide()
-  $('.edit-plant').hide()
-  $('.plant-information').show()
-  $('.add-log').hide()
-
-  store.plant = data.plant
-
-  const plantInfo = (`
-    <h2>${store.plant.nickName}</h2>
-    <br>
-    <div class="plant-specs">
-      <h4>Name: ${store.plant.name}</h4>
-      <h4>Date Acquired: ${store.plant.dateAcquired}</h4>
-      <h4>Notes: ${store.plant.additionalNotes}</h4>
-    <div>
-    `)
-
-  $('.plant-info').html(plantInfo).show()
 }
 
 const editPlantFailure = function () {
@@ -355,6 +332,7 @@ const showPCFailure = function () {
 
 const showPlantSuccess = function (response) {
   $('form').trigger('reset')
+  console.log(response)
   // 'response' shows plant's info
   store.plant = response.plant
   // only console.log(store) will show plant collection info
@@ -386,7 +364,6 @@ const addPlantSuccess = function (response) {
   const newPlantIndex = newPlantArray - 1
   // Get the id of the newPlant
   const newPlantId = response.plantCollection.plants[newPlantIndex]._id
-  // console.log(newPlantId)
   return newPlantId
 }
 
@@ -402,6 +379,12 @@ const addLogFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
+const deleteLogFailure = function () {
+  $('#message').text('Delete Log Failed')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
 module.exports = {
   getSignUpPage,
   getSignInPage,
@@ -410,6 +393,7 @@ module.exports = {
   getEditPCNamePage,
   getDeletePCButtons,
   getDeletePlantButtons,
+  getEditLogButtons,
   getAddNewPlant,
   getAddNewLog,
   signUpSuccess,
@@ -437,7 +421,7 @@ module.exports = {
   showPlantSuccess,
   showPlantFailure,
   getEditPlantPage,
-  editPlantSuccess,
   editPlantFailure,
-  addLogFailure
+  addLogFailure,
+  deleteLogFailure
 }
