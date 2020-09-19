@@ -69,7 +69,7 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-// Plant Collection Events
+// Plant Collections Events
 const onGetAddPCPage = function (event) {
   event.preventDefault()
   ui.getAddPCPage()
@@ -278,7 +278,7 @@ const onEditLog = function (event) {
     .then(() => api.getPlantPage(plantId)
       .then(ui.showPlantSuccess)
       .catch(ui.showPlantFailure))
-    .catch(ui.editPlantFailure)
+    .catch(ui.editLogFailure)
 }
 
 const onDeleteLog = function (event) {
@@ -288,6 +288,7 @@ const onDeleteLog = function (event) {
   const plantId = store.plant._id
   // send the log id to the api
   api.deleteLog(logId)
+    .then(ui.deleteLogSuccess)
     .then(() => api.getPlantPage(plantId)
       .then(ui.showPlantSuccess)
       .catch(ui.showPlantFailure))
@@ -304,7 +305,7 @@ module.exports = {
   onChangePassword,
   onSignOut,
 
-  // Plant Collection Events
+  // Plant Collections Events
   onGetAddPCPage,
   onAddPC,
   onShowPCs,

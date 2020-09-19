@@ -7,91 +7,10 @@ const showPCTemplate = require('../templates/plant-collection.handlebars')
 
 const showPlantInfoTemplate = require('../templates/plant-info.handlebars')
 
+// Authorization
 const getSignUpPage = () => {
   $('.signin').hide()
   $('.signup').show()
-}
-
-const getSignInPage = () => {
-  $('.signup').hide()
-  $('.signin').show()
-}
-
-const getChangePasswordPage = () => {
-  $('.changepw').show()
-  $('.plant-collections').hide()
-  $('.add-pc').hide()
-  $('.plant-collection').hide()
-  $('.edit-pc-name').hide()
-  $('.add-plant').hide()
-  $('.plant-information').hide()
-  $('.edit-plant').hide()
-  $('.add-log').hide()
-}
-
-const getAddPCPage = () => {
-  $('.add-pc').show()
-  $('.plant-collections').hide()
-}
-
-const getEditPCNamePage = (pcName) => {
-  $('.edit-pc-name').show()
-  $('.plant-collection').hide()
-  const editPCName = (`
-    <h2>Edit Collection Name</h2>
-    <input name="plantCollection[name]" type="text" value="${pcName}" required>
-    <br>
-    `)
-  $('.edit-pc-info').html(editPCName).show()
-}
-
-const getEditPlantPage = () => {
-  $('.edit-plant').show()
-  $('.plant-information').hide()
-
-  const editPlantInfo = (`
-    <p>Plant Name</p>
-    <input name="plant[name]" value="${store.plant.name}" type="text" required>
-    <br>
-    <br>
-    <p>Plant Nickname</p>
-    <input name="plant[nickName]" value="${store.plant.nickName}" type="text">
-    <br>
-    <br>
-    <p>Date Acquired</p>
-    <input name="plant[dateAcquired]" value="${store.plant.dateAcquired}" type="date" required>
-    <br>
-    <br>
-    <p>Additional Notes</p>
-    <input name="plant[additionalNotes]" value="${store.plant.additionalNotes}" type="text">
-    <br>
-    <br>
-    `)
-
-  $('.edit-plant-info').html(editPlantInfo).show()
-}
-
-const getDeletePCButtons = () => {
-  $('.delete-pc-button').show()
-}
-
-const getDeletePlantButtons = () => {
-  $('.delete-plant-button').show()
-}
-
-const getEditLogButtons = () => {
-  $('.delete-log-button').show()
-  $('.edit-log-button').show()
-}
-
-const getAddNewPlant = () => {
-  $('.plant-collection').hide()
-  $('.add-plant').show()
-}
-
-const getAddNewLog = () => {
-  $('.plant-information').hide()
-  $('.add-log').show()
 }
 
 const signUpSuccess = function (response) {
@@ -110,6 +29,11 @@ const signUpFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
+const getSignInPage = () => {
+  $('.signup').hide()
+  $('.signin').show()
+}
+
 const signInSuccess = function (response) {
   store.user = response.user
   $('form').trigger('reset')
@@ -126,6 +50,19 @@ const signInFailure = function () {
   $('#message').text('Sign-in Failed')
   $('#message').removeClass().addClass('failure')
   $('#message').delay(600).fadeOut(1500)
+}
+
+const getChangePasswordPage = () => {
+  $('.changepw').show()
+  $('.plant-collections').hide()
+  $('.add-pc').hide()
+  $('.plant-collection').hide()
+  $('.edit-pc-name').hide()
+  $('.add-plant').hide()
+  $('.plant-information').hide()
+  $('.edit-plant').hide()
+  $('.add-log').hide()
+  $('.edit-log').hide()
 }
 
 const changePasswordSuccess = function (response) {
@@ -158,6 +95,7 @@ const signOutSuccess = function (response) {
   $('.plant-information').hide()
   $('.edit-plant').hide()
   $('.add-log').hide()
+  $('.edit-log').hide()
 }
 
 const signOutFailure = function () {
@@ -165,6 +103,13 @@ const signOutFailure = function () {
   $('#message').text('Sign Out failed')
   $('#message').removeClass().addClass('failure')
   $('#message').delay(600).fadeOut(1500)
+}
+
+// Plant Collections
+const getAddPCPage = () => {
+  $('.add-pc').show()
+  $('.plant-collections').hide()
+  $('.edit-log').hide()
 }
 
 const addPCSuccess = function (data) {
@@ -192,6 +137,7 @@ const showPCsSuccess = function (data) {
   $('.edit-plant').hide()
   $('.plant-information').hide()
   $('.add-log').hide()
+  $('.edit-log').hide()
 
   // assign handlebar template for plant collections to variable
   const showPlantCollectionsHtml = showTemplate({ plantCollections: store.plantCollections })
@@ -223,64 +169,6 @@ const showPCsFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
-const editPCNameSuccess = function (data) {
-  $('form').trigger('reset')
-  $('.plant-collections').hide()
-  $('.edit-pc-name').hide()
-  $('.plant-collection').show()
-  $('.add-plant').hide()
-  $('.plant-collection-name').show()
-  $('.edit-plant').hide()
-  $('.plant-information').hide()
-  $('.add-log').hide()
-
-  store.plantCollection.name = data.plantCollection.name
-
-  const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })
-
-  $('.content-plants').html(showPlantsHtml).show()
-}
-
-const editPCNameFailure = function () {
-  $('#message').text('Edit Plant Collection Name Failed')
-  $('#message').removeClass().addClass('failure')
-  $('#message').delay(600).fadeOut(1500)
-}
-
-const editPlantFailure = function () {
-  $('#message').text('Edit Plant Failed')
-  $('#message').removeClass().addClass('failure')
-  $('#message').delay(600).fadeOut(1500)
-}
-
-const deletePCSuccess = function (id) {
-  $(`[data-id='${id}']`).remove()
-  $('form').trigger('reset')
-  $('#message').text('Plant Collection Deleted!').show()
-  $('#message').removeClass().addClass('success')
-  $('#message').delay(600).fadeOut(1500)
-}
-
-const deletePCFailure = function () {
-  $('#message').text('Delete Plant Collection Failed')
-  $('#message').removeClass().addClass('failure')
-  $('#message').delay(600).fadeOut(1500)
-}
-
-const deletePlantSuccess = function (id) {
-  $(`[data-id='${id}']`).remove()
-  $('form').trigger('reset')
-  $('#message').text('Plant Deleted!').show()
-  $('#message').removeClass().addClass('success')
-  $('#message').delay(600).fadeOut(1500)
-}
-
-const deletePlantFailure = function () {
-  $('#message').text('Delete Plant Failed')
-  $('#message').removeClass().addClass('failure')
-  $('#message').delay(600).fadeOut(1500)
-}
-
 const showPCSuccess = function (response) {
   // 'response' is the plant collection object
   $('form').trigger('reset')
@@ -292,6 +180,7 @@ const showPCSuccess = function (response) {
   $('.plant-collection-name').hide()
   $('.plant-information').hide()
   $('.add-log').hide()
+  $('.edit-log').hide()
 
   const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })
 
@@ -330,31 +219,70 @@ const showPCFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
-const showPlantSuccess = function (response) {
-  $('form').trigger('reset')
-  console.log(response)
-  // 'response' shows plant's info
-  store.plant = response.plant
-  // only console.log(store) will show plant collection info
-  // console.log('this is the store ' + store) does not work
-  // 'store.plant' shows plant's info
-  $('.plant-collections').hide()
-  $('.edit-pc-name').hide()
+const getEditPCNamePage = (pcName) => {
+  $('.edit-pc-name').show()
   $('.plant-collection').hide()
-  $('.add-plant').hide()
-  $('.edit-plant').hide()
-  $('.add-log').hide()
-  $('.plant-information').show()
-  // After getting the plant resource, its info is displayed
-  const showPlantInfoHtml = showPlantInfoTemplate({ plant: store.plant })
-
-  $('.plant-info').html(showPlantInfoHtml).show()
+  $('.edit-log').hide()
+  const editPCName = (`
+    <h2>Edit Collection Name</h2>
+    <input name="plantCollection[name]" type="text" value="${pcName}" required>
+    <br>
+    `)
+  $('.edit-pc-info').html(editPCName).show()
 }
 
-const showPlantFailure = function () {
-  $('#message').text('Unable to get Plant Info')
+const editPCNameSuccess = function (data) {
+  $('form').trigger('reset')
+  $('.plant-collections').hide()
+  $('.edit-pc-name').hide()
+  $('.plant-collection').show()
+  $('.add-plant').hide()
+  $('.plant-collection-name').show()
+  $('.edit-plant').hide()
+  $('.plant-information').hide()
+  $('.add-log').hide()
+  $('.edit-log').hide()
+
+  store.plantCollection.name = data.plantCollection.name
+
+  const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })
+
+  $('.content-plants').html(showPlantsHtml).show()
+}
+
+const editPCNameFailure = function () {
+  $('#message').text('Edit Plant Collection Name Failed')
   $('#message').removeClass().addClass('failure')
   $('#message').delay(600).fadeOut(1500)
+}
+
+const getDeletePCButtons = () => {
+  $('.delete-pc-button').show()
+}
+
+const getDeletePlantButtons = () => {
+  $('.delete-plant-button').show()
+}
+
+const deletePCSuccess = function (id) {
+  $(`[data-id='${id}']`).remove()
+  $('form').trigger('reset')
+  $('#message').text('Plant Collection Deleted!').show()
+  $('#message').removeClass().addClass('success')
+  $('#message').delay(600).fadeOut(1500)
+}
+
+const deletePCFailure = function () {
+  $('#message').text('Delete Plant Collection Failed')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
+// Plants
+const getAddNewPlant = () => {
+  $('.plant-collection').hide()
+  $('.edit-log').hide()
+  $('.add-plant').show()
 }
 
 const addPlantSuccess = function (response) {
@@ -373,26 +301,104 @@ const addPlantFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
+const showPlantSuccess = function (response) {
+  $('form').trigger('reset')
+  // 'response' shows plant's info
+  store.plant = response.plant
+  // only console.log(store) will show plant collection info
+  // console.log('this is the store ' + store) does not work
+  // 'store.plant' shows plant's info
+  $('.plant-collections').hide()
+  $('.edit-pc-name').hide()
+  $('.plant-collection').hide()
+  $('.add-plant').hide()
+  $('.edit-plant').hide()
+  $('.add-log').hide()
+  $('.edit-log').hide()
+  $('.plant-information').show()
+  // After getting the plant resource, its info is displayed
+  const showPlantInfoHtml = showPlantInfoTemplate({ plant: store.plant })
+
+  $('.plant-info').html(showPlantInfoHtml).show()
+}
+
+const showPlantFailure = function () {
+  $('#message').text('Unable to get Plant Info')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
+const getEditPlantPage = () => {
+  $('.edit-plant').show()
+  $('.plant-information').hide()
+  $('.edit-log').hide()
+
+  const editPlantInfo = (`
+    <p>Plant Name</p>
+    <input name="plant[name]" value="${store.plant.name}" type="text" required>
+    <br>
+    <br>
+    <p>Plant Nickname</p>
+    <input name="plant[nickName]" value="${store.plant.nickName}" type="text">
+    <br>
+    <br>
+    <p>Date Acquired</p>
+    <input name="plant[dateAcquired]" value="${store.plant.dateAcquired}" type="date" required>
+    <br>
+    <br>
+    <p>Additional Notes</p>
+    <input name="plant[additionalNotes]" value="${store.plant.additionalNotes}" type="text">
+    <br>
+    <br>
+    `)
+
+  $('.edit-plant-info').html(editPlantInfo).show()
+}
+
+const editPlantFailure = function () {
+  $('#message').text('Edit Plant Failed')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
+const deletePlantSuccess = function (id) {
+  $(`[data-id='${id}']`).remove()
+  $('form').trigger('reset')
+  $('#message').text('Plant Deleted!').show()
+  $('#message').removeClass().addClass('success')
+  $('#message').delay(600).fadeOut(1500)
+}
+
+const deletePlantFailure = function () {
+  $('#message').text('Delete Plant Failed')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
+// Logs
+
 const addLogFailure = function () {
   $('#message').text('Unable to add new log')
   $('#message').removeClass().addClass('failure')
   $('#message').delay(600).fadeOut(1500)
 }
 
-const deleteLogFailure = function () {
-  $('#message').text('Delete Log Failed')
-  $('#message').removeClass().addClass('failure')
-  $('#message').delay(600).fadeOut(1500)
+const getAddNewLog = () => {
+  $('.plant-information').hide()
+  $('.edit-log').hide()
+  $('.add-log').show()
+}
+
+const getEditLogButtons = () => {
+  $('.delete-log-button').show()
+  $('.edit-log-button').show()
 }
 
 const getEditLogPage = (response) => {
   $('.edit-log').show()
   $('.plant-information').hide()
-  console.log(response)
+
   store.log = response.log
-  console.log(store.log)
-  console.log(store.log.date)
-  console.log(store.log.entry)
 
   const editLogInfo = (`
     <p>Date</p>
@@ -414,45 +420,83 @@ const getEditLogPageFailure = () => {
   $('#message').delay(600).fadeOut(1500)
 }
 
+const editLogFailure = function () {
+  $('#message').text('Failed to Update Log')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
+const deleteLogSuccess = function () {
+  $('.plant-collections').hide()
+  $('.edit-pc-name').hide()
+  $('.plant-collection').show()
+  $('.add-plant').hide()
+  $('.plant-collection-name').show()
+  $('.edit-plant').hide()
+  $('.plant-information').hide()
+  $('.add-log').hide()
+  $('.edit-log').hide()
+
+  $('#message').text('Deleted Log Success!')
+  $('#message').removeClass().addClass('success')
+  $('#message').delay(600).fadeOut(1500)
+}
+
+const deleteLogFailure = function () {
+  $('#message').text('Failed to Delete Log')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
 module.exports = {
+  // Authorization
   getSignUpPage,
-  getSignInPage,
-  getChangePasswordPage,
-  getAddPCPage,
-  getEditPCNamePage,
-  getDeletePCButtons,
-  getDeletePlantButtons,
-  getEditLogButtons,
-  getAddNewPlant,
-  getAddNewLog,
   signUpSuccess,
   signUpFailure,
+  getSignInPage,
   signInSuccess,
   signInFailure,
+  getChangePasswordPage,
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
   signOutFailure,
+
+  // Plant Collections
+  getAddPCPage,
   addPCSuccess,
   addPCFailure,
   showPCsSuccess,
   showPCsFailure,
-  editPCNameSuccess,
-  editPCNameFailure,
-  deletePCSuccess,
-  deletePCFailure,
   showPCSuccess,
   showPCFailure,
+  getEditPCNamePage,
+  editPCNameSuccess,
+  editPCNameFailure,
+  getDeletePCButtons,
+  deletePCSuccess,
+  deletePCFailure,
+
+  // Plants
+  getAddNewPlant,
   addPlantSuccess,
   addPlantFailure,
-  deletePlantSuccess,
-  deletePlantFailure,
   showPlantSuccess,
   showPlantFailure,
   getEditPlantPage,
   editPlantFailure,
+  getDeletePlantButtons,
+  deletePlantSuccess,
+  deletePlantFailure,
+
+  // Logs
   addLogFailure,
-  deleteLogFailure,
+  getEditLogButtons,
+  getAddNewLog,
   getEditLogPage,
-  getEditLogPageFailure
+  getEditLogPageFailure,
+  editLogFailure,
+  deleteLogSuccess,
+  deleteLogFailure
+
 }

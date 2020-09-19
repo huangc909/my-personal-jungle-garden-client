@@ -13,7 +13,6 @@ const signUp = function (formData) {
 }
 
 const signIn = function (formData) {
-  // console.log(formData)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/sign-in',
@@ -83,6 +82,21 @@ const showPlantCollections = function (formData) {
   })
 }
 
+const getPCPage = function (pcId) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/plantCollections/' + pcId,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      plantCollection: {
+        owner: store.user._id
+      }
+    }
+  })
+}
+
 const editCollectionName = function (formData) {
   return $.ajax({
     method: 'PATCH',
@@ -93,6 +107,51 @@ const editCollectionName = function (formData) {
     data: {
       plantCollection: {
         name: formData.plantCollection.name,
+        owner: store.user._id
+      }
+    }
+  })
+}
+
+const deletePlantCollection = function (pcId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/plantCollections/' + pcId,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const addPlant = function (formData) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/plants',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      plant: {
+        name: formData.plant.name,
+        nickName: formData.plant.nickName,
+        dateAcquired: formData.plant.dateAcquired,
+        additionalNotes: formData.plant.additionalNotes,
+        plantCollectionId: store.plantCollection._id,
+        owner: store.user._id
+      }
+    }
+  })
+}
+
+const getPlantPage = function (plantId) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + plantId,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      plantCollection: {
         owner: store.user._id
       }
     }
@@ -119,16 +178,6 @@ const editPlant = function (formData) {
   })
 }
 
-const deletePlantCollection = function (pcId) {
-  return $.ajax({
-    method: 'DELETE',
-    url: config.apiUrl + '/plantCollections/' + pcId,
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    }
-  })
-}
-
 const deletePlant = function (plantId) {
   return $.ajax({
     method: 'DELETE',
@@ -144,59 +193,7 @@ const deletePlant = function (plantId) {
   })
 }
 
-const getPCPage = function (pcId) {
-  return $.ajax({
-    method: 'GET',
-    url: config.apiUrl + '/plantCollections/' + pcId,
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    data: {
-      plantCollection: {
-        owner: store.user._id
-      }
-    }
-  })
-}
-
-const getPlantPage = function (plantId) {
-  return $.ajax({
-    method: 'GET',
-    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + plantId,
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    data: {
-      plantCollection: {
-        owner: store.user._id
-      }
-    }
-  })
-}
-
-const addPlant = function (formData) {
-  // console.log(formData)
-  return $.ajax({
-    method: 'POST',
-    url: config.apiUrl + '/plants',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    data: {
-      plant: {
-        name: formData.plant.name,
-        nickName: formData.plant.nickName,
-        dateAcquired: formData.plant.dateAcquired,
-        additionalNotes: formData.plant.additionalNotes,
-        plantCollectionId: store.plantCollection._id,
-        owner: store.user._id
-      }
-    }
-  })
-}
-
 const addLog = function (formData) {
-  // console.log(formData)
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + store.plant._id + '/logs',
@@ -207,8 +204,6 @@ const addLog = function (formData) {
       log: {
         date: formData.log.date,
         entry: formData.log.entry
-        // plantCollectionId: pcId,
-        // plantId: plantId
       }
     }
   })
@@ -257,13 +252,13 @@ module.exports = {
   signOut,
   addPlantCollection,
   showPlantCollections,
+  getPCPage,
   editCollectionName,
   deletePlantCollection,
-  getPCPage,
   addPlant,
-  deletePlant,
   getPlantPage,
   editPlant,
+  deletePlant,
   addLog,
   getLog,
   editLog,
