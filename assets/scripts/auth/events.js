@@ -93,10 +93,10 @@ const onAddPC = function (event) {
 
 const onGoBackShowPC = function (event) {
   event.preventDefault()
-  // sets the current plant collection id to infoPC
-  const infoPC = store.plantCollection._id
-  // sends infoPC to api
-  api.getPCPage(infoPC)
+  // get the id from the current plant collection
+  const pcId = store.plantCollection._id
+  // send pcId to api
+  api.getPCPage(pcId)
     .then(ui.showPCSuccess)
     .catch(ui.showPCFailure)
 }
@@ -113,9 +113,9 @@ const onShowPCs = function (event) {
 const onShowPC = function (event) {
   event.preventDefault()
   // event is the click event of the plant collection
-  const plantId = event.target.dataset.id
+  const pcId = event.target.dataset.id
   // send the plant collection's id to the api
-  api.getPCPage(plantId)
+  api.getPCPage(pcId)
     .then(ui.showPCSuccess)
     .catch(ui.showPCFailure)
 }
@@ -221,11 +221,12 @@ const onGetDeletePlantButtons = function (event) {
 
 const onDeletePlant = function (event) {
   event.preventDefault()
+  const pcId = store.plantCollection._id
   const plantId = event.target.dataset.id
   // gets the id of the plant and sends it to the api
   api.deletePlant(plantId)
     .then(() => ui.deletePlantSuccess(plantId))
-    .then(() => api.getPCPage(store.plantCollection._id)
+    .then(() => api.getPCPage(pcId)
       .then(ui.showPCSuccess)
       .catch(ui.showPCFailure)
     )
@@ -244,8 +245,7 @@ const onAddLog = function (event) {
   // get the input data from the add log form
   const data = getFormFields(form)
   const plantId = store.plant._id
-  const pcId = store.plantCollection._id
-  api.addLog(data, pcId, plantId)
+  api.addLog(data)
     .then(() => api.getPlantPage(plantId)
       .then(ui.showPlantSuccess)
       .catch(ui.showPlantFailure))

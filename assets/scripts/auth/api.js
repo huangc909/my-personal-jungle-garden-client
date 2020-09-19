@@ -4,7 +4,6 @@ const config = require('./../config')
 const store = require('./../store')
 
 const signUp = function (formData) {
-  // console.log(formData)
   const credentials = formData.credentials
   return $.ajax({
     method: 'POST',
@@ -120,21 +119,20 @@ const editPlant = function (formData) {
   })
 }
 
-const deletePlantCollection = function (id) {
-  // console.log('This is the API ' + id)
+const deletePlantCollection = function (pcId) {
   return $.ajax({
     method: 'DELETE',
-    url: config.apiUrl + '/plantCollections/' + id,
+    url: config.apiUrl + '/plantCollections/' + pcId,
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }
   })
 }
 
-const deletePlant = function (id) {
+const deletePlant = function (plantId) {
   return $.ajax({
     method: 'DELETE',
-    url: config.apiUrl + '/plants/' + id,
+    url: config.apiUrl + '/plants/' + plantId,
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
@@ -146,10 +144,10 @@ const deletePlant = function (id) {
   })
 }
 
-const getPCPage = function (id) {
+const getPCPage = function (pcId) {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/plantCollections/' + id,
+    url: config.apiUrl + '/plantCollections/' + pcId,
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
@@ -161,10 +159,10 @@ const getPCPage = function (id) {
   })
 }
 
-const getPlantPage = function (id) {
+const getPlantPage = function (plantId) {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + id,
+    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + plantId,
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
@@ -197,11 +195,11 @@ const addPlant = function (formData) {
   })
 }
 
-const addLog = function (formData, pcId, plantId) {
+const addLog = function (formData) {
   // console.log(formData)
   return $.ajax({
     method: 'POST',
-    url: config.apiUrl + '/plantCollections/' + pcId + '/plants/' + plantId + '/logs',
+    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + store.plant._id + '/logs',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
@@ -227,7 +225,6 @@ const getLog = function (logId) {
 }
 
 const editLog = function (formData) {
-  console.log(formData)
   return $.ajax({
     method: 'PATCH',
     url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + store.plant._id + '/logs/' + store.log._id,
@@ -244,7 +241,6 @@ const editLog = function (formData) {
 }
 
 const deleteLog = function (logId) {
-  console.log(store)
   return $.ajax({
     method: 'DELETE',
     url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + store.plant._id + '/logs/' + logId,
