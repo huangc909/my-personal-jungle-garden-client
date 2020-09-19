@@ -30,7 +30,9 @@ Afterwards I worked on the front end client side of the application. I created t
 
 Through working on this app, I found that it gave me the opportunity to practice and understand better how to store and use stored data. It was an interesting challenge to figure out how to get the data that I needed for a particular AJAX request to the API even when a form did not provide a specific data.
 
-Updates: I have fixed the plant update feature.
+Updates:
+- The Plant Update feature has been fixed.
+- The log feature has been added so that users can log their plant journey for each plant.
 
 
 ## User Stories
@@ -61,8 +63,7 @@ Updates: I have fixed the plant update feature.
 
 ### Unsolved Problems
 I would like to eventually:
-- Add another sub document feature that includes logs for users to keep track of their plant care journey.
-- Stylizing the page to fit smaller screens and to adhere to my wireframes set up.
+- Stylize the page to fit smaller screens and to adhere to my wireframes set up.
 - Use AWS to include adding a picture feature for users to add pictures of their plants.
 
 ## Images
