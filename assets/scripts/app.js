@@ -30,6 +30,7 @@ $(() => {
   $('#add-plant').on('submit', authEvents.onAddPlant)
   $('#edit-plant').on('submit', authEvents.onEditPlant)
   $('#add-log').on('submit', authEvents.onAddLog)
+  $('#edit-log').on('submit', authEvents.onEditLog)
   $('.back-to-pcs').on('click', authEvents.onShowPCs)
   $('.back-to-pc').on('click', authEvents.onGoBackShowPC)
   $('.back-to-plant-info').on('click', authEvents.onGoBackShowPlant)
@@ -39,5 +40,4 @@ $(() => {
   $('.content-plants').on('click', '.plant', authEvents.onShowPlant)
   $('.plant-info').on('click', '.btn-log-delete', authEvents.onDeleteLog)
   $('.plant-info').on('click', '.btn-log-edit', authEvents.onGetEditLogPage)
-  $('#edit-log').on('submit', authEvents.onEditLog)
 })

@@ -146,17 +146,6 @@ const deletePlant = function (id) {
   })
 }
 
-const deleteLog = function (logId) {
-  console.log(store)
-  return $.ajax({
-    method: 'DELETE',
-    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + store.plant._id + '/logs/' + logId,
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    }
-  })
-}
-
 const getPCPage = function (id) {
   return $.ajax({
     method: 'GET',
@@ -227,10 +216,10 @@ const addLog = function (formData, pcId, plantId) {
   })
 }
 
-const getLog = function (logId, plantId, pcId) {
+const getLog = function (logId) {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/plantCollections/' + pcId + '/plants/' + plantId + '/logs/' + logId,
+    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + store.plant._id + '/logs/' + logId,
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }
@@ -254,6 +243,17 @@ const editLog = function (formData) {
   })
 }
 
+const deleteLog = function (logId) {
+  console.log(store)
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + store.plant._id + '/logs/' + logId,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -269,7 +269,7 @@ module.exports = {
   getPlantPage,
   editPlant,
   addLog,
-  deleteLog,
   getLog,
-  editLog
+  editLog,
+  deleteLog
 }
