@@ -219,9 +219,36 @@ const addLog = function (formData, pcId, plantId) {
     data: {
       log: {
         date: formData.log.date,
-        entry: formData.log.entry,
-        plantCollectionId: pcId,
-        plantId: plantId
+        entry: formData.log.entry
+        // plantCollectionId: pcId,
+        // plantId: plantId
+      }
+    }
+  })
+}
+
+const getLog = function (logId, plantId, pcId) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/plantCollections/' + pcId + '/plants/' + plantId + '/logs/' + logId,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const editLog = function (formData) {
+  console.log(formData)
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/plantCollections/' + store.plantCollection._id + '/plants/' + store.plant._id + '/logs/' + store.log._id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      log: {
+        date: formData.log.date,
+        entry: formData.log.entry
       }
     }
   })
@@ -242,5 +269,7 @@ module.exports = {
   getPlantPage,
   editPlant,
   addLog,
-  deleteLog
+  deleteLog,
+  getLog,
+  editLog
 }

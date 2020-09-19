@@ -59,7 +59,7 @@ const getEditPlantPage = () => {
     <br>
     <br>
     <p>Date Acquired</p>
-    <input name="plant[dateAcquired]" value="${store.plant.dateAcquired}" type="text" required>
+    <input name="plant[dateAcquired]" value="${store.plant.dateAcquired}" type="date" required>
     <br>
     <br>
     <p>Additional Notes</p>
@@ -385,6 +385,35 @@ const deleteLogFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
+const getEditLogPage = (response) => {
+  $('.edit-log').show()
+  $('.plant-information').hide()
+  console.log(response)
+  store.log = response.log
+  console.log(store.log)
+  console.log(store.log.date)
+  console.log(store.log.entry)
+
+  const editLogInfo = (`
+    <p>Date</p>
+    <input name="log[date]" value="${store.log.date}" type="date" min="2000-01-01" required>
+    <br>
+    <br>
+    <p>Entry</p>
+    <textarea name="log[entry]" rows="10" cols="30">${store.log.entry}</textarea>
+    <br>
+    <br>
+    `)
+
+  $('.edit-log-info').html(editLogInfo).show()
+}
+
+const getEditLogPageFailure = () => {
+  $('#message').text('Get Log Edit Page Failed')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
 module.exports = {
   getSignUpPage,
   getSignInPage,
@@ -423,5 +452,7 @@ module.exports = {
   getEditPlantPage,
   editPlantFailure,
   addLogFailure,
-  deleteLogFailure
+  deleteLogFailure,
+  getEditLogPage,
+  getEditLogPageFailure
 }

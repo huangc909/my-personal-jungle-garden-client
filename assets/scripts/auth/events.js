@@ -191,10 +191,7 @@ const onDeletePlant = function (event) {
 const onShowPC = function (event) {
   event.preventDefault()
   // event is the click event of the plant collection
-  // console.log(event)
   const plantId = event.target.dataset.id
-  // id is the plant collection's id
-  // console.log(id)
   // send the plant collection's id to the api
   api.getPCPage(plantId)
     .then(ui.showPCSuccess)
@@ -248,9 +245,8 @@ const onAddPlant = function (event) {
 const onAddLog = function (event) {
   event.preventDefault()
   const form = event.target
+  // get the input data from the add log form
   const data = getFormFields(form)
-  // console.log(data)
-  // console.log(store.plant._id)
   const plantId = store.plant._id
   const pcId = store.plantCollection._id
   api.addLog(data, pcId, plantId)
@@ -272,6 +268,33 @@ const onDeleteLog = function (event) {
       .then(ui.showPlantSuccess)
       .catch(ui.showPlantFailure))
     .catch(ui.deletePlantFailure)
+}
+
+const onGetEditLogPage = function (event) {
+  console.log(event)
+  event.preventDefault()
+  // get the id from the targeted log that was clicked on
+  const logId = event.target.dataset.id
+  const plantId = store.plant._id
+  const pcId = store.plantCollection._id
+  // send id info to api in order to show one log info
+  api.getLog(logId, plantId, pcId)
+  // send api response to get the edit log page
+    .then(ui.getEditLogPage)
+    .catch(ui.getEditLogPageFailure)
+}
+
+const onEditLog = function (event) {
+  event.preventDefault()
+  const form = event.target
+  // get the input data from the edit log form
+  const data = getFormFields(form)
+  const plantId = store.plant._id
+  api.editLog(data)
+    .then(() => api.getPlantPage(plantId)
+      .then(ui.showPlantSuccess)
+      .catch(ui.showPlantFailure))
+    .catch(ui.editPlantFailure)
 }
 
 module.exports = {
@@ -302,5 +325,7 @@ module.exports = {
   onEditPlant,
   onAddLog,
   onGoBackShowPlant,
-  onDeleteLog
+  onDeleteLog,
+  onGetEditLogPage,
+  onEditLog
 }

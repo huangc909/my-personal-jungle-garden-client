@@ -38,5 +38,6 @@ $(() => {
   $('.content-plants').on('click', '.btn-plant-delete', authEvents.onDeletePlant)
   $('.content-plants').on('click', '.plant', authEvents.onShowPlant)
   $('.plant-info').on('click', '.btn-log-delete', authEvents.onDeleteLog)
-  $('.plant-info').on('click', '.btn-log-edit', authEvents.onEditPlant)
+  $('.plant-info').on('click', '.btn-log-edit', authEvents.onGetEditLogPage)
+  $('#edit-log').on('submit', authEvents.onEditLog)
 })
