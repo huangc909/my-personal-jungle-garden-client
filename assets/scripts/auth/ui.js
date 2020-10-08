@@ -335,7 +335,61 @@ const getEditPlantPage = () => {
 
   const editPlantInfo = (`
     <p>Plant Name</p>
-    <input name="plant[name]" value="${store.plant.name}" type="text" required>
+    <select name="plant[name]" class="plant-name" required>
+        <option>${store.plant.name}</option>
+        <option>Hoya australis</option>
+        <option>Hoya bilobata</option>
+        <option>Hoya carnosa (hindu rope - green)</option>
+        <option>Hoya carnosa (hindu rope - variegated)</option>
+        <option>Hoya carnosa (jade)</option>
+        <option>Hoya carnosa (queen)</option>
+        <option>Hoya carnosa (princess)</option>
+        <option>Hoya imbricata</option>
+        <option>Hoya kerrii (green)</option>
+        <option>Hoya kerrii (variegated)</option>
+        <option>Hoya obscura</option>
+        <option>Monstera adansonii (wide)</option>
+        <option>Monstera adansonii (narrow)</option>
+        <option>Monstera deliciosa</option>
+        <option>Monstera dubia</option>
+        <option>Monstera lechleriana</option>
+        <option>Monstera obliqua</option>
+        <option>Monstera peru</option>
+        <option>Monstera siltepecana</option>
+        <option>Monstera standleyana (green)</option>
+        <option>Monstera standleyana (variegated - cream)</option>
+        <option>Monstera standleyana (variegated - yellow)</option>
+        <option>Monstera subpinnata</option>
+        <option>Philodendron bipennifolium</option>
+        <option>Philodendron brasil</option>
+        <option>Philodendron cordatum</option>
+        <option>Philodendron crassinervium</option>
+        <option>Philodendron erubescens</option>
+        <option>Philodendron giganteum</option>
+        <option>Philodendron gloriosum</option>
+        <option>Philodendron hastatum (silver)</option>
+        <option>Philodendron hederaceum (heartleaf)</option>
+        <option>Philodendron hederaceum (micans)</option>
+        <option>Philodendron mayoii</option>
+        <option>Philodendron melanochrysum</option>
+        <option>Philodendron micans</option>
+        <option>Philodendron pedatum</option>
+        <option>Philodendron radiatum</option>
+        <option>Philodendron rugosum</option>
+        <option>Philodendron squamiferum</option>
+        <option>Philodendron tripartitum</option>
+        <option>Philodendron verrucosum</option>
+        <option>Scindapsus pictus</option>
+        <option>Syngonium angustatum</option>
+        <option>Syngonium auritum</option>
+        <option>Syngonium chiapense</option>
+        <option>Syngonium erythrophyllum</option>
+        <option>Syngonium macrophyllum</option>
+        <option>Syngonium podophyllum</option>
+        <option>Syngonium rayi</option>
+        <option>Syngonium sagittatum</option>
+        <option>Syngonium wendlandii</option>
+    </select>
     <br>
     <br>
     <p>Plant Nickname</p>
@@ -351,7 +405,6 @@ const getEditPlantPage = () => {
     <br>
     <br>
     `)
-
   $('.edit-plant-info').html(editPlantInfo).show()
 }
 

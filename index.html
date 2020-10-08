@@ -2,6 +2,7 @@
 <html>
     <head>
       <title>My Personal Jungle Garden</title>
+      <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -10,6 +11,20 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+      <!-- For dropdown select autocomplete -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+
+
+      <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
     </head>
     <body>
       <div class="head container">
@@ -136,7 +151,62 @@
         <section class="add-plant">
           <h2>Add New Plant</h2>
           <form id="add-plant">
-              <input name="plant[name]" type="text" placeholder="Plant Name" required>
+              <select name="plant[name]" class="plant-name" required>
+                  <option disabled selected>Select plant species</option>
+                  <option>Hoya australis</option>
+                  <option>Hoya bilobata</option>
+                  <option>Hoya carnosa (hindu rope - green)</option>
+                  <option>Hoya carnosa (hindu rope - variegated)</option>
+                  <option>Hoya carnosa (jade)</option>
+                  <option>Hoya carnosa (queen)</option>
+                  <option>Hoya carnosa (princess)</option>
+                  <option>Hoya imbricata</option>
+                  <option>Hoya kerrii (green)</option>
+                  <option>Hoya kerrii (variegated)</option>
+                  <option>Hoya obscura</option>
+                  <option>Monstera adansonii (wide)</option>
+                  <option>Monstera adansonii (narrow)</option>
+                  <option>Monstera deliciosa</option>
+                  <option>Monstera dubia</option>
+                  <option>Monstera lechleriana</option>
+                  <option>Monstera obliqua</option>
+                  <option>Monstera peru</option>
+                  <option>Monstera siltepecana</option>
+                  <option>Monstera standleyana (green)</option>
+                  <option>Monstera standleyana (variegated - cream)</option>
+                  <option>Monstera standleyana (variegated - yellow)</option>
+                  <option>Monstera subpinnata</option>
+                  <option>Philodendron bipennifolium</option>
+                  <option>Philodendron brasil</option>
+                  <option>Philodendron cordatum</option>
+                  <option>Philodendron crassinervium</option>
+                  <option>Philodendron erubescens</option>
+                  <option>Philodendron giganteum</option>
+                  <option>Philodendron gloriosum</option>
+                  <option>Philodendron hastatum (silver)</option>
+                  <option>Philodendron hederaceum (heartleaf)</option>
+                  <option>Philodendron hederaceum (micans)</option>
+                  <option>Philodendron mayoii</option>
+                  <option>Philodendron melanochrysum</option>
+                  <option>Philodendron micans</option>
+                  <option>Philodendron pedatum</option>
+                  <option>Philodendron radiatum</option>
+                  <option>Philodendron rugosum</option>
+                  <option>Philodendron squamiferum</option>
+                  <option>Philodendron tripartitum</option>
+                  <option>Philodendron verrucosum</option>
+                  <option>Scindapsus pictus</option>
+                  <option>Syngonium angustatum</option>
+                  <option>Syngonium auritum</option>
+                  <option>Syngonium chiapense</option>
+                  <option>Syngonium erythrophyllum</option>
+                  <option>Syngonium macrophyllum</option>
+                  <option>Syngonium podophyllum</option>
+                  <option>Syngonium rayi</option>
+                  <option>Syngonium sagittatum</option>
+                  <option>Syngonium wendlandii</option>
+              </select>
+              <!-- <input name="plant[name]" type="text" placeholder="Plant Name" class="plant-name" required> -->
               <br>
               <input name="plant[nickName]" type="text" placeholder="Plant Nickname (Optional)">
               <br>
@@ -207,4 +277,16 @@
       </main>
 
     </body>
+    <script>
+      $('.plant-name').chosen()
+      // $(function () {
+      //   const plantNames = [
+      //     'Hoya',
+      //     'Philodendron'
+      //   ]
+      //   $('.plant-name').autocomplete({
+      //     source: plantNames
+      //   })
+      // })
+    </script>
 </html>
