@@ -393,15 +393,15 @@ const getEditPlantPage = () => {
     <br>
     <br>
     <p>Plant Nickname</p>
-    <input name="plant[nickName]" value="${store.plant.nickName}" type="text">
+    <input name="plant[nickName]" value="${store.plant.nickName}" type="text" class="edit-input-field">
     <br>
     <br>
     <p>Date Acquired</p>
-    <input name="plant[dateAcquired]" value="${store.plant.dateAcquired}" type="date" required>
+    <input name="plant[dateAcquired]" value="${store.plant.dateAcquired}" type="date" required class="edit-input-field">
     <br>
     <br>
     <p>Additional Notes</p>
-    <input name="plant[additionalNotes]" value="${store.plant.additionalNotes}" type="text">
+    <input name="plant[additionalNotes]" value="${store.plant.additionalNotes}" type="text" class="edit-input-field">
     <br>
     <br>
     `)
