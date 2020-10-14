@@ -1,6 +1,6 @@
 
   <section data-id="{{plantCollection._id}}">
-    <h2 class=" pc pc-name-header">
+    <h2 class="pc pc-name-header">
       {{#if plantCollection.name}}
         {{plantCollection.name}}
       {{else}}
@@ -8,19 +8,21 @@
       {{/if}}
     </h2>
 
-    {{#each plantCollection.plants as |plant|}}
-
-      <section data-id="{{plant._id}}">
-        <h4 data-id="{{plant._id}}" class="plant pointer plant-listing">
-        {{#if plant.nickName}}
-          {{plant.nickName}}
-        {{else}}
-          {{plant.name}}
-        {{/if}}
-        </h4>
-
+    <div>
+      {{#each plantCollection.plants as |plant|}}
+        <section data-id="{{plant._id}}">
+          <p data-id="{{plant._id}}" class="plant pointer plant-listing">
+          {{#if plant.nickName}}
+            {{plant.nickName}}
+          {{else}}
+            {{plant.name}}
+          {{/if}}
+          </p>
+        </section>
+        </div>
+        <div>
         <button data-id="{{plant._id}}" class="btn-plant-delete btn-danger delete-plant-button">Delete</button>
-      </section>
-    {{/each}}
+      {{/each}}
+    </div>
 
   </section>
