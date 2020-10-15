@@ -8,21 +8,19 @@
       {{/if}}
     </h2>
 
-    <div>
-      {{#each plantCollection.plants as |plant|}}
-        <section data-id="{{plant._id}}">
-          <p data-id="{{plant._id}}" class="plant pointer plant-listing">
-          {{#if plant.nickName}}
-            {{plant.nickName}}
-          {{else}}
-            {{plant.name}}
-          {{/if}}
-          </p>
-        </section>
-        </div>
-        <div>
-        <button data-id="{{plant._id}}" class="btn-plant-delete btn-danger delete-plant-button">Delete</button>
-      {{/each}}
-    </div>
+    {{#each plantCollection.plants as |plant|}}
+      <div data-id="{{plant._id}}" class="plant-listing">
+        <p data-id="{{plant._id}}" class="plant pointer">
+        {{#if plant.nickName}}
+          {{plant.nickName}}
+        {{else}}
+          {{plant.name}}
+        {{/if}}
+        </p>
+
+      <button data-id="{{plant._id}}" class="btn-plant-delete btn-danger delete-plant-button">Delete</button>
+      </div>
+    {{/each}}
+
 
   </section>

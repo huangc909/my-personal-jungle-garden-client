@@ -126,24 +126,17 @@ button:hover {
   opacity: 1;
 }
 
-.plant-grid {
-  position: relative;
-  border: 10px solid black;
-  width: 200px;
-  // margin-left: 300px;
-  background-color: lightblue;
+.content-plants {
+  width: 75%;
+  margin: 0 auto;
 }
 
 .plant-listing {
   background-color: #FFFFFF;
-  // margin-top: 30px;
-  // margin-bottom: 30px;
-  // margin-left: 300px;
-  // margin-right: 300px;
-  // padding: 15px;
   color: #0D2D0E;
   border-radius: 10px;
   width: 150px;
+  float: left;
 }
 
 .plant-listing:hover {
