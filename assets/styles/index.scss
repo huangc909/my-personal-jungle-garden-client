@@ -118,6 +118,7 @@ button:hover {
   color: #FFFFFF;
   opacity: 0.8;
   border-radius: 10px;
+  border: 10px solid purple;
 }
 
 .pc-header:hover {
@@ -129,7 +130,15 @@ button:hover {
 .content-plants {
   width: 75%;
   margin: 0 auto;
+  border: 10px solid blue;
+  margin-bottom: 50px;
+
 }
+
+// .plant-grid {
+//   border: 10px solid red;
+//   height: 50%;
+// }
 
 .plant-listing {
   background-color: #FFFFFF;
@@ -137,6 +146,14 @@ button:hover {
   border-radius: 10px;
   width: 150px;
   float: left;
+  border: 10px solid black;
+  height: 90px;
+  align-items: center;
+}
+
+.plant-buttons {
+  margin-top: 30px;
+  border: 10px solid yellow;
 }
 
 .plant-listing:hover {
