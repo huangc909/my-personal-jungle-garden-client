@@ -7,9 +7,9 @@
         My Plant Collection
       {{/if}}
     </h2>
-
+    <div class="plant-container">
     {{#each plantCollection.plants as |plant|}}
-      <div data-id="{{plant._id}}" class="plant-listing">
+    <div class="plant-listing">
         <p data-id="{{plant._id}}" class="plant pointer">
         {{#if plant.nickName}}
           {{plant.nickName}}
@@ -19,9 +19,8 @@
         </p>
 
       <button data-id="{{plant._id}}" class="btn-plant-delete btn-danger delete-plant-button">Delete</button>
-      </div>
+    </div>
     {{/each}}
-
-
+    </div>
 
   </section>

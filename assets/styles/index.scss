@@ -113,12 +113,11 @@ button:hover {
 .pc-name-header {
   margin: 30px;
   padding: 20px;
-  border: 2px solid;
+  border: 10px solid purple;
   background-color: #174419;
   color: #FFFFFF;
   opacity: 0.8;
   border-radius: 10px;
-  border: 10px solid purple;
 }
 
 .pc-header:hover {
@@ -128,27 +127,30 @@ button:hover {
 }
 
 .content-plants {
-  width: 75%;
+  width: 85%;
   margin: 0 auto;
   border: 10px solid blue;
   margin-bottom: 50px;
-
 }
 
-// .plant-grid {
-//   border: 10px solid red;
-//   height: 50%;
-// }
+.plant-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border: 10px solid orange;
+}
 
 .plant-listing {
   background-color: #FFFFFF;
   color: #0D2D0E;
   border-radius: 10px;
   width: 150px;
-  float: left;
+  float: center;
   border: 10px solid black;
   height: 90px;
   align-items: center;
+  margin: 10px 10px;
 }
 
 .plant-buttons {

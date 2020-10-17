@@ -185,32 +185,6 @@ const showPCSuccess = function (response) {
   const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })
 
   $('.content-plants').html(showPlantsHtml).show()
-
-  // // assigning plants info to variable plants
-  // const plants = store.plantCollection.plants
-  //
-  // // Have the plant names appear on the page
-  // const plantsList = function () {
-  //   // empty array for the plant names
-  //   const plantArray = []
-  //   // for each plant
-  //   for (let i = 0; i < store.plantCollection.plants.length; i++) {
-  //     // store the name as plant variable
-  //     const plant = store.plantCollection.plants[i]
-  //     // format the plant variable
-  //     const plantName = (`
-  //       <div>
-  //         <h4 class="plant-name pointer">${plant.name}</h4>
-  //       </div>
-  //       `)
-  //     // add formatted plant variable to plant array
-  //     plantArray.push(plantName)
-  //   }
-  //   // show plant array
-  //   $('.content-plants').html(plantArray).show()
-  // }
-  // // invoke the plantsList function by putting in plants variable
-  // plantsList(plants)
 }
 
 const showPCFailure = function () {
