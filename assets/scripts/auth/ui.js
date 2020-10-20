@@ -150,9 +150,10 @@ const showPCsSuccess = function (data) {
     $('.getDeletePCButtons').hide()
     // display existing plant collection names
     const myPlantCollections = (`
-      <p>You currently have no plant collections, create one!</p>
+      <p>You currently have no plant collections. Add one!</p>
       `)
     $('.my-pc-collections').html(myPlantCollections).show()
+    $('.get-delete-pc-buttons').hide()
   } else {
     // otherwise, display "My Plant Collections"
     $('.getDeletePCButtons').show()
@@ -160,6 +161,7 @@ const showPCsSuccess = function (data) {
       <h2>My Plant Collections</h2>
       `)
     $('.my-pc-collections').html(myPlantCollections).hide()
+    $('.get-delete-pc-buttons').show()
   }
 }
 
@@ -185,6 +187,18 @@ const showPCSuccess = function (response) {
   const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })
 
   $('.content-plants').html(showPlantsHtml).show()
+
+  if (store.plantCollection.plants.length === 0) {
+    $('.get-delete-plant-buttons').hide()
+    const myPlants = (`
+      <h2 class="pc pc-name-header">${store.plantCollection.name}</h2>
+      <p>You currently have no plants. Add one!
+      `)
+    $('.content-plants').html(myPlants).show()
+  } else {
+    $('.get-delete-plant-buttons').show()
+    // $('.content-plants').html(showPlantInfoHtml).show()
+  }
 }
 
 const showPCFailure = function () {
