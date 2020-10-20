@@ -111,9 +111,8 @@ button:hover {
 }
 
 .pc-name-header {
-  margin: 30px;
   padding: 20px;
-  border: 10px solid purple;
+  // border: 10px solid purple;
   background-color: #174419;
   color: #FFFFFF;
   opacity: 0.8;
@@ -129,8 +128,7 @@ button:hover {
 .content-plants {
   width: 85%;
   margin: 0 auto;
-  border: 10px solid blue;
-  margin-bottom: 50px;
+  // border: 10px solid blue;
 }
 
 .plant-container {
@@ -138,7 +136,7 @@ button:hover {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  border: 10px solid orange;
+  // border: 10px solid orange;
 }
 
 .plant-listing {
@@ -154,8 +152,7 @@ button:hover {
 }
 
 .plant-buttons {
-  margin-top: 30px;
-  border: 10px solid yellow;
+  // border: 10px solid yellow;
 }
 
 .plant-listing:hover {
