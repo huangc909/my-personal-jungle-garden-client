@@ -158,7 +158,7 @@ const showPCsSuccess = function (data) {
     // otherwise, display "My Plant Collections"
     $('.getDeletePCButtons').show()
     const myPlantCollections = (`
-      <h2>My Plant Collections</h2>
+      <h2 class="header-title">My Plant Collections</h2>
       `)
     $('.my-pc-collections').html(myPlantCollections).hide()
     $('.get-delete-pc-buttons').show()
@@ -191,7 +191,7 @@ const showPCSuccess = function (response) {
   if (store.plantCollection.plants.length === 0) {
     $('.get-delete-plant-buttons').hide()
     const myPlants = (`
-      <h2 class="pc pc-name-header">${store.plantCollection.name}</h2>
+      <h2 class="pc header-title">${store.plantCollection.name}</h2>
       <p>You currently have no plants. Add one!
       `)
     $('.content-plants').html(myPlants).show()

@@ -1,11 +1,7 @@
 
   <section data-id="{{plantCollection._id}}">
-    <h2 class="pc pc-name-header">
-      {{#if plantCollection.name}}
-        {{plantCollection.name}}
-      {{else}}
-        My Plant Collection
-      {{/if}}
+    <h2 class="pc header-title">
+      {{plantCollection.name}}
     </h2>
     <div class="plant-container">
     {{#each plantCollection.plants as |plant|}}

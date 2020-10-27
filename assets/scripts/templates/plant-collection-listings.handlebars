@@ -1,14 +1,11 @@
   {{#each plantCollections as |plantCollection|}}
 
     <section data-id="{{plantCollection._id}}">
-      <h2 data-id="{{plantCollection._id}}" class="pc pc-name-header pc-header pointer">
-        {{#if plantCollection.name}}
+      <p data-id="{{plantCollection._id}}" class="pc pc-name-header pc-header pointer">
           {{plantCollection.name}}
-        {{else}}
-          My Plant Collection
-        {{/if}}
-      </h2>
+      </p>
 
       <button data-id="{{plantCollection._id}}" class="btn-pc-delete btn-danger delete-pc-button">Delete</button>
+      <br>
     </section>
     {{/each}}
