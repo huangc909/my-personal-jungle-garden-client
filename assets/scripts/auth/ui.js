@@ -197,7 +197,6 @@ const showPCSuccess = function (response) {
     $('.content-plants').html(myPlants).show()
   } else {
     $('.get-delete-plant-buttons').show()
-    // $('.content-plants').html(showPlantInfoHtml).show()
   }
 }
 
@@ -236,6 +235,17 @@ const editPCNameSuccess = function (data) {
   const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })
 
   $('.content-plants').html(showPlantsHtml).show()
+
+  if (store.plantCollection.plants.length === 0) {
+    $('.get-delete-plant-buttons').hide()
+    const myPlants = (`
+      <h2 class="pc header-title">${store.plantCollection.name}</h2>
+      <p>You currently have no plants. Add one!
+      `)
+    $('.content-plants').html(myPlants).show()
+  } else {
+    $('.get-delete-plant-buttons').show()
+  }
 }
 
 const editPCNameFailure = function () {

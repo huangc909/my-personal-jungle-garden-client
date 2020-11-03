@@ -50,7 +50,7 @@ button:hover {
     .box3 {
       display: flex;
       justify-content: center;
-    align-items: center;
+      align-items: center;
     }
   }
 }
@@ -111,17 +111,23 @@ button:hover {
 }
 
 .header-title {
+  margin: auto;
+  width: 75%;
   padding: 20px;
-  border: 10px;
   background-color: #174419;
   color: #FFFFFF;
-  // opacity: 0.8;
   border-radius: 10px;
 }
 
+.content-plant-collections {
+  width: 75%;
+  margin: 20px auto;
+}
+
 .pc-name-header {
+  margin: auto;
+  width: 75%;
   padding: 20px;
-  border: 10px solid #174419;
   background-color: #FFFFFF;
   color: #174419;
   opacity: 0.8;
@@ -135,39 +141,32 @@ button:hover {
   opacity: 1;
 }
 
-.content-plants {
-  width: 85%;
-  margin: 0 auto;
-  // border: 10px solid blue;
-}
-
 .plant-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  // border: 10px solid orange;
 }
 
 .plant-listing {
   background-color: #FFFFFF;
-  color: #0D2D0E;
+  color: #174419;
+  opacity: 0.8;
   border-radius: 10px;
   width: 150px;
   float: center;
-  border: 10px solid black;
+  // border: 2px solid #174419;
   height: 90px;
   align-items: center;
   margin: 10px 10px;
-}
-
-.plant-buttons {
-  // border: 10px solid yellow;
+  padding: 10px;
 }
 
 .plant-listing:hover {
-  background-color: #0D2D0E;
-  color: #FFFFFF;
+  // background-color: #0D2D0E;
+  // color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: #174419;
   box-shadow: 0px -2px 8px 1px rgba(241,255,207,0.82);
   opacity: 1;
 }
