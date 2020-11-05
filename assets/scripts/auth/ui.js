@@ -11,6 +11,7 @@ const showPlantInfoTemplate = require('../templates/plant-info.handlebars')
 const getSignUpPage = () => {
   $('.signin').hide()
   $('.signup').show()
+  $('.demosignin').hide()
 }
 
 const signUpSuccess = function (response) {
@@ -20,6 +21,7 @@ const signUpSuccess = function (response) {
   $('#message').delay(600).fadeOut(1500)
   $('.signin').show()
   $('.signup').hide()
+  $('.demosignin').hide()
 }
 
 const signUpFailure = function () {
@@ -32,6 +34,13 @@ const signUpFailure = function () {
 const getSignInPage = () => {
   $('.signup').hide()
   $('.signin').show()
+  $('.demosignin').hide()
+}
+
+const getDemoSignInPage = () => {
+  $('.signup').hide()
+  $('.signin').hide()
+  $('.demosignin').show()
 }
 
 const signInSuccess = function (response) {
@@ -41,6 +50,7 @@ const signInSuccess = function (response) {
   // $('#message').removeClass().addClass('success')
   // $('#message').delay(600).fadeOut(1500)
   $('.signin').hide()
+  $('.demosignin').hide()
   $('.menu-dropdown').show()
   $('.plant-collections').show()
 }
@@ -63,6 +73,7 @@ const getChangePasswordPage = () => {
   $('.edit-plant').hide()
   $('.add-log').hide()
   $('.edit-log').hide()
+  $('.demosignin').hide()
 }
 
 const changePasswordSuccess = function (response) {
@@ -96,6 +107,7 @@ const signOutSuccess = function (response) {
   $('.edit-plant').hide()
   $('.add-log').hide()
   $('.edit-log').hide()
+  $('.demosignin').hide()
 }
 
 const signOutFailure = function () {
@@ -185,6 +197,8 @@ const showPCSuccess = function (response) {
   $('.edit-log').hide()
 
   const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })
+
+  console.log(store)
 
   $('.content-plants').html(showPlantsHtml).show()
 
@@ -505,6 +519,7 @@ module.exports = {
   signUpSuccess,
   signUpFailure,
   getSignInPage,
+  getDemoSignInPage,
   signInSuccess,
   signInFailure,
   getChangePasswordPage,

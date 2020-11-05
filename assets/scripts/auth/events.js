@@ -27,6 +27,11 @@ const onGetSignInPage = function (event) {
   ui.getSignInPage()
 }
 
+const onGetDemoSignInPage = function (event) {
+  event.preventDefault()
+  ui.getDemoSignInPage()
+}
+
 const onSignIn = function (event) {
   event.preventDefault()
 
@@ -300,6 +305,7 @@ module.exports = {
   onGetSignUpPage,
   onSignUp,
   onGetSignInPage,
+  onGetDemoSignInPage,
   onSignIn,
   onGetChangePasswordPage,
   onChangePassword,
