@@ -57,7 +57,8 @@ const signInSuccess = function (response) {
   console.log(store)
 
   if (store.user.email === 'demo@email.com') {
-    $('.demo-account').show()
+    $('.demo-account').hide()
+    $('.demo-account-indicator').show()
   } else {
     $('.demo-account').hide()
   }
@@ -124,6 +125,7 @@ const signOutSuccess = function (response) {
   $('.edit-log').hide()
   $('.demosignin').hide()
   $('.demochangepw').hide()
+  $('.demo-account-indicator').hide()
 }
 
 const signOutFailure = function () {
