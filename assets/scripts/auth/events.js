@@ -74,6 +74,30 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const onDemoSignOut = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getFormFields(form)
+
+  // gets the id of the plant collection and sends it to the api for delete request then signout; otherwise, signout
+  if (store.plantCollections.length > 0) {
+    let pcId = '0'
+
+    store.plantCollections.map(pcItem => {
+      pcId = pcItem._id
+      api.deletePlantCollection(pcId)
+    })
+    api.signOut(data)
+      .then(ui.signOutSuccess)
+      .catch(ui.signOutFailure)
+  } else {
+    api.signOut(data)
+      .then(ui.signOutSuccess)
+      .catch(ui.signOutFailure)
+  }
+}
+
 // Plant Collections Events
 const onGetAddPCPage = function (event) {
   event.preventDefault()
@@ -310,6 +334,7 @@ module.exports = {
   onGetChangePasswordPage,
   onChangePassword,
   onSignOut,
+  onDemoSignOut,
 
   // Plant Collections Events
   onGetAddPCPage,

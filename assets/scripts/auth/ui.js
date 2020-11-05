@@ -54,13 +54,14 @@ const signInSuccess = function (response) {
   $('.menu-dropdown').show()
   $('.plant-collections').show()
 
-  console.log(store)
-
   if (store.user.email === 'demo@email.com') {
     $('.demo-account').hide()
     $('.demo-account-indicator').show()
+    $('#sign-out').hide()
+    $('#demo-sign-out').show()
   } else {
     $('.demo-account').hide()
+    $('#demo-sign-out').hide()
   }
 }
 
@@ -217,8 +218,6 @@ const showPCSuccess = function (response) {
 
   const showPlantsHtml = showPCTemplate({ plantCollection: store.plantCollection })
 
-  console.log(store)
-
   $('.content-plants').html(showPlantsHtml).show()
 
   if (store.plantCollection.plants.length === 0) {
@@ -334,11 +333,9 @@ const addPlantFailure = function () {
 
 const showPlantSuccess = function (response) {
   $('form').trigger('reset')
-  // 'response' shows plant's info
+
   store.plant = response.plant
-  // only console.log(store) will show plant collection info
-  // console.log('this is the store ' + store) does not work
-  // 'store.plant' shows plant's info
+
   $('.plant-collections').hide()
   $('.edit-pc-name').hide()
   $('.plant-collection').hide()
