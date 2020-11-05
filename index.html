@@ -114,6 +114,19 @@
           </form>
         </section>
 
+        <section class="demochangepw">
+          <h2>Change Password</h2>
+          <div>
+              <input name="passwords[old]" type="password" placeholder="Old Password" required>
+              <br>
+              <input name="passwords[new]" type="password" placeholder="New Password" required>
+              <br>
+              <br>
+              <button>Change Password</button>
+              <p>Note: Change Password feature not applicable to Demo Account</p>
+          </div>
+        </section>
+
         <section class="plant-collections">
           <div>
             <h2 class="header-title">My Plant Collections</h2>
@@ -296,14 +309,5 @@
     </body>
     <script>
       $('.plant-name').chosen()
-      // $(function () {
-      //   const plantNames = [
-      //     'Hoya',
-      //     'Philodendron'
-      //   ]
-      //   $('.plant-name').autocomplete({
-      //     source: plantNames
-      //   })
-      // })
     </script>
 </html>

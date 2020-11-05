@@ -53,6 +53,14 @@ const signInSuccess = function (response) {
   $('.demosignin').hide()
   $('.menu-dropdown').show()
   $('.plant-collections').show()
+
+  console.log(store)
+
+  if (store.user.email === 'demo@email.com') {
+    $('.demo-account').show()
+  } else {
+    $('.demo-account').hide()
+  }
 }
 
 const signInFailure = function () {
@@ -63,7 +71,6 @@ const signInFailure = function () {
 }
 
 const getChangePasswordPage = () => {
-  $('.changepw').show()
   $('.plant-collections').hide()
   $('.add-pc').hide()
   $('.plant-collection').hide()
@@ -74,6 +81,13 @@ const getChangePasswordPage = () => {
   $('.add-log').hide()
   $('.edit-log').hide()
   $('.demosignin').hide()
+
+  if (store.user.email === 'demo@email.com') {
+    $('.changepw').hide()
+    $('.demochangepw').show()
+  } else {
+    $('.changepw').show()
+  }
 }
 
 const changePasswordSuccess = function (response) {
@@ -96,6 +110,7 @@ const signOutSuccess = function (response) {
   $('#message').removeClass().addClass('success')
   $('#message').delay(600).fadeOut(1500)
   $('.signin').show()
+  $('.demo-account').show()
   $('.menu-dropdown').hide()
   $('.changepw').hide()
   $('.plant-collections').hide()
@@ -108,6 +123,7 @@ const signOutSuccess = function (response) {
   $('.add-log').hide()
   $('.edit-log').hide()
   $('.demosignin').hide()
+  $('.demochangepw').hide()
 }
 
 const signOutFailure = function () {
@@ -150,6 +166,7 @@ const showPCsSuccess = function (data) {
   $('.plant-information').hide()
   $('.add-log').hide()
   $('.edit-log').hide()
+  $('.demochangepw').hide()
 
   // assign handlebar template for plant collections to variable
   const showPlantCollectionsHtml = showTemplate({ plantCollections: store.plantCollections })
