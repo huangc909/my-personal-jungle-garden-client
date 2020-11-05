@@ -62,6 +62,7 @@ const signInSuccess = function (response) {
   } else {
     $('.demo-account').hide()
     $('#demo-sign-out').hide()
+    $('#sign-out').show()
   }
 }
 
