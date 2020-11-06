@@ -5,14 +5,14 @@
     </h2>
     <div class="plant-container">
     {{#each plantCollection.plants as |plant|}}
-    <div class="plant-listing">
+    <div data-id="{{plant._id}}" class="plant-listing">
         <p data-id="{{plant._id}}" class="plant pointer">
         {{#if plant.nickName}}
           {{plant.nickName}}
         {{else}}
           {{plant.name}}
         {{/if}}
-        </p>
+      </p>
 
       <button data-id="{{plant._id}}" class="btn-plant-delete btn-danger delete-plant-button">Delete</button>
     </div>

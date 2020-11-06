@@ -46,9 +46,6 @@ const getDemoSignInPage = () => {
 const signInSuccess = function (response) {
   store.user = response.user
   $('form').trigger('reset')
-  // $('#message').text('Sign-in Success').show()
-  // $('#message').removeClass().addClass('success')
-  // $('#message').delay(600).fadeOut(1500)
   $('.signin').hide()
   $('.demosignin').hide()
   $('.menu-dropdown').show()
