@@ -1,5 +1,6 @@
 'use strict'
 
+const api = require('./api')
 const store = require('./../store')
 const showTemplate = require('../templates/plant-collection-listings.handlebars')
 
@@ -169,29 +170,63 @@ const showPCsSuccess = function (data) {
   $('.edit-log').hide()
   $('.demochangepw').hide()
 
-  // assign handlebar template for plant collections to variable
-  const showPlantCollectionsHtml = showTemplate({ plantCollections: store.plantCollections })
+  if (store.plantCollections.length > 0) {
+    let pcId = '0'
 
-  // show handlebar template for plant collection
-  $('.content-plant-collections').html(showPlantCollectionsHtml)
+    store.plantCollections.map(pcItem => {
+      pcId = pcItem._id
+      api.deletePlantCollection(pcId)
+    })
 
-  // If there are existing plant collections,
-  if (store.plantCollections.length === 0) {
-    $('.getDeletePCButtons').hide()
-    // display existing plant collection names
-    const myPlantCollections = (`
-      <p>You currently have no plant collections. Add one!</p>
-      `)
-    $('.my-pc-collections').html(myPlantCollections).show()
-    $('.get-delete-pc-buttons').hide()
+    // assign handlebar template for plant collections to variable
+    const showPlantCollectionsHtml = showTemplate({ plantCollections: store.plantCollections })
+
+    // show handlebar template for plant collection
+    $('.content-plant-collections').html(showPlantCollectionsHtml)
+
+    // If there are existing plant collections,
+    if (store.plantCollections.length === 0) {
+      $('.getDeletePCButtons').hide()
+      // display existing plant collection names
+      const myPlantCollections = (`
+        <p>You currently have no plant collections. Add one!</p>
+        `)
+      $('.my-pc-collections').html(myPlantCollections).show()
+      $('.get-delete-pc-buttons').hide()
+    } else {
+      // otherwise, display "My Plant Collections"
+      $('.getDeletePCButtons').show()
+      const myPlantCollections = (`
+        <h2 class="header-title">My Plant Collections</h2>
+        `)
+      $('.my-pc-collections').html(myPlantCollections).hide()
+      $('.get-delete-pc-buttons').show()
+    }
   } else {
-    // otherwise, display "My Plant Collections"
-    $('.getDeletePCButtons').show()
-    const myPlantCollections = (`
-      <h2 class="header-title">My Plant Collections</h2>
-      `)
-    $('.my-pc-collections').html(myPlantCollections).hide()
-    $('.get-delete-pc-buttons').show()
+    // assign handlebar template for plant collections to variable
+    const showPlantCollectionsHtml = showTemplate({ plantCollections: store.plantCollections })
+
+    // show handlebar template for plant collection
+    $('.content-plant-collections').html(showPlantCollectionsHtml)
+
+    // If there are existing plant collections,
+    if (store.plantCollections.length === 0) {
+      $('.getDeletePCButtons').hide()
+      // display existing plant collection names
+      const myPlantCollections = (`
+        <p>You currently have no plant collections. Add one!</p>
+        `)
+      $('.my-pc-collections').html(myPlantCollections).show()
+      $('.get-delete-pc-buttons').hide()
+    } else {
+      // otherwise, display "My Plant Collections"
+      $('.getDeletePCButtons').show()
+      const myPlantCollections = (`
+        <h2 class="header-title">My Plant Collections</h2>
+        `)
+      $('.my-pc-collections').html(myPlantCollections).hide()
+      $('.get-delete-pc-buttons').show()
+    }
   }
 }
 
