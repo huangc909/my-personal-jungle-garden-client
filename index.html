@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>My Personal Jungle Garden</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="public/plant_logo.png">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+      <!-- For dropdown select autocomplete -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+
+
+      <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+    </head>
+    <body>
+      <div class="head container">
+        <div class="row">
+          <div class="col-4 box1">
+            <p class="demo-account pointer">Sign In with Demo Account</p>
+            <p class="demo-account-indicator">Demo Account</p>
+          </div>
+
+          <div class="col-4 box2">
+            <img src="https://user-images.githubusercontent.com/53062479/86633174-57620100-bf9e-11ea-9c67-711de00a4118.png" alt="" class="logo" />
+          </div>
+
+          <div class="col-4 box3">
+            <section class="menu-dropdown">
+              <div class="dropdown">
+                <div class="dropdown-content dropdown-menu-right">
+                    <p id="show-pcs" class="pc-btn dm pointer">See Collections</p>
+                    <p class="getChangePasswordPage dm pointer">Change Password</p>
+                    <form id="sign-out">
+                      <p class="dm pointer">Sign Out</p>
+                    </form>
+                    <form id="demo-sign-out">
+                      <p class="dm pointer">Sign Out <br> <span class="demo-signout-warning">(All Plant Collections will be deleted from Demo Account after Sign out)</span></p>
+                    </form>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <main>
+        <div>
+          <p id ="message"></p>
+        </div>
+
+        <section class="signup">
+          <form id="sign-up">
+            <input name="credentials[email]" type="email" placeholder="Email" required>
+            <br>
+            <input name="credentials[password]" type="password" placeholder="Password" required>
+            <br>
+            <input name="credentials[password_confirmation]" type="password" placeholder="Password Confirmation" required>
+            <br>
+            <br>
+            <button type="submit">Create Account</button>
+            <br>
+            <p class="getSignInPage pointer switch">I already have an account</p>
+          </form>
+          <br>
+        </section>
+
+        <section class="signin">
+          <form id="sign-in">
+              <input name="credentials[email]" type="email" placeholder="Email" required>
+              <br>
+              <input name="credentials[password]" type="password" placeholder="Password" required>
+              <br>
+              <br>
+              <button type="submit">Sign In</button>
+              <br>
+              <p class="getSignUpPage pointer switch">I don't have an account yet</p>
+          </form>
+          <br>
+        </section>
+
+        <section class="demosignin">
+          <form id="demo-sign-in">
+              <input name="credentials[email]" type="email" placeholder="Email" value="demo@email.com" required>
+              <br>
+              <input name="credentials[password]" type="password" placeholder="Password" value="demoaccount11320" required>
+              <br>
+              <br>
+              <button type="submit">Sign In</button>
+              <br>
+              <p class="getSignUpPage pointer switch">I don't have an account yet</p>
+          </form>
+          <br>
+        </section>
+
+        <section class="changepw">
+          <h2>Change Password</h2>
+          <form id="change-password">
+              <input name="passwords[old]" type="password" placeholder="Old Password" required>
+              <br>
+              <input name="passwords[new]" type="password" placeholder="New Password" required>
+              <br>
+              <br>
+              <button type="submit">Change Password</button>
+          </form>
+        </section>
+
+        <section class="demochangepw">
+          <h2>Change Password</h2>
+          <div>
+              <input name="passwords[old]" type="password" placeholder="Old Password" required>
+              <br>
+              <input name="passwords[new]" type="password" placeholder="New Password" required>
+              <br>
+              <br>
+              <button>Change Password</button>
+              <p>Note: Change Password feature not applicable to Demo Account</p>
+          </div>
+        </section>
+
+        <section class="plant-collections">
+          <div>
+            <h2 class="header-title">My Plant Collections</h2>
+            <div class="my-pc-collections"></div>
+            <div id="content-plant-collections" class="content-plant-collections">
+            </div>
+
+            <button class="get-add-pc-page">Add Plant Collection</button>
+            <button class="get-delete-pc-buttons btn-pc">Delete Plant Collection</button>
+
+          </div>
+        </section>
+
+        <section class="add-pc">
+          <h2>Add Plant Collection</h2>
+          <form id="add-pc">
+            <input name="plantCollection[name]" type="text" placeholder="Collection Name" required>
+            <br>
+            <br>
+            <button data-id="plantCollection._id"  type="submit">Add Collection</button>
+            <p class="back-to-pcs pointer go-back">Nevermind</p>
+          </form>
+        </section>
+
+        <section class="plant-collection">
+          <div>
+            <h2 class="plant-collection-name"></h2>
+
+            <div id="content-plants" class="content-plants"></div>
+            <br>
+            <br>
+            <div class="plant-buttons">
+              <button class="get-edit-pc-name-page">Edit Collection Name</button>
+              <button class="get-add-new-plant">Add New Plant</button>
+              <button class="get-delete-plant-buttons">Delete Plant</button>
+              <p class="back-to-pcs pointer go-back">See All Collections</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="edit-pc-name">
+          <h3 class="pc-name"></h3>
+          <form id="edit-pc-name">
+            <div class="edit-pc-info"></div>
+            <br>
+            <button type="submit">Update</button>
+          </form>
+          <p class="back-to-pc pointer go-back">Nevermind</p>
+        </section>
+
+        <section class="add-plant">
+          <h2>Add New Plant</h2>
+          <form id="add-plant">
+              <select name="plant[name]" class="plant-name input-field" required>
+                  <option disabled selected>Select plant species</option>
+                  <option>Hoya australis</option>
+                  <option>Hoya bilobata</option>
+                  <option>Hoya carnosa (hindu rope - green)</option>
+                  <option>Hoya carnosa (hindu rope - variegated)</option>
+                  <option>Hoya carnosa (jade)</option>
+                  <option>Hoya carnosa (queen)</option>
+                  <option>Hoya carnosa (princess)</option>
+                  <option>Hoya imbricata</option>
+                  <option>Hoya kerrii (green)</option>
+                  <option>Hoya kerrii (variegated)</option>
+                  <option>Hoya obscura</option>
+                  <option>Monstera adansonii (wide)</option>
+                  <option>Monstera adansonii (narrow)</option>
+                  <option>Monstera deliciosa</option>
+                  <option>Monstera dubia</option>
+                  <option>Monstera lechleriana</option>
+                  <option>Monstera obliqua</option>
+                  <option>Monstera peru</option>
+                  <option>Monstera siltepecana</option>
+                  <option>Monstera standleyana (green)</option>
+                  <option>Monstera standleyana (variegated - cream)</option>
+                  <option>Monstera standleyana (variegated - yellow)</option>
+                  <option>Monstera subpinnata</option>
+                  <option>Philodendron bipennifolium</option>
+                  <option>Philodendron brasil</option>
+                  <option>Philodendron cordatum</option>
+                  <option>Philodendron crassinervium</option>
+                  <option>Philodendron erubescens</option>
+                  <option>Philodendron giganteum</option>
+                  <option>Philodendron gloriosum</option>
+                  <option>Philodendron hastatum (silver)</option>
+                  <option>Philodendron hederaceum (heartleaf)</option>
+                  <option>Philodendron hederaceum (micans)</option>
+                  <option>Philodendron mayoii</option>
+                  <option>Philodendron melanochrysum</option>
+                  <option>Philodendron micans</option>
+                  <option>Philodendron pedatum</option>
+                  <option>Philodendron radiatum</option>
+                  <option>Philodendron rugosum</option>
+                  <option>Philodendron squamiferum</option>
+                  <option>Philodendron tripartitum</option>
+                  <option>Philodendron verrucosum</option>
+                  <option>Scindapsus pictus</option>
+                  <option>Syngonium angustatum</option>
+                  <option>Syngonium auritum</option>
+                  <option>Syngonium chiapense</option>
+                  <option>Syngonium erythrophyllum</option>
+                  <option>Syngonium macrophyllum</option>
+                  <option>Syngonium podophyllum</option>
+                  <option>Syngonium rayi</option>
+                  <option>Syngonium sagittatum</option>
+                  <option>Syngonium wendlandii</option>
+              </select>
+              <!-- <input name="plant[name]" type="text" placeholder="Plant Name" class="plant-name" required> -->
+              <br>
+              <input name="plant[nickName]" type="text" placeholder="Plant Nickname (Optional)" class="input-field">
+              <br>
+              <input name="plant[dateAcquired]" type="date" min="2000-01-01" required class="input-field">
+              <br>
+              <input name="plant[additionalNotes]" type="text" placeholder="Additional Notes (Optional)" class="input-field">
+              <!-- <br>
+              <input name="plant[log]" type="text" placeholder="Log" required> -->
+              <br>
+              <br>
+              <button type="submit">Add Plant</button>
+              <p class="back-to-pc pointer go-back">Nevermind</p>
+              <br>
+          </form>
+        </section>
+
+        <section class="plant-information">
+        <div class="plant-style">
+          <div id="plant-info" class="plant-info">
+          </div>
+          <br>
+          <br>
+
+          <button class="get-edit-plant-page">Edit Plant</button>
+          <button class="get-add-log-page">Add New Log</button>
+          <button class="get-edit-log-buttons">Edit Log</button>
+          <p class="back-to-pc pointer see-plants">See All Plants</p>
+        </div>
+        </section>
+
+        <section class="edit-plant">
+          <h2>Update Plant Info</h2>
+          <form id="edit-plant">
+            <div class="edit-plant-info"></div>
+            <button type="submit">Update</button>
+          </form>
+          <p class="back-to-plant-info pointer go-back">Nevermind</p>
+          <br>
+        </section>
+
+        <section class="add-log">
+          <h2>Add New Log</h2>
+          <form id="add-log">
+              <input name="log[date]" type="date" min="2000-01-01" required>
+              <br>
+              <br>
+              <textarea name="log[entry]" rows="10" cols="30" placeholder="Log Entry"></textarea>
+              <!-- <br>
+              <input name="plant[log]" type="text" placeholder="Log" required> -->
+              <br>
+              <br>
+              <button type="submit">Add Log</button>
+              <p class="back-to-plant-info pointer go-back">Nevermind</p>
+              <br>
+          </form>
+        </section>
+
+        <section class="edit-log">
+          <h2>Update Log Info</h2>
+          <form id="edit-log">
+            <div class="edit-log-info"></div>
+            <button type="submit">Update</button>
+          </form>
+          <p class="back-to-plant-info pointer go-back">Nevermind</p>
+          <br>
+        </section>
+
+
+      </main>
+
+    </body>
+    <script>
+      $('.plant-name').chosen()
+    </script>
+</html>
