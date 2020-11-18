@@ -47,6 +47,21 @@ const onSignIn = function (event) {
     .catch(ui.signInFailure)
 }
 
+const onDemoSignIn = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getFormFields(form)
+
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .then(() => api.showPlantCollections()
+      .then(ui.showDemoPCsSuccess)
+      .catch(ui.showDemoPCsFailure)
+    )
+    .catch(ui.signInFailure)
+}
+
 const onGetChangePasswordPage = function (event) {
   event.preventDefault()
   ui.getChangePasswordPage()
@@ -331,6 +346,7 @@ module.exports = {
   onGetSignInPage,
   onGetDemoSignInPage,
   onSignIn,
+  onDemoSignIn,
   onGetChangePasswordPage,
   onChangePassword,
   onSignOut,

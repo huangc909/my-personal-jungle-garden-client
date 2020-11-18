@@ -153,7 +153,7 @@ const addPCFailure = function () {
   $('#message').delay(600).fadeOut(1500)
 }
 
-const showPCsSuccess = function (data) {
+const showDemoPCsSuccess = function (data) {
   // stores the incoming data on all the plant collections
   store.plantCollections = data.plantCollections
   $('form').trigger('reset')
@@ -230,10 +230,59 @@ const showPCsSuccess = function (data) {
   }
 }
 
+const showDemoPCsFailure = function () {
+  $('#message').text('Get Collections Failed')
+  $('#message').removeClass().addClass('failure')
+  $('#message').delay(600).fadeOut(1500)
+}
+
 const showPCsFailure = function () {
   $('#message').text('Get Collections Failed')
   $('#message').removeClass().addClass('failure')
   $('#message').delay(600).fadeOut(1500)
+}
+
+const showPCsSuccess = function (data) {
+  // stores the incoming data on all the plant collections
+  store.plantCollections = data.plantCollections
+  $('form').trigger('reset')
+  $('.plant-collections').show()
+  $('.changepw').hide()
+  $('.plant-collection').hide()
+  $('.add-pc').hide()
+  $('.edit-pc-name').hide()
+  $('.add-plant').hide()
+  $('.plant-info').hide()
+  $('.edit-plant').hide()
+  $('.plant-information').hide()
+  $('.add-log').hide()
+  $('.edit-log').hide()
+  $('.demochangepw').hide()
+
+  // assign handlebar template for plant collections to variable
+  const showPlantCollectionsHtml = showTemplate({ plantCollections: store.plantCollections })
+
+  // show handlebar template for plant collection
+  $('.content-plant-collections').html(showPlantCollectionsHtml)
+
+  // If there are existing plant collections,
+  if (store.plantCollections.length === 0) {
+    $('.getDeletePCButtons').hide()
+    // display existing plant collection names
+    const myPlantCollections = (`
+      <p>You currently have no plant collections. Add one!</p>
+      `)
+    $('.my-pc-collections').html(myPlantCollections).show()
+    $('.get-delete-pc-buttons').hide()
+  } else {
+    // otherwise, display "My Plant Collections"
+    $('.getDeletePCButtons').show()
+    const myPlantCollections = (`
+      <h2 class="header-title">My Plant Collections</h2>
+      `)
+    $('.my-pc-collections').html(myPlantCollections).hide()
+    $('.get-delete-pc-buttons').show()
+  }
 }
 
 const showPCSuccess = function (response) {
@@ -262,6 +311,7 @@ const showPCSuccess = function (response) {
     $('.content-plants').html(myPlants).show()
   } else {
     $('.get-delete-plant-buttons').show()
+    // $('.content-plants').html(showPlantInfoHtml).show()
   }
 }
 
@@ -585,6 +635,8 @@ module.exports = {
   showPCsFailure,
   showPCSuccess,
   showPCFailure,
+  showDemoPCsSuccess,
+  showDemoPCsFailure,
   getEditPCNamePage,
   editPCNameSuccess,
   editPCNameFailure,
