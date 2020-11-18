@@ -431,6 +431,12 @@ const showPlantSuccess = function (response) {
   const showPlantInfoHtml = showPlantInfoTemplate({ plant: store.plant })
 
   $('.plant-info').html(showPlantInfoHtml).show()
+
+  if (store.plant.logs.length === 0) {
+    $('.get-edit-log-buttons').hide()
+  } else {
+    $('.get-edit-log-buttons').show()
+  }
 }
 
 const showPlantFailure = function () {
