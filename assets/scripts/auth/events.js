@@ -2,13 +2,14 @@
 
 const api = require('./api')
 const ui = require('./ui')
+const uiAuth = require('./uiAuth')
 const getFormFields = require('./../../../lib/get-form-fields')
 const store = require('./../store')
 
 // Authorization Events
 const onGetSignUpPage = function (event) {
   event.preventDefault()
-  ui.getSignUpPage()
+  uiAuth.getSignUpPage()
 }
 
 const onSignUp = function (event) {
@@ -18,8 +19,16 @@ const onSignUp = function (event) {
   const data = getFormFields(form)
 
   api.signUp(data)
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFailure)
+    .then(uiAuth.signUpSuccess)
+    .then(() => api.signIn(data)
+      .then(ui.signInSuccess)
+      .then(() => api.showPlantCollections()
+        .then(ui.showPCsSuccess)
+        .catch(ui.showPCsFailure)
+      )
+      .catch(ui.signInFailure)
+    )
+    .catch(uiAuth.signUpFailure)
 }
 
 const onGetSignInPage = function (event) {
