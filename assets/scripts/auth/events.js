@@ -3,6 +3,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const uiAuth = require('./uiAuth')
+const uiPlantCollections = require('./uiPlantCollections')
 const getFormFields = require('./../../../lib/get-form-fields')
 const store = require('./../store')
 
@@ -23,8 +24,8 @@ const onSignUp = function (event) {
     .then(() => api.signIn(data)
       .then(uiAuth.signInSuccess)
       .then(() => api.showPlantCollections()
-        .then(ui.showPCsSuccess)
-        .catch(ui.showPCsFailure)
+        .then(uiPlantCollections.showPCsSuccess)
+        .catch(uiPlantCollections.showPCsFailure)
       )
       .catch(uiAuth.signInFailure)
     )
@@ -50,8 +51,8 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(uiAuth.signInSuccess)
     .then(() => api.showPlantCollections()
-      .then(ui.showPCsSuccess)
-      .catch(ui.showPCsFailure)
+      .then(uiPlantCollections.showPCsSuccess)
+      .catch(uiPlantCollections.showPCsFailure)
     )
     .catch(uiAuth.signInFailure)
 }
@@ -65,8 +66,8 @@ const onDemoSignIn = function (event) {
   api.signIn(data)
     .then(uiAuth.signInSuccess)
     .then(() => api.showPlantCollections()
-      .then(ui.showDemoPCsSuccess)
-      .catch(ui.showDemoPCsFailure)
+      .then(uiPlantCollections.showDemoPCsSuccess)
+      .catch(uiPlantCollections.showDemoPCsFailure)
     )
     .catch(uiAuth.signInFailure)
 }
@@ -125,7 +126,7 @@ const onDemoSignOut = function (event) {
 // Plant Collections Events
 const onGetAddPCPage = function (event) {
   event.preventDefault()
-  ui.getAddPCPage()
+  uiPlantCollections.getAddPCPage()
 }
 
 const onAddPC = function (event) {
@@ -135,13 +136,13 @@ const onAddPC = function (event) {
   // Sends the form data to the api
   api.addPlantCollection(data)
     // After going to ui,
-    .then(ui.addPCSuccess)
+    .then(uiPlantCollections.addPCSuccess)
     // sends api response to request for index of all plant collections
     .then(() => api.showPlantCollections()
-      .then(ui.showPCsSuccess)
-      .catch(ui.showPCsFailure)
+      .then(uiPlantCollections.showPCsSuccess)
+      .catch(uiPlantCollections.showPCsFailure)
     )
-    .catch(ui.addPCFailure)
+    .catch(uiPlantCollections.addPCFailure)
 }
 
 const onGoBackShowPC = function (event) {
@@ -150,8 +151,8 @@ const onGoBackShowPC = function (event) {
   const pcId = store.plantCollection._id
   // send pcId to api
   api.getPCPage(pcId)
-    .then(ui.showPCSuccess)
-    .catch(ui.showPCFailure)
+    .then(uiPlantCollections.showPCSuccess)
+    .catch(uiPlantCollections.showPCFailure)
 }
 
 const onShowPCs = function (event) {
@@ -159,8 +160,8 @@ const onShowPCs = function (event) {
   const infoPCs = store.plantCollections
   // gets all of the plant collections information and sends it to the api GET index request
   api.showPlantCollections(infoPCs)
-    .then(ui.showPCsSuccess)
-    .catch(ui.showPCsFailure)
+    .then(uiPlantCollections.showPCsSuccess)
+    .catch(uiPlantCollections.showPCsFailure)
 }
 
 const onShowPC = function (event) {
@@ -169,14 +170,14 @@ const onShowPC = function (event) {
   const pcId = event.target.dataset.id
   // send the plant collection's id to the api
   api.getPCPage(pcId)
-    .then(ui.showPCSuccess)
-    .catch(ui.showPCFailure)
+    .then(uiPlantCollections.showPCSuccess)
+    .catch(uiPlantCollections.showPCFailure)
 }
 
 const onGetEditPCNamePage = function (event) {
   event.preventDefault()
   const pcName = store.plantCollection.name
-  ui.getEditPCNamePage(pcName)
+  uiPlantCollections.getEditPCNamePage(pcName)
 }
 
 const onEditPCName = function (event) {
@@ -186,13 +187,13 @@ const onEditPCName = function (event) {
   const data = getFormFields(form)
   // gets the pc name from the form field and sends it to the api
   api.editCollectionName(data)
-    .then(() => ui.editPCNameSuccess(data))
-    .catch(ui.editPCNameFailure)
+    .then(() => uiPlantCollections.editPCNameSuccess(data))
+    .catch(uiPlantCollections.editPCNameFailure)
 }
 
 const onGetDeletePCButtons = function (event) {
   event.preventDefault()
-  ui.getDeletePCButtons()
+  uiPlantCollections.getDeletePCButtons()
 }
 
 const onDeletePC = function (event) {
@@ -200,12 +201,12 @@ const onDeletePC = function (event) {
   const pcId = event.target.dataset.id
   // gets the id of the plant collection and sends it to the api
   api.deletePlantCollection(pcId)
-    .then(() => ui.deletePCSuccess(pcId))
+    .then(() => uiPlantCollections.deletePCSuccess(pcId))
     .then(() => api.showPlantCollections()
-      .then(ui.showPCsSuccess)
-      .catch(ui.showPCsFailure)
+      .then(uiPlantCollections.showPCsSuccess)
+      .catch(uiPlantCollections.showPCsFailure)
     )
-    .catch(ui.deletePCFailure)
+    .catch(uiPlantCollections.deletePCFailure)
 }
 
 // Plant Events
@@ -280,8 +281,8 @@ const onDeletePlant = function (event) {
   api.deletePlant(plantId)
     .then(() => ui.deletePlantSuccess(plantId))
     .then(() => api.getPCPage(pcId)
-      .then(ui.showPCSuccess)
-      .catch(ui.showPCFailure)
+      .then(uiPlantCollections.showPCSuccess)
+      .catch(uiPlantCollections.showPCFailure)
     )
     .catch(ui.deletePlantFailure)
 }
