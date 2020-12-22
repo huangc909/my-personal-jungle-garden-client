@@ -21,24 +21,24 @@ const onSignUp = function (event) {
   api.signUp(data)
     .then(uiAuth.signUpSuccess)
     .then(() => api.signIn(data)
-      .then(ui.signInSuccess)
+      .then(uiAuth.signInSuccess)
       .then(() => api.showPlantCollections()
         .then(ui.showPCsSuccess)
         .catch(ui.showPCsFailure)
       )
-      .catch(ui.signInFailure)
+      .catch(uiAuth.signInFailure)
     )
     .catch(uiAuth.signUpFailure)
 }
 
 const onGetSignInPage = function (event) {
   event.preventDefault()
-  ui.getSignInPage()
+  uiAuth.getSignInPage()
 }
 
 const onGetDemoSignInPage = function (event) {
   event.preventDefault()
-  ui.getDemoSignInPage()
+  uiAuth.getDemoSignInPage()
 }
 
 const onSignIn = function (event) {
@@ -48,12 +48,12 @@ const onSignIn = function (event) {
   const data = getFormFields(form)
 
   api.signIn(data)
-    .then(ui.signInSuccess)
+    .then(uiAuth.signInSuccess)
     .then(() => api.showPlantCollections()
       .then(ui.showPCsSuccess)
       .catch(ui.showPCsFailure)
     )
-    .catch(ui.signInFailure)
+    .catch(uiAuth.signInFailure)
 }
 
 const onDemoSignIn = function (event) {
@@ -63,17 +63,17 @@ const onDemoSignIn = function (event) {
   const data = getFormFields(form)
 
   api.signIn(data)
-    .then(ui.signInSuccess)
+    .then(uiAuth.signInSuccess)
     .then(() => api.showPlantCollections()
       .then(ui.showDemoPCsSuccess)
       .catch(ui.showDemoPCsFailure)
     )
-    .catch(ui.signInFailure)
+    .catch(uiAuth.signInFailure)
 }
 
 const onGetChangePasswordPage = function (event) {
   event.preventDefault()
-  ui.getChangePasswordPage()
+  uiAuth.getChangePasswordPage()
 }
 
 const onChangePassword = function (event) {
@@ -83,8 +83,8 @@ const onChangePassword = function (event) {
   const data = getFormFields(form)
 
   api.changePassword(data)
-    .then(ui.changePasswordSuccess)
-    .catch(ui.changePasswordFailure)
+    .then(uiAuth.changePasswordSuccess)
+    .catch(uiAuth.changePasswordFailure)
 }
 
 const onSignOut = function (event) {
@@ -94,8 +94,8 @@ const onSignOut = function (event) {
   const data = getFormFields(form)
 
   api.signOut(data)
-    .then(ui.signOutSuccess)
-    .catch(ui.signOutFailure)
+    .then(uiAuth.signOutSuccess)
+    .catch(uiAuth.signOutFailure)
 }
 
 const onDemoSignOut = function (event) {
@@ -113,12 +113,12 @@ const onDemoSignOut = function (event) {
       api.deletePlantCollection(pcId)
     })
     api.signOut(data)
-      .then(ui.signOutSuccess)
-      .catch(ui.signOutFailure)
+      .then(uiAuth.signOutSuccess)
+      .catch(uiAuth.signOutFailure)
   } else {
     api.signOut(data)
-      .then(ui.signOutSuccess)
-      .catch(ui.signOutFailure)
+      .then(uiAuth.signOutSuccess)
+      .catch(uiAuth.signOutFailure)
   }
 }
 
