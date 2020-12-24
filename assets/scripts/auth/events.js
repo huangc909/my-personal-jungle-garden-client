@@ -1,10 +1,10 @@
 'use strict'
 
 const api = require('./api')
-const ui = require('./ui')
 const uiAuth = require('./uiAuth')
 const uiPlantCollections = require('./uiPlantCollections')
 const uiPlants = require('./uiPlants')
+const uiLog = require('./uiLog')
 const getFormFields = require('./../../../lib/get-form-fields')
 const store = require('./../store')
 
@@ -291,7 +291,7 @@ const onDeletePlant = function (event) {
 // Log Events
 const onGetAddNewLog = function (event) {
   event.preventDefault()
-  ui.getAddNewLog()
+  uiLog.getAddNewLog()
 }
 
 const onAddLog = function (event) {
@@ -302,14 +302,14 @@ const onAddLog = function (event) {
   const plantId = store.plant._id
   api.addLog(data)
     .then(() => api.getPlantPage(plantId)
-      .then(ui.showPlantSuccess)
-      .catch(ui.showPlantFailure))
-    .catch(ui.addLogFailure)
+      .then(uiPlants.showPlantSuccess)
+      .catch(uiPlants.showPlantFailure))
+    .catch(uiLog.addLogFailure)
 }
 
 const onGetEditLogButtons = function (event) {
   event.preventDefault()
-  ui.getEditLogButtons()
+  uiLog.getEditLogButtons()
 }
 
 const onGetEditLogPage = function (event) {
@@ -319,8 +319,8 @@ const onGetEditLogPage = function (event) {
   // send id info to api in order to show one log info
   api.getLog(logId)
   // send api response to get the edit log page
-    .then(ui.getEditLogPage)
-    .catch(ui.getEditLogPageFailure)
+    .then(uiLog.getEditLogPage)
+    .catch(uiLog.getEditLogPageFailure)
 }
 
 const onEditLog = function (event) {
@@ -331,9 +331,9 @@ const onEditLog = function (event) {
   const plantId = store.plant._id
   api.editLog(data)
     .then(() => api.getPlantPage(plantId)
-      .then(ui.showPlantSuccess)
-      .catch(ui.showPlantFailure))
-    .catch(ui.editLogFailure)
+      .then(uiPlants.showPlantSuccess)
+      .catch(uiPlants.showPlantFailure))
+    .catch(uiLog.editLogFailure)
 }
 
 const onDeleteLog = function (event) {
@@ -343,11 +343,11 @@ const onDeleteLog = function (event) {
   const plantId = store.plant._id
   // send the log id to the api
   api.deleteLog(logId)
-    .then(ui.deleteLogSuccess)
+    .then(uiLog.deleteLogSuccess)
     .then(() => api.getPlantPage(plantId)
-      .then(ui.showPlantSuccess)
-      .catch(ui.showPlantFailure))
-    .catch(ui.deletePlantFailure)
+      .then(uiPlants.showPlantSuccess)
+      .catch(uiPlants.showPlantFailure))
+    .catch(uiLog.deleteLogFailure)
 }
 
 module.exports = {
