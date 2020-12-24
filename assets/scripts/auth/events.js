@@ -4,6 +4,7 @@ const api = require('./api')
 const ui = require('./ui')
 const uiAuth = require('./uiAuth')
 const uiPlantCollections = require('./uiPlantCollections')
+const uiPlants = require('./uiPlants')
 const getFormFields = require('./../../../lib/get-form-fields')
 const store = require('./../store')
 
@@ -212,7 +213,7 @@ const onDeletePC = function (event) {
 // Plant Events
 const onGetAddNewPlant = function (event) {
   event.preventDefault()
-  ui.getAddNewPlant()
+  uiPlants.getAddNewPlant()
 }
 
 const onAddPlant = function (event) {
@@ -221,12 +222,12 @@ const onAddPlant = function (event) {
   const data = getFormFields(form)
   // sends plant information to api
   api.addPlant(data)
-    .then(ui.addPlantSuccess)
+    .then(uiPlants.addPlantSuccess)
     // send plant id to the API GET request
     .then((id) => api.getPlantPage(id)
-      .then(ui.showPlantSuccess)
-      .catch(ui.showPlantFailure))
-    .catch(ui.addPlantFailure)
+      .then(uiPlants.showPlantSuccess)
+      .catch(uiPlants.showPlantFailure))
+    .catch(uiPlants.addPlantFailure)
 }
 
 const onShowPlant = function (event) {
@@ -235,8 +236,8 @@ const onShowPlant = function (event) {
   const plantId = event.target.dataset.id
   // sends the plant id to the api
   api.getPlantPage(plantId)
-    .then(ui.showPlantSuccess)
-    .catch(ui.showPlantFailure)
+    .then(uiPlants.showPlantSuccess)
+    .catch(uiPlants.showPlantFailure)
 }
 
 const onGoBackShowPlant = function (event) {
@@ -245,13 +246,13 @@ const onGoBackShowPlant = function (event) {
   const plantId = store.plant._id
   // sends id to api
   api.getPlantPage(plantId)
-    .then(ui.showPlantSuccess)
-    .catch(ui.showPlantFailure)
+    .then(uiPlants.showPlantSuccess)
+    .catch(uiPlants.showPlantFailure)
 }
 
 const onGetEditPlantPage = function (event) {
   event.preventDefault()
-  ui.getEditPlantPage()
+  uiPlants.getEditPlantPage()
 }
 
 const onEditPlant = function (event) {
@@ -263,14 +264,14 @@ const onEditPlant = function (event) {
   api.editPlant(data)
     // .then(() => ui.editPlantSuccess(data))
     .then(() => api.getPlantPage(plantId)
-      .then(ui.showPlantSuccess)
-      .catch(ui.showPlantFailure))
-    .catch(ui.editPlantFailure)
+      .then(uiPlants.showPlantSuccess)
+      .catch(uiPlants.showPlantFailure))
+    .catch(uiPlants.editPlantFailure)
 }
 
 const onGetDeletePlantButtons = function (event) {
   event.preventDefault()
-  ui.getDeletePlantButtons()
+  uiPlants.getDeletePlantButtons()
 }
 
 const onDeletePlant = function (event) {
@@ -279,12 +280,12 @@ const onDeletePlant = function (event) {
   const plantId = event.target.dataset.id
   // gets the id of the plant and sends it to the api
   api.deletePlant(plantId)
-    .then(() => ui.deletePlantSuccess(plantId))
+    .then(() => uiPlants.deletePlantSuccess(plantId))
     .then(() => api.getPCPage(pcId)
       .then(uiPlantCollections.showPCSuccess)
       .catch(uiPlantCollections.showPCFailure)
     )
-    .catch(ui.deletePlantFailure)
+    .catch(uiPlants.deletePlantFailure)
 }
 
 // Log Events
