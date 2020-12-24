@@ -1,10 +1,10 @@
 'use strict'
 
 const api = require('./api')
-const uiAuth = require('./uiAuth')
-const uiPlantCollections = require('./uiPlantCollections')
-const uiPlants = require('./uiPlants')
-const uiLog = require('./uiLog')
+const uiAuth = require('./ui/uiAuth')
+const uiPlantCollections = require('./ui/uiPlantCollections')
+const uiPlants = require('./ui/uiPlants')
+const uiLog = require('./ui/uiLog')
 const getFormFields = require('./../../../lib/get-form-fields')
 const store = require('./../store')
 

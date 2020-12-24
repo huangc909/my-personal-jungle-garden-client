@@ -1,7 +1,7 @@
 'strict'
 
-const store = require('./../store')
-const showPlantInfoTemplate = require('../templates/plant-info.handlebars')
+const store = require('./../../store')
+const showPlantInfoTemplate = require('../../templates/plant-info.handlebars')
 
 const getAddNewPlant = () => {
   $('.plant-collection').hide()

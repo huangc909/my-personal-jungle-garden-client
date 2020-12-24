@@ -1,6 +1,6 @@
 'use strict'
 
-const store = require('./../store')
+const store = require('./../../store')
 
 // Logs
 

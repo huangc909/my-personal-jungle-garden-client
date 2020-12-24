@@ -1,9 +1,9 @@
 'use strict'
 
-const api = require('./api')
-const store = require('./../store')
-const showTemplate = require('../templates/plant-collection-listings.handlebars')
-const showPCTemplate = require('../templates/plant-collection.handlebars')
+const api = require('./../api')
+const store = require('./../../store')
+const showTemplate = require('../../templates/plant-collection-listings.handlebars')
+const showPCTemplate = require('../../templates/plant-collection.handlebars')
 
 const getAddPCPage = () => {
   $('.add-pc').show()
